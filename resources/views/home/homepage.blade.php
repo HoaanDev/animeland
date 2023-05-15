@@ -1,6 +1,6 @@
 @extends('dashboard')
 
-@section('title', 'Home Page')
+@section('title', 'Home')
 
 @section('content')
     <!--=====================================-->

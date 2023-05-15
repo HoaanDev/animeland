@@ -14,4 +14,12 @@ class Controller extends BaseController
     public function homePage() {
         return view('home.homepage');
     }
+
+    public function searchPage() {
+        return view('anime.anime_search_results');
+    }
+
+    public function policyPage() {
+        return view('policy.policy');
+    }
 }

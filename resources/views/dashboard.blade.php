@@ -85,7 +85,7 @@
         <div class="container">
             <!-- Start Mainmanu Nav -->
             <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="{{  route('home.homepage') }}"
+                <a class="navbar-brand" href="{{  route('homepage') }}"
                 ><img src="media/logo.png" alt=""
                     /></a>
                 <button
@@ -99,25 +99,25 @@
                 <div class="collapse navbar-collapse" id="mynavbar">
                     <ul class="navbar-nav ms-auto mainmenu">
                         <li class="menu-item-has-children">
-                            <a href="{{  route('home.homepage') }}" class="active">Anime</a>
+                            <a href="{{  route('homepage') }}" class="active">Anime</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="{{  route('home.homepage') }}" class="active">Genres</a>
+                            <a href="{{  route('homepage') }}" class="active">Genres</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="{{  route('home.homepage') }}" class="active">Wacth History</a>
+                            <a href="{{  route('homepage') }}" class="active">Wacth History</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="{{  route('home.homepage') }}" class="active">Following</a>
+                            <a href="{{  route('homepage') }}" class="active">Following</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="{{  route('home.homepage') }}" class="active">Privacy Policy</a>
+                            <a href="{{  route('homepage') }}" class="active">Privacy Policy</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="{{  route('home.homepage') }}" class="active">Profile</a>
+                            <a href="{{  route('homepage') }}" class="active">Profile</a>
                         </li>
                     </ul>
-                    <form action="{{  route('anime.anime_search_results') }}">
+                    <form action="{{  route('anime_search_results') }}">
                         <div class="input-group form-group header-search-box">
                             <button class="input-group-text anime-btn" type="submit">
                                 <i class="fal fa-search"></i>
@@ -132,10 +132,10 @@
                     </form>
                     <div class="d-flex right-nav">
                         <a
-                            href="{{  route('auth.registratin') }}"
+                            href="{{  route('register-user') }}"
                             class="anime-btn btn-dark border-change me-3"
                         >SIGN UP</a>
-                        <a href="{{  route('auth.login') }}" class="anime-btn btn-dark">LOG IN</a>
+                        <a href="{{  route('login') }}" class="anime-btn btn-dark">LOG IN</a>
                     </div>
                 </div>
             </nav>
@@ -151,7 +151,7 @@
                 <div class="row justify-content-between align-items-center">
                     <div class="col-lg-5 col-sm-12 col-12">
                         <div class="footer-widget">
-                            <a href="{{  route('home.homepage') }}">
+                            <a href="{{  route('homepage') }}">
                                 <img alt="" src="media/logo.png" />
                             </a>
                             <p class="mt-3 mb-5">
@@ -220,13 +220,13 @@
                         <div class="footer-copyright">
                   <span class="copyright-text"
                   >© 2023. All rights reserved by
-                    <a href="{{  route('home.homepage') }}">AnimeLand</a>.</span
+                    <a href="{{  route('homepage') }}">AnimeLand</a>.</span
                   >
                         </div>
                     </div>
                     <div class="col-lg-6 col-12">
                         <div class="footer-bottom-link text-end">
-                            <a href="{{  route('policy.policy') }}">Privacy Policy</a>
+                            <a href="{{  route('policy') }}">Privacy Policy</a>
                         </div>
                     </div>
                 </div>
