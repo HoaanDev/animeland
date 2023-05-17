@@ -22,4 +22,6 @@ class Controller extends BaseController
     public function policyPage() {
         return view('policy.policy');
     }
+
+
 }
