@@ -1,4 +1,4 @@
-@extends('dashboard')
+@extends('pages.navigation')
 
 @section('title', 'Sign Up')
 
@@ -36,7 +36,8 @@
                             @endif
                         </div>
                         <div class="form-group mb-3">
-                            <input type="password" placeholder="Confirm Password" id="confirm-password" class="form-control"
+                            <input type="password" placeholder="Confirm Password" id="confirm-password"
+                                   class="form-control"
                                    name="confirm-password" required>
                             @if ($errors->has('confirm-password'))
                                 <span class="text-danger">{{ $errors->first('confirm-password') }}</span>

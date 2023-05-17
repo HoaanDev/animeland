@@ -1,4 +1,4 @@
-@extends('dashboard')
+@extends('pages.navigation')
 
 @section('title', 'Home')
 
@@ -13,13 +13,13 @@
                     <div class="row">
                         <div class="col-lg-5 col-12">
                             <h2 class="title">
-                                ATTACK ON <br />
+                                ATTACK ON <br/>
                                 <b>TITANS</b>
                             </h2>
                             <p class="text">SEASON 3</p>
-                            <a href="streaming-season.html" class="text-box active">pg-13</a>
-                            <a href="streaming-season.html" class="text-box">dub</a>
-                            <a href="streaming-season.html" class="text-box">sub</a>
+                            <a href="{{ route('watching') }}" class="text-box active">pg-13</a>
+                            <a href="{{ route('watching') }}" class="text-box">dub</a>
+                            <a href="{{ route('watching') }}" class="text-box">sub</a>
                             <p class="light-text">APRIL 07, 2013</p>
                             <p>
                                 At vero eos et accusamus et iusto odio dignissimos ducimus
@@ -27,12 +27,12 @@
                                 corrupti quos dolores et quas molestias excepturi sint
                                 occaecati cupiditate non provident.
                             </p>
-                            <a class="banner-btn" href="streaming-season.html"
+                            <a class="banner-btn" href="{{ route('watching') }}"
                             >PLAY NOW</a
                             >
                         </div>
                         <div class="col-lg-7 col-12">
-                            <img src="./assets/media/banner/banner-img-1.png" alt="" />
+                            <img src="media/banner/banner-img-1.png" alt=""/>
                         </div>
                     </div>
                 </div>
@@ -44,15 +44,15 @@
                     <div class="row">
                         <div class="col-lg-5 col-12">
                             <h2 class="title">
-                                MY HERO<br />
+                                MY HERO<br/>
                                 <b>ACADEMIA</b>
                             </h2>
                             <p class="text">SEASON 4</p>
-                            <a href="streaming-season.html" class="text-box active"
+                            <a href="{{ route('watching') }}" class="text-box active"
                             >pg-13</a
                             >
-                            <a href="streaming-season.html" class="text-box">dub</a>
-                            <a href="streaming-season.html" class="text-box">sub</a>
+                            <a href="{{ route('watching') }}" class="text-box">dub</a>
+                            <a href="{{ route('watching') }}" class="text-box">sub</a>
                             <p class="light-text">APRIL 07, 2014</p>
                             <p>
                                 At vero eos et accusamus et iusto odio dignissimos ducimus
@@ -60,12 +60,12 @@
                                 corrupti quos dolores et quas molestias excepturi sint
                                 occaecati cupiditate non provident.
                             </p>
-                            <a class="banner-btn" href="streaming-season.html"
+                            <a class="banner-btn" href="{{ route('watching') }}"
                             >PLAY NOW</a
                             >
                         </div>
                         <div class="col-lg-7 col-12">
-                            <img src="./assets/media/banner/banner-img-2.png" alt="" />
+                            <img src="media/banner/banner-img-2.png" alt=""/>
                         </div>
                     </div>
                 </div>
@@ -78,11 +78,11 @@
                         <div class="col-lg-5 col-12">
                             <h2 class="title">ONE <b>PEICE</b></h2>
                             <p class="text">SEASON 5</p>
-                            <a href="streaming-season.html" class="text-box active"
+                            <a href="{{ route('watching') }}" class="text-box active"
                             >pg-13</a
                             >
-                            <a href="streaming-season.html" class="text-box">dub</a>
-                            <a href="streaming-season.html" class="text-box">sub</a>
+                            <a href="{{ route('watching') }}" class="text-box">dub</a>
+                            <a href="{{ route('watching') }}" class="text-box">sub</a>
                             <p class="light-text">APRIL 07, 2015</p>
                             <p>
                                 At vero eos et accusamus et iusto odio dignissimos ducimus
@@ -90,12 +90,12 @@
                                 corrupti quos dolores et quas molestias excepturi sint
                                 occaecati cupiditate non provident.
                             </p>
-                            <a class="banner-btn" href="streaming-season.html"
+                            <a class="banner-btn" href="{{ route('watching') }}"
                             >PLAY NOW</a
                             >
                         </div>
                         <div class="col-lg-7 col-12">
-                            <img src="./assets/media/banner/banner-img-3.png" alt="" />
+                            <img src="media/banner/banner-img-3.png" alt=""/>
                         </div>
                     </div>
                 </div>
@@ -113,13 +113,13 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
                     <div class="anime-blog">
-                        <a href="streaming-season.html" class="img-block">
-                            <img src="assets/media/anime/img-1.png" alt="" />
+                        <a href="{{ route('watching') }}" class="img-block">
+                            <img src="media/anime/img-1.png" alt=""/>
                         </a>
-                        <a href="./streaming-season.html" class="action-overlay"
+                        <a href="{{ route('watching') }}" class="action-overlay"
                         ><i class="fal fa-play-circle"></i> Play Now</a
                         >
-                        <a href="./streaming-season.html" class="action-overlay"
+                        <a href="{{ route('watching') }}" class="action-overlay"
                         ><i class="fal fa-play-circle"></i> Play Now</a
                         >
                         <p class="text-box">dub 8</p>
@@ -185,17 +185,17 @@
                                 </li>
                             </ul>
                         </div>
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <p>One Piece</p>
                         </a>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
                     <div class="anime-blog">
-                        <a href="streaming-season.html" class="img-block">
-                            <img src="assets/media/anime/img-2.png" alt="" />
+                        <a href="{{ route('watching') }}" class="img-block">
+                            <img src="media/anime/img-2.png" alt=""/>
                         </a>
-                        <a href="./streaming-season.html" class="action-overlay"
+                        <a href="{{ route('watching') }}" class="action-overlay"
                         ><i class="fal fa-play-circle"></i> Play Now</a
                         >
                         <p class="text-box">dub 8</p>
@@ -261,17 +261,17 @@
                                 </li>
                             </ul>
                         </div>
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <p>My Hero Academia</p>
                         </a>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
                     <div class="anime-blog">
-                        <a href="streaming-season.html" class="img-block">
-                            <img src="assets/media/anime/img-3.png" alt="" />
+                        <a href="{{ route('watching') }}" class="img-block">
+                            <img src="media/anime/img-3.png" alt=""/>
                         </a>
-                        <a href="./streaming-season.html" class="action-overlay"
+                        <a href="{{ route('watching') }}" class="action-overlay"
                         ><i class="fal fa-play-circle"></i> Play Now</a
                         >
                         <p class="text-box">dub 8</p>
@@ -337,17 +337,17 @@
                                 </li>
                             </ul>
                         </div>
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <p>Blue Lock</p>
                         </a>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
                     <div class="anime-blog">
-                        <a href="streaming-season.html" class="img-block">
-                            <img src="assets/media/anime/img-4.png" alt="" />
+                        <a href="{{ route('watching') }}" class="img-block">
+                            <img src="media/anime/img-4.png" alt=""/>
                         </a>
-                        <a href="./streaming-season.html" class="action-overlay"
+                        <a href="{{ route('watching') }}" class="action-overlay"
                         ><i class="fal fa-play-circle"></i> Play Now</a
                         >
                         <p class="text-box">dub 8</p>
@@ -413,17 +413,17 @@
                                 </li>
                             </ul>
                         </div>
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <p>One Piece</p>
                         </a>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
                     <div class="anime-blog">
-                        <a href="streaming-season.html" class="img-block">
-                            <img src="assets/media/anime/img-5.png" alt="" />
+                        <a href="{{ route('watching') }}" class="img-block">
+                            <img src="media/anime/img-5.png" alt=""/>
                         </a>
-                        <a href="./streaming-season.html" class="action-overlay"
+                        <a href="{{ route('watching') }}" class="action-overlay"
                         ><i class="fal fa-play-circle"></i> Play Now</a
                         >
                         <p class="text-box">dub 8</p>
@@ -489,17 +489,17 @@
                                 </li>
                             </ul>
                         </div>
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <p>Haikyu</p>
                         </a>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
                     <div class="anime-blog">
-                        <a href="streaming-season.html" class="img-block">
-                            <img src="assets/media/anime/img-6.png" alt="" />
+                        <a href="{{ route('watching') }}" class="img-block">
+                            <img src="media/anime/img-6.png" alt=""/>
                         </a>
-                        <a href="./streaming-season.html" class="action-overlay"
+                        <a href="{{ route('watching') }}" class="action-overlay"
                         ><i class="fal fa-play-circle"></i> Play Now</a
                         >
                         <p class="text-box">dub 8</p>
@@ -565,7 +565,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <p>Psycho Pass</p>
                         </a>
                     </div>
@@ -573,7 +573,7 @@
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
                     <div class="anime-blog">
                         <a href="streaming-movie.html" class="img-block">
-                            <img src="assets/media/anime/img-7.png" alt="" />
+                            <img src="media/anime/img-7.png" alt=""/>
                         </a>
                         <a href="./streaming-movie.html" class="action-overlay"
                         ><i class="fal fa-play-circle"></i> Play Now</a
@@ -648,10 +648,10 @@
                 </div>
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
                     <div class="anime-blog">
-                        <a href="streaming-season.html" class="img-block">
-                            <img src="assets/media/anime/img-8.png" alt="" />
+                        <a href="{{ route('watching') }}" class="img-block">
+                            <img src="media/anime/img-8.png" alt=""/>
                         </a>
-                        <a href="./streaming-season.html" class="action-overlay"
+                        <a href="{{ route('watching') }}" class="action-overlay"
                         ><i class="fal fa-play-circle"></i> Play Now</a
                         >
                         <p class="text-box">dub 8</p>
@@ -717,7 +717,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <p>Darling in the Franxx!</p>
                         </a>
                     </div>
@@ -732,7 +732,7 @@
         <div class="container">
             <div class="comingOut-content">
                 <h2 class="title">
-                    ATTACK ON <br />
+                    ATTACK ON <br/>
                     TITANS
                 </h2>
                 <p class="light-text">Season 4</p>
@@ -761,10 +761,10 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
                     <div class="anime-blog">
-                        <a href="./streaming-season.html" class="img-block">
-                            <img src="assets/media/anime/img-5.png" alt="" />
+                        <a href="{{ route('watching') }}" class="img-block">
+                            <img src="media/anime/img-5.png" alt=""/>
                         </a>
-                        <a href="./streaming-season.html" class="action-overlay"
+                        <a href="{{ route('watching') }}" class="action-overlay"
                         ><i class="fal fa-play-circle"></i> Play Now</a
                         >
                         <p class="text-box">dub 8</p>
@@ -830,17 +830,17 @@
                                 </li>
                             </ul>
                         </div>
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <p>Haikyu</p>
                         </a>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
                     <div class="anime-blog">
-                        <a href="./streaming-season.html" class="img-block">
-                            <img src="assets/media/anime/img-6.png" alt="" />
+                        <a href="{{ route('watching') }}" class="img-block">
+                            <img src="media/anime/img-6.png" alt=""/>
                         </a>
-                        <a href="./streaming-season.html" class="action-overlay"
+                        <a href="{{ route('watching') }}" class="action-overlay"
                         ><i class="fal fa-play-circle"></i> Play Now</a
                         >
                         <p class="text-box">dub 8</p>
@@ -906,7 +906,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <p>Psycho Pass</p>
                         </a>
                     </div>
@@ -914,7 +914,7 @@
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
                     <div class="anime-blog">
                         <a href="./streaming-movie.html" class="img-block">
-                            <img src="assets/media/anime/img-7.png" alt="" />
+                            <img src="media/anime/img-7.png" alt=""/>
                         </a>
                         <a href="./streaming-movie.html" class="action-overlay"
                         ><i class="fal fa-play-circle"></i> Play Now</a
@@ -989,10 +989,10 @@
                 </div>
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
                     <div class="anime-blog">
-                        <a href="./streaming-season.html" class="img-block">
-                            <img src="assets/media/anime/img-8.png" alt="" />
+                        <a href="{{ route('watching') }}" class="img-block">
+                            <img src="media/anime/img-8.png" alt=""/>
                         </a>
-                        <a href="./streaming-season.html" class="action-overlay"
+                        <a href="{{ route('watching') }}" class="action-overlay"
                         ><i class="fal fa-play-circle"></i> Play Now</a
                         >
                         <p class="text-box">dub 8</p>
@@ -1058,7 +1058,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <p>Darling in the Franxx!</p>
                         </a>
                     </div>
@@ -1189,7 +1189,7 @@
                             </div>
                         </div>
                         <div class="tab-pane active" id="sunday">
-                            <a href="./streaming-season.html">
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -1200,7 +1200,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-1.png"
+                                                    src="media/anime-sm-img/anime-img-1.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -1227,8 +1227,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -1239,7 +1239,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-2.png"
+                                                    src="media/anime-sm-img/anime-img-2.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -1266,8 +1266,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -1278,7 +1278,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-3.png"
+                                                    src="media/anime-sm-img/anime-img-3.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -1307,8 +1307,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -1319,7 +1319,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-4.png"
+                                                    src="media/anime-sm-img/anime-img-4.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -1346,8 +1346,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -1358,7 +1358,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-5.png"
+                                                    src="media/anime-sm-img/anime-img-5.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -1385,8 +1385,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -1397,7 +1397,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-6.png"
+                                                    src="media/anime-sm-img/anime-img-6.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -1426,7 +1426,7 @@
                             </a>
                         </div>
                         <div class="tab-pane" id="monday">
-                            <a href="./streaming-season.html">
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -1437,7 +1437,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-2.png"
+                                                    src="media/anime-sm-img/anime-img-2.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -1464,8 +1464,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -1476,7 +1476,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-3.png"
+                                                    src="media/anime-sm-img/anime-img-3.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -1503,8 +1503,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -1515,7 +1515,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-4.png"
+                                                    src="media/anime-sm-img/anime-img-4.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -1544,8 +1544,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -1556,7 +1556,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-5.png"
+                                                    src="media/anime-sm-img/anime-img-5.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -1583,8 +1583,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -1595,7 +1595,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-6.png"
+                                                    src="media/anime-sm-img/anime-img-6.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -1622,8 +1622,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -1634,7 +1634,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-1.png"
+                                                    src="media/anime-sm-img/anime-img-1.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -1663,7 +1663,7 @@
                             </a>
                         </div>
                         <div class="tab-pane" id="tuesday">
-                            <a href="./streaming-season.html">
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -1674,7 +1674,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-1.png"
+                                                    src="media/anime-sm-img/anime-img-1.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -1701,8 +1701,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -1713,7 +1713,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-2.png"
+                                                    src="media/anime-sm-img/anime-img-2.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -1740,8 +1740,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -1752,7 +1752,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-3.png"
+                                                    src="media/anime-sm-img/anime-img-3.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -1781,8 +1781,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -1793,7 +1793,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-4.png"
+                                                    src="media/anime-sm-img/anime-img-4.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -1820,8 +1820,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -1832,7 +1832,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-5.png"
+                                                    src="media/anime-sm-img/anime-img-5.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -1859,8 +1859,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -1871,7 +1871,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-6.png"
+                                                    src="media/anime-sm-img/anime-img-6.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -1900,7 +1900,7 @@
                             </a>
                         </div>
                         <div class="tab-pane" id="wednesday">
-                            <a href="./streaming-season.html">
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -1911,7 +1911,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-2.png"
+                                                    src="media/anime-sm-img/anime-img-2.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -1938,8 +1938,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -1950,7 +1950,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-3.png"
+                                                    src="media/anime-sm-img/anime-img-3.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -1977,8 +1977,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -1989,7 +1989,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-4.png"
+                                                    src="media/anime-sm-img/anime-img-4.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -2018,8 +2018,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -2030,7 +2030,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-5.png"
+                                                    src="media/anime-sm-img/anime-img-5.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -2057,8 +2057,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -2069,7 +2069,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-6.png"
+                                                    src="media/anime-sm-img/anime-img-6.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -2096,8 +2096,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -2108,7 +2108,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-1.png"
+                                                    src="media/anime-sm-img/anime-img-1.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -2137,7 +2137,7 @@
                             </a>
                         </div>
                         <div class="tab-pane" id="thursday">
-                            <a href="./streaming-season.html">
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -2148,7 +2148,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-1.png"
+                                                    src="media/anime-sm-img/anime-img-1.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -2175,8 +2175,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -2187,7 +2187,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-2.png"
+                                                    src="media/anime-sm-img/anime-img-2.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -2214,8 +2214,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -2226,7 +2226,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-3.png"
+                                                    src="media/anime-sm-img/anime-img-3.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -2255,8 +2255,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -2267,7 +2267,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-4.png"
+                                                    src="media/anime-sm-img/anime-img-4.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -2294,8 +2294,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -2306,7 +2306,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-5.png"
+                                                    src="media/anime-sm-img/anime-img-5.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -2333,8 +2333,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -2345,7 +2345,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-6.png"
+                                                    src="media/anime-sm-img/anime-img-6.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -2374,7 +2374,7 @@
                             </a>
                         </div>
                         <div class="tab-pane" id="friday">
-                            <a href="./streaming-season.html">
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -2385,7 +2385,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-2.png"
+                                                    src="media/anime-sm-img/anime-img-2.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -2412,8 +2412,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -2424,7 +2424,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-3.png"
+                                                    src="media/anime-sm-img/anime-img-3.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -2451,8 +2451,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -2463,7 +2463,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-4.png"
+                                                    src="media/anime-sm-img/anime-img-4.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -2492,8 +2492,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -2504,7 +2504,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-5.png"
+                                                    src="media/anime-sm-img/anime-img-5.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -2531,8 +2531,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -2543,7 +2543,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-6.png"
+                                                    src="media/anime-sm-img/anime-img-6.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -2570,8 +2570,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -2582,7 +2582,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-1.png"
+                                                    src="media/anime-sm-img/anime-img-1.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -2611,7 +2611,7 @@
                             </a>
                         </div>
                         <div class="tab-pane" id="saturday">
-                            <a href="./streaming-season.html">
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -2622,7 +2622,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-1.png"
+                                                    src="media/anime-sm-img/anime-img-1.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -2649,8 +2649,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -2661,7 +2661,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-2.png"
+                                                    src="media/anime-sm-img/anime-img-2.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -2688,8 +2688,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -2700,7 +2700,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-3.png"
+                                                    src="media/anime-sm-img/anime-img-3.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -2729,8 +2729,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -2741,7 +2741,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-4.png"
+                                                    src="media/anime-sm-img/anime-img-4.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -2768,8 +2768,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -2780,7 +2780,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-5.png"
+                                                    src="media/anime-sm-img/anime-img-5.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -2807,8 +2807,8 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
-                            <a href="./streaming-season.html">
+                            <hr/>
+                            <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -2819,7 +2819,7 @@
                                                 class="col-xl-1 col-lg-2 col-md-2 col-sm-2 col-3 ps-0 pe-0 text-end"
                                             >
                                                 <img
-                                                    src="assets/media/anime-sm-img/anime-img-6.png"
+                                                    src="media/anime-sm-img/anime-img-6.png"
                                                     alt=""
                                                 />
                                             </div>
@@ -2861,7 +2861,7 @@
                 >
                     <h3>Top Rated Anime</h3>
                     <div class="anime-box bg-color-black">
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                       <span class="light-text text-center color-primary"
@@ -2870,7 +2870,7 @@
                                 </div>
                                 <div class="p-0 col-2">
                                     <img
-                                        src="assets/media/anime-sm-img/anime-img-1.png"
+                                        src="media/anime-sm-img/anime-img-1.png"
                                         alt=""
                                     />
                                 </div>
@@ -2888,14 +2888,14 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <span class="light-text text-center color-purple">2</span>
                                 </div>
                                 <div class="p-0 col-2">
                                     <img
-                                        src="assets/media/anime-sm-img/anime-img-2.png"
+                                        src="media/anime-sm-img/anime-img-2.png"
                                         alt=""
                                     />
                                 </div>
@@ -2913,14 +2913,14 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <span class="light-text text-center color-grey">3</span>
                                 </div>
                                 <div class="p-0 col-2">
                                     <img
-                                        src="assets/media/anime-sm-img/anime-img-3.png"
+                                        src="media/anime-sm-img/anime-img-3.png"
                                         alt=""
                                     />
                                 </div>
@@ -2938,14 +2938,14 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <span class="light-text text-center">4</span>
                                 </div>
                                 <div class="p-0 col-2">
                                     <img
-                                        src="assets/media/anime-sm-img/anime-img-4.png"
+                                        src="media/anime-sm-img/anime-img-4.png"
                                         alt=""
                                     />
                                 </div>
@@ -2963,14 +2963,14 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <span class="light-text text-center">5</span>
                                 </div>
                                 <div class="p-0 col-2">
                                     <img
-                                        src="assets/media/anime-sm-img/anime-img-5.png"
+                                        src="media/anime-sm-img/anime-img-5.png"
                                         alt=""
                                     />
                                 </div>
@@ -2988,14 +2988,14 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <span class="light-text text-center">6</span>
                                 </div>
                                 <div class="p-0 col-2">
                                     <img
-                                        src="assets/media/anime-sm-img/anime-img-6.png"
+                                        src="media/anime-sm-img/anime-img-6.png"
                                         alt=""
                                     />
                                 </div>
@@ -3018,11 +3018,11 @@
                 >
                     <h3>New</h3>
                     <div class="anime-box bg-color-black">
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
-                                        src="assets/media/anime-sm-img/anime-img-7.png"
+                                        src="media/anime-sm-img/anime-img-7.png"
                                         alt=""
                                     />
                                 </div>
@@ -3040,11 +3040,11 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
-                                        src="assets/media/anime-sm-img/anime-img-8.png"
+                                        src="media/anime-sm-img/anime-img-8.png"
                                         alt=""
                                     />
                                 </div>
@@ -3063,11 +3063,11 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
-                                        src="assets/media/anime-sm-img/anime-img-9.png"
+                                        src="media/anime-sm-img/anime-img-9.png"
                                         alt=""
                                     />
                                 </div>
@@ -3085,11 +3085,11 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
-                                        src="assets/media/anime-sm-img/anime-img-10.png"
+                                        src="media/anime-sm-img/anime-img-10.png"
                                         alt=""
                                     />
                                 </div>
@@ -3107,11 +3107,11 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
-                                        src="assets/media/anime-sm-img/anime-img-11.png"
+                                        src="media/anime-sm-img/anime-img-11.png"
                                         alt=""
                                     />
                                 </div>
@@ -3129,11 +3129,11 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
-                                        src="assets/media/anime-sm-img/anime-img-12.png"
+                                        src="media/anime-sm-img/anime-img-12.png"
                                         alt=""
                                     />
                                 </div>
@@ -3156,11 +3156,11 @@
                 >
                     <h3>Recently Completed</h3>
                     <div class="anime-box bg-color-black">
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
-                                        src="assets/media/anime-sm-img/anime-img-1.png"
+                                        src="media/anime-sm-img/anime-img-1.png"
                                         alt=""
                                     />
                                 </div>
@@ -3178,11 +3178,11 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
-                                        src="assets/media/anime-sm-img/anime-img-2.png"
+                                        src="media/anime-sm-img/anime-img-2.png"
                                         alt=""
                                     />
                                 </div>
@@ -3200,11 +3200,11 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
-                                        src="assets/media/anime-sm-img/anime-img-3.png"
+                                        src="media/anime-sm-img/anime-img-3.png"
                                         alt=""
                                     />
                                 </div>
@@ -3222,11 +3222,11 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
-                                        src="assets/media/anime-sm-img/anime-img-4.png"
+                                        src="media/anime-sm-img/anime-img-4.png"
                                         alt=""
                                     />
                                 </div>
@@ -3244,11 +3244,11 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
-                                        src="assets/media/anime-sm-img/anime-img-5.png"
+                                        src="media/anime-sm-img/anime-img-5.png"
                                         alt=""
                                     />
                                 </div>
@@ -3267,11 +3267,11 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black mb-0">
-                        <a href="./streaming-season.html">
+                        <a href="{{ route('watching') }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
-                                        src="assets/media/anime-sm-img/anime-img-6.png"
+                                        src="media/anime-sm-img/anime-img-6.png"
                                         alt=""
                                     />
                                 </div>
@@ -3288,108 +3288,6 @@
                             </div>
                         </a>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--=====================================-->
-    <!--=           Blog Area Start         =-->
-    <!--=====================================-->
-    <section class="blog style-1 sec-mar">
-        <div class="container">
-            <div class="heading style-1">
-                <h2>Blogs</h2>
-            </div>
-            <div class="row">
-                <div
-                    class="col-lg-4 col-md-6 col-sm-8 offset-lg-0 offset-md-0 offset-sm-2 col-12"
-                >
-                    <a href="./blog-detail.html" class="inner-box">
-                        <div class="image-box">
-                            <img
-                                src="assets/media/blog/blog-img-1.png"
-                                alt=""
-                                class="attachment-full size-full"
-                            />
-                        </div>
-                        <div class="author-box text-start">
-                            <div
-                                class="detail d-flex align-items-center justify-content-between"
-                            >
-                                <p>28 NOV 2022</p>
-                                <p>Anime</p>
-                            </div>
-                            <h4>Why One piece’s 948th Episode</h4>
-                            <div class="d-flex align-items-center">
-                                <img
-                                    src="./assets/media/comment/comment-img-2.png"
-                                    class="w-auto"
-                                    alt=""
-                                />
-                                <h5>Author’s Name</h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div
-                    class="col-lg-4 col-md-6 col-sm-8 offset-lg-0 offset-md-0 offset-sm-2 col-12"
-                >
-                    <a href="./blog-detail.html" class="inner-box">
-                        <div class="image-box">
-                            <img
-                                src="assets/media/blog/blog-img-2.png"
-                                alt=""
-                                class="attachment-full size-full"
-                            />
-                        </div>
-                        <div class="author-box text-start">
-                            <div
-                                class="detail d-flex align-items-center justify-content-between"
-                            >
-                                <p>29 NOV 2022</p>
-                                <p>Manga</p>
-                            </div>
-                            <h4>ANime Community Going mad</h4>
-                            <div class="d-flex align-items-center">
-                                <img
-                                    src="./assets/media/comment/comment-img-3.png"
-                                    class="w-auto"
-                                    alt=""
-                                />
-                                <h5>Author’s Name</h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div
-                    class="col-lg-4 col-md-6 col-sm-8 offset-lg-0 offset-md-3 offset-sm-2 col-12"
-                >
-                    <a href="./blog-detail.html" class="inner-box">
-                        <div class="image-box">
-                            <img
-                                src="assets/media/blog/blog-img-3.png"
-                                alt=""
-                                class="attachment-full size-full"
-                            />
-                        </div>
-                        <div class="author-box text-start">
-                            <div
-                                class="detail d-flex align-items-center justify-content-between"
-                            >
-                                <p>30 NOV 2022</p>
-                                <p>Anime</p>
-                            </div>
-                            <h4>Tokyo Ghoul 2nd Season Review</h4>
-                            <div class="d-flex align-items-center">
-                                <img
-                                    src="./assets/media/comment/comment-img-4.png"
-                                    class="w-auto"
-                                    alt=""
-                                />
-                                <h5>Author’s Name</h5>
-                            </div>
-                        </div>
-                    </a>
                 </div>
             </div>
         </div>

@@ -102,22 +102,16 @@
                             <a href="{{  route('homepage') }}" class="active">Anime</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="{{  route('homepage') }}" class="active">Genres</a>
+                            <a href="{{  route('filter') }}" class="active">Filter</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="{{  route('homepage') }}" class="active">Wacth History</a>
+                            <a href="{{  route('policy') }}" class="active">Privacy Policy</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="{{  route('homepage') }}" class="active">Following</a>
-                        </li>
-                        <li class="menu-item-has-children">
-                            <a href="{{  route('homepage') }}" class="active">Privacy Policy</a>
-                        </li>
-                        <li class="menu-item-has-children">
-                            <a href="{{  route('homepage') }}" class="active">Profile</a>
+                            <a href="{{  route('profile') }}" class="active">Profile</a>
                         </li>
                     </ul>
-                    <form action="{{  route('anime_search_results') }}">
+                    <form action="{{  route('search-results') }}">
                         <div class="input-group form-group header-search-box">
                             <button class="input-group-text anime-btn" type="submit">
                                 <i class="fal fa-search"></i>
@@ -155,10 +149,7 @@
                                 <img alt="" src="media/logo.png" />
                             </a>
                             <p class="mt-3 mb-5">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                Eum modi, possimus dolore saepe nobis itaque cupiditate
-                                veniam nostrum, provident quam, nequeab dicta velit debitis
-                                cum unde recusandae. Fuga, consectetur.
+                                Welcome to my website.
                             </p>
                             <h6 class="mb-2">Join Us on</h6>
                             <ul class="social-icons">
