@@ -1,4 +1,4 @@
-@extends('dashboard')
+@extends('pages.navigation')
 
 @section('title', "Watching")
 
@@ -25,35 +25,35 @@
                 </div>
                 <div class="col-lg-3 col-sm-4 col-12">
                     <ul class="video-sidebar overflow-auto">
-{{--                        <li>--}}
-{{--                            <a href="#" class="accordion-button" data-bs-toggle="collapse" data-bs-target="#season1"--}}
-{{--                               aria-expanded="true" aria-controls="season1">--}}
-{{--                                Season 6 <span><i class="fa fa-chevron-down"></i></span>--}}
-{{--                            </a>--}}
-{{--                            <div id="season1" class="accordion-collapse collapse "--}}
-{{--                                 data-bs-parent="#accordionExample">--}}
-{{--                                <ul class="accordion-body">--}}
-{{--                                    <li>--}}
-{{--                                        <a href="#">Season 01</a>--}}
-{{--                                    </li>--}}
-{{--                                    <li>--}}
-{{--                                        <a href="#">Season 02</a>--}}
-{{--                                    </li>--}}
-{{--                                    <li>--}}
-{{--                                        <a href="#">Season 03</a>--}}
-{{--                                    </li>--}}
-{{--                                    <li>--}}
-{{--                                        <a href="#">Season 04</a>--}}
-{{--                                    </li>--}}
-{{--                                    <li>--}}
-{{--                                        <a href="#">Season 05</a>--}}
-{{--                                    </li>--}}
-{{--                                    <li>--}}
-{{--                                        <a href="#">Season 06</a>--}}
-{{--                                    </li>--}}
-{{--                                </ul>--}}
-{{--                            </div>--}}
-{{--                        </li>--}}
+                        {{--                        <li>--}}
+                        {{--                            <a href="#" class="accordion-button" data-bs-toggle="collapse" data-bs-target="#season1"--}}
+                        {{--                               aria-expanded="true" aria-controls="season1">--}}
+                        {{--                                Season 6 <span><i class="fa fa-chevron-down"></i></span>--}}
+                        {{--                            </a>--}}
+                        {{--                            <div id="season1" class="accordion-collapse collapse "--}}
+                        {{--                                 data-bs-parent="#accordionExample">--}}
+                        {{--                                <ul class="accordion-body">--}}
+                        {{--                                    <li>--}}
+                        {{--                                        <a href="#">Season 01</a>--}}
+                        {{--                                    </li>--}}
+                        {{--                                    <li>--}}
+                        {{--                                        <a href="#">Season 02</a>--}}
+                        {{--                                    </li>--}}
+                        {{--                                    <li>--}}
+                        {{--                                        <a href="#">Season 03</a>--}}
+                        {{--                                    </li>--}}
+                        {{--                                    <li>--}}
+                        {{--                                        <a href="#">Season 04</a>--}}
+                        {{--                                    </li>--}}
+                        {{--                                    <li>--}}
+                        {{--                                        <a href="#">Season 05</a>--}}
+                        {{--                                    </li>--}}
+                        {{--                                    <li>--}}
+                        {{--                                        <a href="#">Season 06</a>--}}
+                        {{--                                    </li>--}}
+                        {{--                                </ul>--}}
+                        {{--                            </div>--}}
+                        {{--                        </li>--}}
                         <li>
                             <a href="#" class="active">Episode 01</a>
                         </li>
@@ -187,17 +187,17 @@
                                         <svg width="32" height="22" viewBox="0 0 32 22" fill="none"
                                              xmlns="http://www.w3.org/2000/svg">
                                             <rect x="0.145264" y="0.00012207" width="21.4395" height="2.68125"
-                                                  rx="1.34062" fill="#999999" />
+                                                  rx="1.34062" fill="#999999"/>
                                             <rect x="0.145264" y="7.41272" width="21.4395" height="2.68125"
-                                                  rx="1.34062" fill="#999999" />
+                                                  rx="1.34062" fill="#999999"/>
                                             <rect x="0.145264" y="14.8258" width="16.4914" height="2.68125"
-                                                  rx="1.34062" fill="#999999" />
+                                                  rx="1.34062" fill="#999999"/>
                                             <path
                                                 d="M19.8784 16.0712C19.8784 15.4163 20.4093 14.8854 21.0642 14.8854H30.2463C30.9011 14.8854 31.432 15.4163 31.432 16.0712C31.432 16.7261 30.9011 17.257 30.2463 17.257H21.0642C20.4093 17.257 19.8784 16.7261 19.8784 16.0712Z"
-                                                fill="#999999" />
+                                                fill="#999999"/>
                                             <path
                                                 d="M25.6552 22.0001C25.0171 22.0001 24.4999 21.4828 24.4999 20.8447V11.2977C24.4999 10.6596 25.0171 10.1423 25.6552 10.1423C26.2933 10.1423 26.8106 10.6596 26.8106 11.2977V20.8447C26.8106 21.4828 26.2933 22.0001 25.6552 22.0001Z"
-                                                fill="#999999" />
+                                                fill="#999999"/>
                                         </svg>
                                     </button>
                                     <ul class="dropdown-menu bg-color-black pt-3 pb-3 ps-3 pe-3">
@@ -300,7 +300,8 @@
                                 <a href="" class="comment-btn"><i class="fa fa-thumbs-up"></i></a>
                                 <a href="" class="comment-btn"><i class="fa fa-thumbs-down"></i></a>
                                 <button class=" accordion-button comment-btn" data-bs-toggle="collapse"
-                                        data-bs-target="#reply1" aria-expanded="true">Reply</button>
+                                        data-bs-target="#reply1" aria-expanded="true">Reply
+                                </button>
                                 <div id="reply1" class="accordion-collapse collapse "
                                      data-bs-parent="#accordionExample">
                                     <div class="card card-body">
@@ -331,7 +332,8 @@
                                 <a href="" class="comment-btn"><i class="fa fa-thumbs-up"></i></a>
                                 <a href="" class="comment-btn"><i class="fa fa-thumbs-down"></i></a>
                                 <button class=" accordion-button comment-btn" data-bs-toggle="collapse"
-                                        data-bs-target="#reply2" aria-expanded="true">Reply</button>
+                                        data-bs-target="#reply2" aria-expanded="true">Reply
+                                </button>
                                 <div id="reply2" class="accordion-collapse collapse show"
                                      data-bs-parent="#accordionExample">
                                     <div class="card card-body">
@@ -370,7 +372,8 @@
                                                 <a href="" class="comment-btn"><i class="fa fa-thumbs-down"></i></a>
                                                 <button class=" accordion-button comment-btn"
                                                         data-bs-toggle="collapse" data-bs-target="#reply30"
-                                                        aria-expanded="true">Reply</button>
+                                                        aria-expanded="true">Reply
+                                                </button>
                                                 <div id="reply30" class="accordion-collapse collapse"
                                                      data-bs-parent="#accordionExample">
                                                     <div class="card card-body">
@@ -401,7 +404,8 @@
                                                 <a href="" class="comment-btn"><i class="fa fa-thumbs-down"></i></a>
                                                 <button class=" accordion-button comment-btn"
                                                         data-bs-toggle="collapse" data-bs-target="#reply60"
-                                                        aria-expanded="true">Reply</button>
+                                                        aria-expanded="true">Reply
+                                                </button>
                                                 <div id="reply60" class="accordion-collapse collapse"
                                                      data-bs-parent="#accordionExample">
                                                     <div class="card card-body">
@@ -432,7 +436,8 @@
                                                 <a href="" class="comment-btn"><i class="fa fa-thumbs-down"></i></a>
                                                 <button class=" accordion-button comment-btn"
                                                         data-bs-toggle="collapse" data-bs-target="#reply7"
-                                                        aria-expanded="true">Reply</button>
+                                                        aria-expanded="true">Reply
+                                                </button>
                                                 <div id="reply7" class="accordion-collapse collapse"
                                                      data-bs-parent="#accordionExample">
                                                     <div class="card card-body">
@@ -473,7 +478,8 @@
                                                                 class="fa fa-thumbs-down"></i></button>
                                                         <button class=" accordion-button comment-btn"
                                                                 data-bs-toggle="collapse" data-bs-target="#reply9"
-                                                                aria-expanded="true">Reply</button>
+                                                                aria-expanded="true">Reply
+                                                        </button>
                                                         <div id="reply9" class="accordion-collapse collapse "
                                                              data-bs-parent="#accordionExample">
                                                             <div class="card card-body">
@@ -485,7 +491,8 @@
                                                                 <div class="text-end">
                                                                     <button class="comment-btn">Cencel</button>
                                                                     <button
-                                                                        class="comment-btn active">Reply</button>
+                                                                        class="comment-btn active">Reply
+                                                                    </button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -514,7 +521,8 @@
                                 <a href="" class="comment-btn"><i class="fa fa-thumbs-up"></i></a>
                                 <a href="" class="comment-btn"><i class="fa fa-thumbs-down"></i></a>
                                 <button class=" accordion-button comment-btn" data-bs-toggle="collapse"
-                                        data-bs-target="#reply3" aria-expanded="true">Reply</button>
+                                        data-bs-target="#reply3" aria-expanded="true">Reply
+                                </button>
                                 <div id="reply3" class="accordion-collapse collapse "
                                      data-bs-parent="#accordionExample">
                                     <div class="card card-body">
@@ -551,7 +559,8 @@
                                                 <a href="" class="comment-btn"><i class="fa fa-thumbs-down"></i></a>
                                                 <button class=" accordion-button comment-btn"
                                                         data-bs-toggle="collapse" data-bs-target="#reply4"
-                                                        aria-expanded="true" aria-controls="reply">Reply</button>
+                                                        aria-expanded="true" aria-controls="reply">Reply
+                                                </button>
                                                 <div id="reply4" class="accordion-collapse collapse  "
                                                      data-bs-parent="#accordionExample">
                                                     <div class="card card-body">
@@ -582,7 +591,8 @@
                                                 <a href="" class="comment-btn"><i class="fa fa-thumbs-down"></i></a>
                                                 <button class=" accordion-button comment-btn"
                                                         data-bs-toggle="collapse" data-bs-target="#reply5"
-                                                        aria-expanded="true" aria-controls="reply">Reply</button>
+                                                        aria-expanded="true" aria-controls="reply">Reply
+                                                </button>
                                                 <div id="reply5" class="accordion-collapse collapse  "
                                                      data-bs-parent="#accordionExample">
                                                     <div class="card card-body">
@@ -613,7 +623,8 @@
                                                 <a href="" class="comment-btn"><i class="fa fa-thumbs-down"></i></a>
                                                 <button class=" accordion-button comment-btn"
                                                         data-bs-toggle="collapse" data-bs-target="#reply6"
-                                                        aria-expanded="true" aria-controls="reply">Reply</button>
+                                                        aria-expanded="true" aria-controls="reply">Reply
+                                                </button>
                                                 <div id="reply6" class="accordion-collapse collapse  "
                                                      data-bs-parent="#accordionExample">
                                                     <div class="card card-body">

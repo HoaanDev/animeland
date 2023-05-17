@@ -1,4 +1,4 @@
-@extends('dashboard')
+@extends('pages.navigation')
 
 @section('title', 'Home')
 
@@ -13,7 +13,7 @@
                     <div class="row">
                         <div class="col-lg-5 col-12">
                             <h2 class="title">
-                                ATTACK ON <br />
+                                ATTACK ON <br/>
                                 <b>TITANS</b>
                             </h2>
                             <p class="text">SEASON 3</p>
@@ -32,7 +32,7 @@
                             >
                         </div>
                         <div class="col-lg-7 col-12">
-                            <img src="media/banner/banner-img-1.png" alt="" />
+                            <img src="media/banner/banner-img-1.png" alt=""/>
                         </div>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                     <div class="row">
                         <div class="col-lg-5 col-12">
                             <h2 class="title">
-                                MY HERO<br />
+                                MY HERO<br/>
                                 <b>ACADEMIA</b>
                             </h2>
                             <p class="text">SEASON 4</p>
@@ -65,7 +65,7 @@
                             >
                         </div>
                         <div class="col-lg-7 col-12">
-                            <img src="media/banner/banner-img-2.png" alt="" />
+                            <img src="media/banner/banner-img-2.png" alt=""/>
                         </div>
                     </div>
                 </div>
@@ -95,7 +95,7 @@
                             >
                         </div>
                         <div class="col-lg-7 col-12">
-                            <img src="media/banner/banner-img-3.png" alt="" />
+                            <img src="media/banner/banner-img-3.png" alt=""/>
                         </div>
                     </div>
                 </div>
@@ -114,7 +114,7 @@
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
                     <div class="anime-blog">
                         <a href="{{ route('watching') }}" class="img-block">
-                            <img src="media/anime/img-1.png" alt="" />
+                            <img src="media/anime/img-1.png" alt=""/>
                         </a>
                         <a href="{{ route('watching') }}" class="action-overlay"
                         ><i class="fal fa-play-circle"></i> Play Now</a
@@ -193,7 +193,7 @@
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
                     <div class="anime-blog">
                         <a href="{{ route('watching') }}" class="img-block">
-                            <img src="media/anime/img-2.png" alt="" />
+                            <img src="media/anime/img-2.png" alt=""/>
                         </a>
                         <a href="{{ route('watching') }}" class="action-overlay"
                         ><i class="fal fa-play-circle"></i> Play Now</a
@@ -269,7 +269,7 @@
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
                     <div class="anime-blog">
                         <a href="{{ route('watching') }}" class="img-block">
-                            <img src="media/anime/img-3.png" alt="" />
+                            <img src="media/anime/img-3.png" alt=""/>
                         </a>
                         <a href="{{ route('watching') }}" class="action-overlay"
                         ><i class="fal fa-play-circle"></i> Play Now</a
@@ -345,7 +345,7 @@
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
                     <div class="anime-blog">
                         <a href="{{ route('watching') }}" class="img-block">
-                            <img src="media/anime/img-4.png" alt="" />
+                            <img src="media/anime/img-4.png" alt=""/>
                         </a>
                         <a href="{{ route('watching') }}" class="action-overlay"
                         ><i class="fal fa-play-circle"></i> Play Now</a
@@ -421,7 +421,7 @@
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
                     <div class="anime-blog">
                         <a href="{{ route('watching') }}" class="img-block">
-                            <img src="media/anime/img-5.png" alt="" />
+                            <img src="media/anime/img-5.png" alt=""/>
                         </a>
                         <a href="{{ route('watching') }}" class="action-overlay"
                         ><i class="fal fa-play-circle"></i> Play Now</a
@@ -497,7 +497,7 @@
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
                     <div class="anime-blog">
                         <a href="{{ route('watching') }}" class="img-block">
-                            <img src="media/anime/img-6.png" alt="" />
+                            <img src="media/anime/img-6.png" alt=""/>
                         </a>
                         <a href="{{ route('watching') }}" class="action-overlay"
                         ><i class="fal fa-play-circle"></i> Play Now</a
@@ -573,7 +573,7 @@
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
                     <div class="anime-blog">
                         <a href="streaming-movie.html" class="img-block">
-                            <img src="media/anime/img-7.png" alt="" />
+                            <img src="media/anime/img-7.png" alt=""/>
                         </a>
                         <a href="./streaming-movie.html" class="action-overlay"
                         ><i class="fal fa-play-circle"></i> Play Now</a
@@ -649,7 +649,7 @@
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
                     <div class="anime-blog">
                         <a href="{{ route('watching') }}" class="img-block">
-                            <img src="media/anime/img-8.png" alt="" />
+                            <img src="media/anime/img-8.png" alt=""/>
                         </a>
                         <a href="{{ route('watching') }}" class="action-overlay"
                         ><i class="fal fa-play-circle"></i> Play Now</a
@@ -732,7 +732,7 @@
         <div class="container">
             <div class="comingOut-content">
                 <h2 class="title">
-                    ATTACK ON <br />
+                    ATTACK ON <br/>
                     TITANS
                 </h2>
                 <p class="light-text">Season 4</p>
@@ -762,7 +762,7 @@
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
                     <div class="anime-blog">
                         <a href="{{ route('watching') }}" class="img-block">
-                            <img src="media/anime/img-5.png" alt="" />
+                            <img src="media/anime/img-5.png" alt=""/>
                         </a>
                         <a href="{{ route('watching') }}" class="action-overlay"
                         ><i class="fal fa-play-circle"></i> Play Now</a
@@ -838,7 +838,7 @@
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
                     <div class="anime-blog">
                         <a href="{{ route('watching') }}" class="img-block">
-                            <img src="media/anime/img-6.png" alt="" />
+                            <img src="media/anime/img-6.png" alt=""/>
                         </a>
                         <a href="{{ route('watching') }}" class="action-overlay"
                         ><i class="fal fa-play-circle"></i> Play Now</a
@@ -914,7 +914,7 @@
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
                     <div class="anime-blog">
                         <a href="./streaming-movie.html" class="img-block">
-                            <img src="media/anime/img-7.png" alt="" />
+                            <img src="media/anime/img-7.png" alt=""/>
                         </a>
                         <a href="./streaming-movie.html" class="action-overlay"
                         ><i class="fal fa-play-circle"></i> Play Now</a
@@ -990,7 +990,7 @@
                 <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
                     <div class="anime-blog">
                         <a href="{{ route('watching') }}" class="img-block">
-                            <img src="media/anime/img-8.png" alt="" />
+                            <img src="media/anime/img-8.png" alt=""/>
                         </a>
                         <a href="{{ route('watching') }}" class="action-overlay"
                         ><i class="fal fa-play-circle"></i> Play Now</a
@@ -1227,7 +1227,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -1266,7 +1266,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -1307,7 +1307,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -1346,7 +1346,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -1385,7 +1385,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -1464,7 +1464,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -1503,7 +1503,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -1544,7 +1544,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -1583,7 +1583,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -1622,7 +1622,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -1701,7 +1701,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -1740,7 +1740,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -1781,7 +1781,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -1820,7 +1820,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -1859,7 +1859,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -1938,7 +1938,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -1977,7 +1977,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -2018,7 +2018,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -2057,7 +2057,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -2096,7 +2096,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -2175,7 +2175,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -2214,7 +2214,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -2255,7 +2255,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -2294,7 +2294,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -2333,7 +2333,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -2412,7 +2412,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -2451,7 +2451,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -2492,7 +2492,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -2531,7 +2531,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -2570,7 +2570,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -2649,7 +2649,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -2688,7 +2688,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -2729,7 +2729,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -2768,7 +2768,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
@@ -2807,7 +2807,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <hr />
+                            <hr/>
                             <a href="{{ route('watching') }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">

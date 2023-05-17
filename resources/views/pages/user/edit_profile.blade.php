@@ -1,4 +1,4 @@
-@extends('dashboard')
+@extends('pages.navigation')
 
 @section('title', 'Edit Profile')
 
@@ -26,7 +26,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Old Email</label>
-                                    <input class="form-control" type="email" name="email" required placeholder="email@example.com">
+                                    <input class="form-control" type="email" name="email" required
+                                           placeholder="email@example.com">
                                 </div>
                                 <button type="submit" class="anime-btn btn-dark border-change">
                                     Save Changes

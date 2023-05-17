@@ -1,4 +1,4 @@
-@extends('dashboard')
+@extends('pages.navigation')
 
 @section('title', 'Profile')
 
