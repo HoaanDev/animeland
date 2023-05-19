@@ -55,7 +55,7 @@ class AuthController extends Controller
 //        $data['fileName'] = 'a_' . $fileName;
         $check = $this->create($data);
 
-        return redirect()->route('homepage')->withSuccess('You have signed-in');
+        return redirect()->route('login')->withSuccess('You have signed-in');
     }
 
     public function create(array $data)

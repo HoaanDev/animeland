@@ -37,7 +37,7 @@ Route::get('/watch-history', [PageController::class, 'watchHistoryPage'])->name(
 Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
 
 //Function
-Route::get('/', [AuthController::class, 'homePage'])->name('homepage');
+//Route::get('/', [AuthController::class, 'homePage'])->name('homepage');
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/custom-login', [AuthController::class, 'customLogin'])->name('login.custom');
 Route::get('/registration', [AuthController::class, 'registration'])->name('register-user');

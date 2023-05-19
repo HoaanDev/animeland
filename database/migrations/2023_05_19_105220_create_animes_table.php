@@ -15,6 +15,15 @@ return new class extends Migration
     {
         Schema::create('animes', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->unique();
+            $table->text('description');
+            $table->string('thumbnail');
+            $table->string('studio');
+            $table->year('release_date');
+            $table->bigInteger('duration');
+            $table->float('imdb_rating');
+            $table->smallInteger('category');
+            $table->smallInteger('status');
             $table->timestamps();
         });
     }
