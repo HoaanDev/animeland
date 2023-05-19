@@ -11,16 +11,15 @@
                     <i class="pe-7s-medal icon-gradient bg-tempting-azure"></i>
                 </div>
                 <div>Data Tables Users
-                    {{--                    <div class="page-title-subheading">Choose between regular React Bootstrap tables or--}}
-                    {{--                        advanced dynamic ones.</div>--}}
+                    {{-- <div class="page-title-subheading">Choose between regular React Bootstrap tables or--}}
+                    {{-- advanced dynamic ones.</div>--}}
                 </div>
             </div>
         </div>
     </div>
     <div class="main-card mb-3 card">
         <div class="card-body">
-            <table style="width: 100%;" id="example"
-                   class="table table-hover table-striped table-bordered">
+            <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
                 <thead>
                 <tr>
                     <th>Avatar</th>
@@ -44,15 +43,15 @@
                     </tr>
                 @endforeach
                 </tbody>
-{{--                <tfoot>--}}
-{{--                <tr>--}}
-{{--                    <th>Avatar</th>--}}
-{{--                    <th>Name</th>--}}
-{{--                    <th>Email</th>--}}
-{{--                    <th>Username</th>--}}
-{{--                    <th>Action</th>--}}
-{{--                </tr>--}}
-{{--                </tfoot>--}}
+                {{-- <tfoot>--}}
+                {{-- <tr>--}}
+                {{-- <th>Avatar</th>--}}
+                {{-- <th>Name</th>--}}
+                {{-- <th>Email</th>--}}
+                {{-- <th>Username</th>--}}
+                {{-- <th>Action</th>--}}
+                {{-- </tr>--}}
+                {{-- </tfoot>--}}
             </table>
         </div>
     </div>

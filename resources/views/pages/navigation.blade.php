@@ -133,10 +133,10 @@
                             <a
                                 href="{{  route('register-user') }}"
                                 class="anime-btn btn-dark border-change me-3"
-                            >SIGN UP</a>
-                            <a href="{{  route('login') }}" class="anime-btn btn-dark">LOG IN</a>
+                            >Sign Up</a>
+                            <a href="{{  route('login') }}" class="anime-btn btn-dark">Sign In</a>
                         @else
-                            <a href="{{  route('signout') }}" class="anime-btn btn-dark">LOG OUT</a>
+                            <a href="{{  route('signout') }}" class="anime-btn btn-dark">Sign Out</a>
                         @endguest
                     </div>
                 </div>
