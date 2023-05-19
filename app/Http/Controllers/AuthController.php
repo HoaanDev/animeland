@@ -18,15 +18,13 @@ class AuthController extends Controller
     public function customLogin(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'email' => 'required',
             'username' => 'required',
             'password' => 'required',
         ]);
 
-        $credentials = $request->only('email', 'username', 'password');
+        $credentials = $request->only('username', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('pages.homepages')
+            return redirect()->route('homepage')
                 ->withSuccess('Signed in');
         }
 
@@ -57,7 +55,7 @@ class AuthController extends Controller
 //        $data['fileName'] = 'a_' . $fileName;
         $check = $this->create($data);
 
-        return redirect("pages.homepage")->withSuccess('You have signed-in');
+        return redirect()->route('homepage')->withSuccess('You have signed-in');
     }
 
     public function create(array $data)
@@ -73,7 +71,7 @@ class AuthController extends Controller
     public function homePage()
     {
         if(Auth::check()){
-            return view('pages.homepage');
+            return view('pages.home.homepage');
         }
 
         return redirect("login")->withSuccess('You are not allowed to access');
