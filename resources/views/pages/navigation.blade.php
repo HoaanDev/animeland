@@ -107,9 +107,13 @@
                         <li class="menu-item-has-children">
                             <a href="{{  route('policy') }}" class="active">Privacy Policy</a>
                         </li>
-                        <li class="menu-item-has-children">
-                            <a href="{{  route('profile') }}" class="active">Profile</a>
-                        </li>
+                        @guest
+
+                        @else
+                            <li class="menu-item-has-children">
+                                <a href="{{  route('profile') }}" class="active">Profile</a>
+                            </li>
+                        @endguest
                     </ul>
                     <form action="{{  route('search-results') }}">
                         <div class="input-group form-group header-search-box">
@@ -125,11 +129,15 @@
                         </div>
                     </form>
                     <div class="d-flex right-nav">
-                        <a
-                            href="{{  route('register-user') }}"
-                            class="anime-btn btn-dark border-change me-3"
-                        >SIGN UP</a>
-                        <a href="{{  route('login') }}" class="anime-btn btn-dark">LOG IN</a>
+                        @guest
+                            <a
+                                href="{{  route('register-user') }}"
+                                class="anime-btn btn-dark border-change me-3"
+                            >SIGN UP</a>
+                            <a href="{{  route('login') }}" class="anime-btn btn-dark">LOG IN</a>
+                        @else
+                            <a href="{{  route('signout') }}" class="anime-btn btn-dark">LOG OUT</a>
+                        @endguest
                     </div>
                 </div>
             </nav>

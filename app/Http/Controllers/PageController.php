@@ -49,4 +49,9 @@ class PageController extends Controller
     public function followingPage() {
         return view('pages.user.following');
     }
+
+    //Admin Dashboard
+    public function dashboard() {
+        return view('admin.dashboard');
+    }
 }

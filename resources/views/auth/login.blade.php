@@ -18,12 +18,13 @@
                     <div class="login-sec">
 
                         <form method="POST" action="{{ route('login.custom') }}">
+                            @csrf
                             <div class="form-group mb-3">
-                                <input type="text" placeholder="Email" id="email" class="form-control" name="email"
+                                <input type="text" placeholder="Username" id="username" class="form-control" name="username"
                                        required
                                        autofocus>
-                                @if ($errors->has('email'))
-                                    <span class="text-danger">{{ $errors->first('email') }}</span>
+                                @if ($errors->has('username'))
+                                    <span class="text-danger">{{ $errors->first('username') }}</span>
                                 @endif
                             </div>
                             <div class="form-group mb-3">
