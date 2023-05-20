@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="page-title-actions">
-
+                    <button type="submit" class="mb-2 mr-2 btn btn-light" onclick="window.location.href='{{ route('users.users') }}'">Back</button>
                 </div>
             </div>
         </div>
