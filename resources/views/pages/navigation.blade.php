@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Meta Data -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>AnimeLand | @yield('title')</title>
     <meta name="description" content="" />
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!-- Favicon -->
-    <link
-        rel="shortcut icon"
-        type="image/x-icon"
-        href="{{ asset('/css/app.css') }}"
-    />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/css/app.css') }}" />
     <link rel="stylesheet" href="{{ asset('/css/vendor/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('/css/vendor/font-awesome.css') }}" />
     <link rel="stylesheet" href="{{ asset('/css/vendor/slick.css') }}" />
@@ -25,10 +19,7 @@
     <!-- Site Stylesheet -->
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}" />
 
-    <script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=UA-266165434-1"
-    ></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-266165434-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() {
@@ -64,11 +55,7 @@
 <body class="sticky-header">
 <!-- Preloader -->
 <div id="preloader">
-    <img
-        src="media/Anime-loop-preloader-white.gif"
-        alt="preloader"
-        class="mb-5"
-    />
+    <img src="media/Anime-loop-preloader-white.gif" alt="preloader" class="mb-5" />
 </div>
 <!-- Back To Top Start -->
 <a href="#main-wrapper" id="backto-top" class="back-to-top">
@@ -85,15 +72,8 @@
         <div class="container">
             <!-- Start Mainmanu Nav -->
             <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="{{  route('homepage') }}"
-                ><img src="media/logo.png" alt=""
-                    /></a>
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#mynavbar"
-                >
+                <a class="navbar-brand" href="{{  route('homepage') }}"><img src="media/logo.png" alt="" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="mynavbar">
@@ -120,20 +100,13 @@
                             <button class="input-group-text anime-btn" type="submit">
                                 <i class="fal fa-search"></i>
                             </button>
-                            <input
-                                class="form-control"
-                                name="search"
-                                type="text"
-                                placeholder="Search"
-                            />
+                            <input class="form-control" name="search" type="text" placeholder="Search" />
                         </div>
                     </form>
                     <div class="d-flex right-nav">
                         @guest
-                            <a
-                                href="{{  route('register-user') }}"
-                                class="anime-btn btn-dark border-change me-3"
-                            >Sign Up</a>
+                            <a href="{{  route('register-user') }}" class="anime-btn btn-dark border-change me-3">Sign
+                                Up</a>
                             <a href="{{  route('login') }}" class="anime-btn btn-dark">Sign In</a>
                         @else
                             <a href="{{  route('signout') }}" class="anime-btn btn-dark">Sign Out</a>
@@ -162,24 +135,16 @@
                             <h6 class="mb-2">Join Us on</h6>
                             <ul class="social-icons">
                                 <li>
-                                    <a href=""
-                                    ><img alt="" src="media/footer/reddit.png"
-                                        /></a>
+                                    <a href=""><img alt="" src="media/footer/reddit.png" /></a>
                                 </li>
                                 <li>
-                                    <a href=""
-                                    ><img alt="" src="media/footer/discord.png"
-                                        /></a>
+                                    <a href=""><img alt="" src="media/footer/discord.png" /></a>
                                 </li>
                                 <li>
-                                    <a href=""
-                                    ><img alt="" src="media/footer/instagram.png"
-                                        /></a>
+                                    <a href=""><img alt="" src="media/footer/instagram.png" /></a>
                                 </li>
                                 <li>
-                                    <a href=""
-                                    ><img alt="" src="media/footer/twitter.png"
-                                        /></a>
+                                    <a href=""><img alt="" src="media/footer/twitter.png" /></a>
                                 </li>
                             </ul>
                         </div>
@@ -192,13 +157,8 @@
                             </p>
                             <form action="home.html">
                                 <div class="input-group form-group footer-email-box">
-                                    <input
-                                        class="form-control"
-                                        type="email"
-                                        name="email"
-                                        placeholder="info@example.com"
-                                        required
-                                    />
+                                    <input class="form-control" type="email" name="email"
+                                           placeholder="info@example.com" required />
                                     <button class="input-group-text anime-btn" type="submit">
                                         Subscribe
                                     </button>
@@ -217,10 +177,8 @@
                 <div class="row">
                     <div class="col-lg-6 col-12">
                         <div class="footer-copyright">
-                  <span class="copyright-text"
-                  >© 2023. All rights reserved by
-                    <a href="{{  route('homepage') }}">AnimeLand</a>.</span
-                  >
+                                <span class="copyright-text">© 2023. All rights reserved by
+                                    <a href="{{  route('homepage') }}">AnimeLand</a>.</span>
                         </div>
                     </div>
                     <div class="col-lg-6 col-12">
@@ -245,4 +203,5 @@
 <!-- Site Scripts -->
 <script src="{{ asset('/js/app.js') }}"></script>
 </body>
+
 </html>

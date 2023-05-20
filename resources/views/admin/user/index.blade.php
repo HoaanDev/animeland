@@ -15,6 +15,9 @@
                     {{-- advanced dynamic ones.</div>--}}
                 </div>
             </div>
+            <div class="page-title-actions">
+                <button class="mb-2 mr-2 btn btn-success" onclick="window.location.href='{{ route('user.create') }}'">Create new user</button>
+            </div>
         </div>
     </div>
     <div class="main-card mb-3 card">
@@ -37,8 +40,12 @@
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->username }}</td>
                         <td>
-                            <button class="btn-transition btn btn-outline-info">Detail</button>
-                            <button class="btn-transition btn btn-outline-danger">Delete</button>
+                            <button class="btn-transition btn btn-outline-info" onclick="window.location.href='{{ route('user.detail', $user) }}'">Detail</button>
+                            <form action="{{ route('user.destroy', $user) }}" method="post" class="d-inline-block">
+                                @csrf
+                                @method('DELETE')
+                            <button type="submit" class="btn-transition btn btn-outline-danger">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
