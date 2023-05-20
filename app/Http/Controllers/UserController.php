@@ -27,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.user.create');
     }
 
     /**
@@ -38,7 +38,10 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User();
+        $user->fill($request->except('_token'));
+        $user->save();
+        return redirect()->route('user.users');
     }
 
     /**
@@ -58,9 +61,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('admin.user.detail', [
+            'user' => $user,
+        ]);
     }
 
     /**
@@ -70,9 +75,35 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $user = $request->except('_token', '_method');
+//        $file = $request->file('avatar');
+//        $fileName = $file->getClientOriginalName();
+//        //Move Uploaded File
+//        $destinationPath = 'media/avatar/';
+//        $file->move($destinationPath,$file->getClientOriginalName());
+//        $user['avatar'] = $fileName;
+//        $user->update($user);
+
+        if($request->file('avatar') != ''){
+            $destinationPath = 'media/avatar/';
+
+            //code for remove old file
+            if($user['avatar'] != ''  && $user['avatar'] != null){
+                $file_old = $destinationPath . $user['avatar'];
+                unlink($file_old);
+            }
+
+            //upload new file
+            $file = $request->file('avatar');
+            $fileName = $file->getClientOriginalName();
+            $file->move($destinationPath, $fileName);
+
+            //for update in table
+            $user->update($user);
+        }
+        return redirect()->route('user.users');
     }
 
     /**
@@ -81,8 +112,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return redirect()->route('user.users');
     }
 }

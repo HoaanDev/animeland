@@ -46,16 +46,31 @@ Route::get('/signout', [AuthController::class, 'signOut'])->name('signout');
 
 //Admin Function
 //Users
-Route::get('/users', [UserController::class, 'index'])->name('users');
+Route::group(['prefix' => 'users', 'as' => 'user.'], function () {
+    Route::get('/', [UserController::class, 'index'])->name('users');
+    Route::get('/create', [UserController::class, 'create'])->name('create');
+    Route::post('/store', [UserController::class, 'store'])->name('store');
+    Route::get('/detail/{user}', [UserController::class, 'edit'])->name('detail');
+    Route::post('/update/{user}', [UserController::class, 'update'])->name('update');
+    Route::delete('/destroy/{user}', [UserController::class, 'destroy'])->name('destroy');
+});
 
 //Animes
-Route::get('/animes', [AnimeController::class, 'index'])->name('animes');
+Route::group(['prefix' => 'animes', 'as' => 'anime.'], function () {
+    Route::get('/animes', [AnimeController::class, 'index'])->name('animes');
+});
 
 //Episodes
-Route::get('/episodes', [EpisodeController::class, 'index'])->name('episodes');
+Route::group(['prefix' => 'episodes', 'as' => 'episode.'], function () {
+    Route::get('/episodes', [EpisodeController::class, 'index'])->name('episodes');
+});
 
 //Genres
-Route::get('/genres', [GenreController::class, 'index'])->name('genres');
+Route::group(['prefix' => 'genres', 'as' => 'genre.'], function () {
+    Route::get('/genres', [GenreController::class, 'index'])->name('genres');
+});
 
 //Comments
-Route::get('/comments', [CommentController::class, 'index'])->name('comments');
+Route::group(['prefix' => 'comments', 'as' => 'comment.'], function () {
+    Route::get('/comments', [CommentController::class, 'index'])->name('comments');
+});
