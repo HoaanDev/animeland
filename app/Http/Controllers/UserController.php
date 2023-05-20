@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -33,13 +34,14 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $user = new User();
         $user->fill($request->except('_token'));
+        $user['password'] = Hash::make($user['password']);
         $user->save();
         return redirect()->route('users.users');
     }
@@ -47,7 +49,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -58,7 +60,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
@@ -71,27 +73,27 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
     {
-        $user = $request->except('_token', '_method');
+        $userInfo = $request->except('_token', '_method');
 //        $file = $request->file('avatar');
 //        $fileName = $file->getClientOriginalName();
 //        //Move Uploaded File
 //        $destinationPath = 'media/avatar/';
 //        $file->move($destinationPath,$file->getClientOriginalName());
 //        $user['avatar'] = $fileName;
-//        $user->update($user);
 
-        if($request->file('avatar') != ''){
+        if ($request->file('avatar') != '') {
             $destinationPath = 'media/avatar/';
 
             //code for remove old file
-            if($user['avatar'] != ''  && $user['avatar'] != null){
-                $file_old = $destinationPath . $user['avatar'];
+            if ($userInfo['avatar'] != '' && $userInfo['avatar'] != null) {
+                $userInfo['avatar'] = $request->file('avatar')->getClientOriginalName();
+                $file_old = $destinationPath . $userInfo['avatar'];
                 unlink($file_old);
             }
 
@@ -101,20 +103,20 @@ class UserController extends Controller
             $file->move($destinationPath, $fileName);
 
             //for update in table
-            $user->update($user);
         }
-        return redirect()->route('user.users');
+        $user->update($userInfo);
+        return redirect()->route('users.users');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('user.users');
+        return redirect()->route('users.users');
     }
 }
