@@ -432,27 +432,27 @@
                             </a>
                             <ul>
                                 <li>
-                                    <a href="{{ route('user.users') }}">
+                                    <a href="{{ route('users.users') }}">
                                         <i class="metismenu-icon"></i> Table Users
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('anime.animes') }}">
+                                    <a href="{{ route('animes.animes') }}">
                                         <i class="metismenu-icon"></i> Table Animes
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('episode.episodes') }}">
+                                    <a href="{{ route('episodes.episodes') }}">
                                         <i class="metismenu-icon"></i> Table Episodes
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('genre.genres') }}">
+                                    <a href="{{ route('genres.genres') }}">
                                         <i class="metismenu-icon"></i> Table Genres
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('comment.comments') }}">
+                                    <a href="{{ route('comments.comments') }}">
                                         <i class="metismenu-icon"></i> Table Comments
                                     </a>
                                 </li>

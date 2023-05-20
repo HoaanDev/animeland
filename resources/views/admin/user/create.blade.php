@@ -23,7 +23,7 @@
         <div class="main-card mb-3 card">
             <div class="card-body">
                 <h5 class="card-title">Information Form</h5>
-                <form id="signupForm" class="col-md-10 mx-auto" method="post" action="{{ route('user.store') }}" novalidate="novalidate">
+                <form id="signupForm" class="col-md-10 mx-auto" method="post" action="{{ route('users.store') }}" novalidate="novalidate">
                     @csrf
                     <div class="form-group">
                         <label for="name">Name</label>

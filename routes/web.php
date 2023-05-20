@@ -46,7 +46,7 @@ Route::get('/signout', [AuthController::class, 'signOut'])->name('signout');
 
 //Admin Function
 //Users
-Route::group(['prefix' => 'users', 'as' => 'user.'], function () {
+Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
     Route::get('/', [UserController::class, 'index'])->name('users');
     Route::get('/create', [UserController::class, 'create'])->name('create');
     Route::post('/store', [UserController::class, 'store'])->name('store');
@@ -56,21 +56,21 @@ Route::group(['prefix' => 'users', 'as' => 'user.'], function () {
 });
 
 //Animes
-Route::group(['prefix' => 'animes', 'as' => 'anime.'], function () {
+Route::group(['prefix' => 'animes', 'as' => 'animes.'], function () {
     Route::get('/animes', [AnimeController::class, 'index'])->name('animes');
 });
 
 //Episodes
-Route::group(['prefix' => 'episodes', 'as' => 'episode.'], function () {
+Route::group(['prefix' => 'episodes', 'as' => 'episodes.'], function () {
     Route::get('/episodes', [EpisodeController::class, 'index'])->name('episodes');
 });
 
 //Genres
-Route::group(['prefix' => 'genres', 'as' => 'genre.'], function () {
+Route::group(['prefix' => 'genres', 'as' => 'genres.'], function () {
     Route::get('/genres', [GenreController::class, 'index'])->name('genres');
 });
 
 //Comments
-Route::group(['prefix' => 'comments', 'as' => 'comment.'], function () {
+Route::group(['prefix' => 'comments', 'as' => 'comments.'], function () {
     Route::get('/comments', [CommentController::class, 'index'])->name('comments');
 });

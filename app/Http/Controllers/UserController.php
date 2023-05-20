@@ -41,7 +41,7 @@ class UserController extends Controller
         $user = new User();
         $user->fill($request->except('_token'));
         $user->save();
-        return redirect()->route('user.users');
+        return redirect()->route('users.users');
     }
 
     /**
