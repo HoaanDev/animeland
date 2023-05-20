@@ -16,14 +16,14 @@
                     </div>
                 </div>
                 <div class="page-title-actions">
-                    <button type="submit" class="mb-2 mr-2 btn btn-light" onclick="window.location.href='{{ route('user.users') }}'">Back</button>
+                    <button type="submit" class="mb-2 mr-2 btn btn-light" onclick="window.location.href='{{ route('users.users') }}'">Back</button>
                 </div>
             </div>
         </div>
         <div class="main-card mb-3 card">
             <div class="card-body">
                 <h5 class="card-title">Information Form</h5>
-                <form id="signupForm" class="col-md-10 mx-auto" method="post" action="{{ route('user.update', $user) }}" novalidate="novalidate" enctype="multipart/form-data">
+                <form id="signupForm" class="col-md-10 mx-auto" method="post" action="{{ route('users.update', $user) }}" novalidate="novalidate" enctype="multipart/form-data">
                     @csrf
 {{--                    <input type="hidden" class="" name="user_id" value="{{ $user->id }}">--}}
                     <div class="form-group">

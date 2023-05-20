@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="page-title-actions">
-                <button class="mb-2 mr-2 btn btn-success" onclick="window.location.href='{{ route('user.create') }}'">Create new user</button>
+                <button class="mb-2 mr-2 btn btn-success" onclick="window.location.href='{{ route('users.create') }}'">Create new user</button>
             </div>
         </div>
     </div>
@@ -40,8 +40,8 @@
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->username }}</td>
                         <td>
-                            <button class="btn-transition btn btn-outline-info" onclick="window.location.href='{{ route('user.detail', $user) }}'">Detail</button>
-                            <form action="{{ route('user.destroy', $user) }}" method="post" class="d-inline-block">
+                            <button class="btn-transition btn btn-outline-info" onclick="window.location.href='{{ route('users.detail', $user) }}'">Detail</button>
+                            <form action="{{ route('users.destroy', $user) }}" method="post" class="d-inline-block">
                                 @csrf
                                 @method('DELETE')
                             <button type="submit" class="btn-transition btn btn-outline-danger">Delete</button>
