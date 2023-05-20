@@ -15,7 +15,10 @@ class AnimeController extends Controller
      */
     public function index()
     {
-        return view('admin.anime.index');
+        $animes = Anime::get();
+        return view('admin.anime.index', [
+            'animes' => $animes,
+        ]);
     }
 
     /**
@@ -25,7 +28,7 @@ class AnimeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.anime.create');
     }
 
     /**
