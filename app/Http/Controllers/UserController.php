@@ -79,21 +79,15 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $userInfo = $request->except('_token', '_method');
-//        $file = $request->file('avatar');
-//        $fileName = $file->getClientOriginalName();
-//        //Move Uploaded File
-//        $destinationPath = 'media/avatar/';
-//        $file->move($destinationPath,$file->getClientOriginalName());
-//        $user['avatar'] = $fileName;
-
+        $userInfo = $request->except('_token');
         if ($request->file('avatar') != '') {
             $destinationPath = 'media/avatar/';
-
+            $userInfo['avatar'] = $request->file('avatar')->getClientOriginalName();
+            $file_old = $destinationPath . $userInfo['avatar'];
             //code for remove old file
-            if ($userInfo['avatar'] != '' && $userInfo['avatar'] != null) {
-                $userInfo['avatar'] = $request->file('avatar')->getClientOriginalName();
-                $file_old = $destinationPath . $userInfo['avatar'];
+            if ($file_old != '' && $file_old != null) {
+
+            } else {
                 unlink($file_old);
             }
 
