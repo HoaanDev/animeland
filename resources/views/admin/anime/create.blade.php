@@ -39,8 +39,9 @@
                     <div class="form-group">
                         <label for="description">Description</label>
                         <div>
-                            <input type="text" class="form-control" id="description" name="description"
-                                   placeholder="Description" required>
+                            <textarea type="text" rows="1" class="form-control autosize-input" id="description"
+                                      name="description" style="height: 117px;"
+                                      placeholder="Description" required></textarea>
                         </div>
                     </div>
                     <div class="form-group">
