@@ -99,7 +99,7 @@ class UserController extends Controller
             //for update in table
             $user->update($user);
         }
-        return redirect()->route('user.users');
+        return redirect()->route('users.users');
     }
 
     /**
@@ -111,6 +111,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('user.users');
+        return redirect()->route('users.users');
     }
 }
