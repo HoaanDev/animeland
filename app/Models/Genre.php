@@ -11,9 +11,5 @@ class Genre extends Model
 
     protected $fillable = [
         'name',
-        'email',
-        'username',
-        'password',
-        'avatar',
     ];
 }
