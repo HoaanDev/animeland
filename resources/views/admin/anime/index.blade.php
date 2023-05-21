@@ -44,7 +44,7 @@
                         <tr>
                             <td>{{ $anime->title }}</td>
                             <td>{{ Illuminate\Support\Str::limit($anime ->description, $limit = 40, $end = '...') }}</td>
-                            <td><img src="media/thumbnail/{{ $anime->thumbnail }}" class="img-fluid w-25"></td>
+                            <td><img src="media/thumbnail/{{ $anime->thumbnail }}" class="img-fluid"></td>
                             <td>{{ $anime->studio }}</td>
                             <td>{{ $anime->release_date }}</td>
                             <td>{{ $anime->duration }}</td>
