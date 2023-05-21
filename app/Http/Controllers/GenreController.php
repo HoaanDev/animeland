@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Genre;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreGenreRequest;
 use App\Http\Requests\UpdateGenreRequest;
 
@@ -15,7 +16,10 @@ class GenreController extends Controller
      */
     public function index()
     {
-        return view('admin.genre.index');
+        $genres = Genre::get();
+        return view('admin.genre.index', [
+            'genres' => $genres,
+        ]);
     }
 
     /**
@@ -25,7 +29,7 @@ class GenreController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.genre.create');
     }
 
     /**
@@ -34,9 +38,12 @@ class GenreController extends Controller
      * @param  \App\Http\Requests\StoreGenreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreGenreRequest $request)
+    public function store(Request $request)
     {
-        //
+        $genre = new Genre();
+        $genre->fill($request->except('_token'));
+        $genre->save();
+        return redirect()->route('genres.genres');
     }
 
     /**
@@ -58,7 +65,9 @@ class GenreController extends Controller
      */
     public function edit(Genre $genre)
     {
-        //
+        return view('admin.genre.detail', [
+            'genre' => $genre,
+        ]);
     }
 
     /**
@@ -68,9 +77,11 @@ class GenreController extends Controller
      * @param  \App\Models\Genre  $genre
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateGenreRequest $request, Genre $genre)
+    public function update(Request $request, Genre $genre)
     {
-        //
+        $genreInfo = $request->except('_token', '_method');
+        $genre->update($genreInfo);
+        return redirect()->route('genres.genres');
     }
 
     /**
@@ -81,6 +92,7 @@ class GenreController extends Controller
      */
     public function destroy(Genre $genre)
     {
-        //
+        $genre->delete();
+        return redirect()->route('genres.genres');
     }
 }
