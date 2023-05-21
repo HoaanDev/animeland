@@ -97,8 +97,8 @@ class UserController extends Controller
             $file->move($destinationPath, $fileName);
 
             //for update in table
-            $user->update($user);
         }
+        $user->update($userInfo);
         return redirect()->route('users.users');
     }
 
