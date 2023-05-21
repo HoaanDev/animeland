@@ -11,7 +11,7 @@
                     <div class="page-title-icon">
                         <i class="pe-7s-medal icon-gradient bg-tempting-azure"></i>
                     </div>
-                    <div>Data Tables Users
+                    <div>Data Tables Animes
                         {{-- <div class="page-title-subheading">Choose between regular React Bootstrap tables or--}}
                         {{-- advanced dynamic ones.</div>--}}
                     </div>
@@ -44,14 +44,26 @@
                     @foreach($animes as $anime)
                         <tr>
                             <td>{{ $anime->title }}</td>
-                            <td>{{ $anime->description }}</td>
+                            <td>{{ Illuminate\Support\Str::limit($anime ->description, $limit = 40, $end = '...') }}</td>
                             <td><img src="media/thumbnail/{{ $anime->thumbnail }}" class="img-fluid w-25"></td>
                             <td>{{ $anime->studio }}</td>
                             <td>{{ $anime->release_date }}</td>
                             <td>{{ $anime->duration }}</td>
                             <td>{{ $anime->imdb_rating }}</td>
-                            <td>{{ $anime->category }}</td>
-                            <td>{{ $anime->status }}</td>
+                            <td>
+                                @if($anime->category == 0)
+                                    {{ 'Series' }}
+                                @else
+                                    {{ 'Single' }}
+                                @endif
+                            </td>
+                            <td>
+                                @if($anime->status == 0)
+                                    {{ 'On Going' }}
+                                @else
+                                    {{ 'Completed' }}
+                                @endif
+                            </td>
                             <td>
                                 <button class="btn-transition btn btn-outline-info"
                                         onclick="window.location.href='{{ route('animes.detail', $anime) }}'">Detail
