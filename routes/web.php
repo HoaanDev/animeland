@@ -68,6 +68,11 @@ Route::group(['prefix' => 'animes', 'as' => 'animes.'], function () {
 //Episodes
 Route::group(['prefix' => 'episodes', 'as' => 'episodes.'], function () {
     Route::get('/episodes', [EpisodeController::class, 'index'])->name('episodes');
+    Route::get('/create', [EpisodeController::class, 'create'])->name('create');
+    Route::post('/store', [EpisodeController::class, 'store'])->name('store');
+    Route::get('/detail/{episode}', [EpisodeController::class, 'edit'])->name('detail');
+    Route::post('/update/{episode}', [EpisodeController::class, 'update'])->name('update');
+    Route::delete('/destroy/{episode}', [EpisodeController::class, 'destroy'])->name('destroy');
 });
 
 //Genres
