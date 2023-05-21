@@ -73,6 +73,11 @@ Route::group(['prefix' => 'episodes', 'as' => 'episodes.'], function () {
 //Genres
 Route::group(['prefix' => 'genres', 'as' => 'genres.'], function () {
     Route::get('/genres', [GenreController::class, 'index'])->name('genres');
+    Route::get('/create', [GenreController::class, 'create'])->name('create');
+    Route::post('/store', [GenreController::class, 'store'])->name('store');
+    Route::get('/detail/{genre}', [GenreController::class, 'edit'])->name('detail');
+    Route::post('/update/{genre}', [GenreController::class, 'update'])->name('update');
+    Route::delete('/destroy/{genre}', [GenreController::class, 'destroy'])->name('destroy');
 });
 
 //Comments
