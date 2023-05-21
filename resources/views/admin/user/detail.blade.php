@@ -52,7 +52,7 @@
                         <img src="{{ asset("media/avatar/$user->avatar") }}" class="w-25 d-block" alt="avatar" >
                         <div>
                             <label for="avatar">Pick a new avatar here</label>
-                            <input type="file" class="" id="avatar" name="avatar" placeholder="Avatar">
+                            <input type="file" class="form-control" id="avatar" name="avatar" placeholder="Avatar">
                         </div>
                     </div>
                     <div class="form-group">
