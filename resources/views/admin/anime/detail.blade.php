@@ -132,6 +132,21 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="genres">Genres</label>
+                        <select class="multiselect-dropdown form-control" id="genres" name="genres[]" multiple>
+                            @foreach ($genres as $genre)
+
+                                <option value="{{ $genre->id}}"
+                                        @foreach($anime_genre as $agenre)
+                                            @if($genre->id == $agenre->id)
+                                                selected
+                                    @endif
+                                    @endforeach
+                                > {{ $genre->name }} </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <button type="submit" class="mb-2 mr-2 btn btn-warning">Update</button>
                     </div>
                 </form>
