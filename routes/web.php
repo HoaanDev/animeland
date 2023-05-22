@@ -87,14 +87,11 @@ Route::group(['prefix' => 'genres', 'as' => 'genres.'], function () {
 //Comments
 Route::group(['prefix' => 'comments', 'as' => 'comments.'], function () {
     Route::get('/comments', [CommentController::class, 'index'])->name('comments');
+    Route::get('/create', [CommentController::class, 'create'])->name('create');
+    Route::post('/store', [CommentController::class, 'store'])->name('store');
+    Route::get('/detail/{comment}', [CommentController::class, 'edit'])->name('detail');
+    Route::post('/update/{comment}', [CommentController::class, 'update'])->name('update');
+    Route::delete('/destroy/{comment}', [CommentController::class, 'destroy'])->name('destroy');
 });
 
-////Animes_Genres
-//Route::group(['prefix' => 'anime_genres', 'as' => 'anime_genres.'], function () {
-//    Route::get('/', [AnimeGenreController::class, 'index'])->name('anime_genres');
-//    Route::get('/create', [AnimeGenreController::class, 'create'])->name('create');
-//    Route::post('/store', [AnimeGenreController::class, 'store'])->name('store');
-//    Route::get('/detail/{anime_genre}', [AnimeGenreController::class, 'edit'])->name('detail');
-//    Route::post('/update/{anime_genre}', [AnimeGenreController::class, 'update'])->name('update');
-//    Route::delete('/destroy/{anime_genre}', [AnimeGenreController::class, 'destroy'])->name('destroy');
-//});
+
