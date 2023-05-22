@@ -7,100 +7,30 @@
     <!--=        Banner Area Start          =-->
     <!--=====================================-->
     <section class="banner style-1 banner-slider">
-        <div class="banner-block overflow-hidden style-1">
-            <div class="container">
-                <div class="banner-content">
-                    <div class="row">
-                        <div class="col-lg-5 col-12">
-                            <h2 class="title">
-                                ATTACK ON <br/>
-                                <b>TITANS</b>
-                            </h2>
-                            <p class="text">SEASON 3</p>
-                            <a href="{{ route('watching') }}" class="text-box active">pg-13</a>
-                            <a href="{{ route('watching') }}" class="text-box">dub</a>
-                            <a href="{{ route('watching') }}" class="text-box">sub</a>
-                            <p class="light-text">APRIL 07, 2013</p>
-                            <p>
-                                At vero eos et accusamus et iusto odio dignissimos ducimus
-                                qui blanditiis praesentium voluptatum deleniti atque
-                                corrupti quos dolores et quas molestias excepturi sint
-                                occaecati cupiditate non provident.
-                            </p>
-                            <a class="banner-btn" href="{{ route('watching') }}"
-                            >PLAY NOW</a
-                            >
-                        </div>
-                        <div class="col-lg-7 col-12">
-                            <img src="media/banner/banner-img-1.png" alt=""/>
+        @foreach($animes as $anime)
+            <div class="banner-block overflow-hidden style-1">
+                <div class="container">
+                    <div class="banner-content">
+                        <div class="row">
+                            <div class="col-lg-5 col-12">
+                                <h2 class="title">{{ $anime->title }}</h2>
+                                <p class="light-text">{{ $anime->release_date }}</p>
+                                <p>
+                                    {{ Illuminate\Support\Str::limit($anime ->description, $limit = 80, $end = '...') }}
+                                </p>
+                                <a class="banner-btn" href="{{ route('watching', $anime) }}"
+                                >PLAY NOW</a
+                                >
+                            </div>
+                            <div class="col-lg-7 col-12">
+                                <img src="{{ asset("media/thumbnail/$anime->thumbnail") }}" alt=""/>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="banner-block overflow-hidden style-2">
-            <div class="container">
-                <div class="banner-content">
-                    <div class="row">
-                        <div class="col-lg-5 col-12">
-                            <h2 class="title">
-                                MY HERO<br/>
-                                <b>ACADEMIA</b>
-                            </h2>
-                            <p class="text">SEASON 4</p>
-                            <a href="{{ route('watching') }}" class="text-box active"
-                            >pg-13</a
-                            >
-                            <a href="{{ route('watching') }}" class="text-box">dub</a>
-                            <a href="{{ route('watching') }}" class="text-box">sub</a>
-                            <p class="light-text">APRIL 07, 2014</p>
-                            <p>
-                                At vero eos et accusamus et iusto odio dignissimos ducimus
-                                qui blanditiis praesentium voluptatum deleniti atque
-                                corrupti quos dolores et quas molestias excepturi sint
-                                occaecati cupiditate non provident.
-                            </p>
-                            <a class="banner-btn" href="{{ route('watching') }}"
-                            >PLAY NOW</a
-                            >
-                        </div>
-                        <div class="col-lg-7 col-12">
-                            <img src="media/banner/banner-img-2.png" alt=""/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="banner-block overflow-hidden style-3">
-            <div class="container">
-                <div class="banner-content">
-                    <div class="row">
-                        <div class="col-lg-5 col-12">
-                            <h2 class="title">ONE <b>PEICE</b></h2>
-                            <p class="text">SEASON 5</p>
-                            <a href="{{ route('watching') }}" class="text-box active"
-                            >pg-13</a
-                            >
-                            <a href="{{ route('watching') }}" class="text-box">dub</a>
-                            <a href="{{ route('watching') }}" class="text-box">sub</a>
-                            <p class="light-text">APRIL 07, 2015</p>
-                            <p>
-                                At vero eos et accusamus et iusto odio dignissimos ducimus
-                                qui blanditiis praesentium voluptatum deleniti atque
-                                corrupti quos dolores et quas molestias excepturi sint
-                                occaecati cupiditate non provident.
-                            </p>
-                            <a class="banner-btn" href="{{ route('watching') }}"
-                            >PLAY NOW</a
-                            >
-                        </div>
-                        <div class="col-lg-7 col-12">
-                            <img src="media/banner/banner-img-3.png" alt=""/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </section>
     <!--=====================================-->
     <!--=        Recent Area Start          =-->
@@ -111,647 +41,98 @@
                 <h2>Recently Updated <span>Sunday 01 Jan 2023</span></h2>
             </div>
             <div class="row">
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-                    <div class="anime-blog">
-                        <a href="{{ route('watching') }}" class="img-block">
-                            <img src="media/anime/img-1.png" alt=""/>
-                        </a>
-                        <a href="{{ route('watching') }}" class="action-overlay"
-                        ><i class="fal fa-play-circle"></i> Play Now</a
-                        >
-                        <a href="{{ route('watching') }}" class="action-overlay"
-                        ><i class="fal fa-play-circle"></i> Play Now</a
-                        >
-                        <p class="text-box">dub 8</p>
-                        <p class="text-box">sub 12</p>
-                        <p class="text">Tv</p>
-                        <div class="dropdown">
-                            <button
-                                type="button"
-                                class="dropdown-toggle"
-                                data-bs-toggle="dropdown"
+                @foreach($recentAnimes as $recentAnime)
+                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                        <div class="anime-blog">
+                            <a href="{{ route('watching', $recentAnime) }}" class="img-block">
+                                <img src="{{ asset("media/thumbnail/$recentAnime->thumbnail") }}" alt=""/>
+                            </a>
+                            <a href="{{ route('watching', $recentAnime) }}" class="action-overlay"
+                            ><i class="fal fa-play-circle"></i> Play Now</a
                             >
-                                <svg
-                                    width="32"
-                                    height="22"
-                                    viewBox="0 0 32 22"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <rect
-                                        x="0.145264"
-                                        y="0.00012207"
-                                        width="21.4395"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <rect
-                                        x="0.145264"
-                                        y="7.41272"
-                                        width="21.4395"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <rect
-                                        x="0.145264"
-                                        y="14.8258"
-                                        width="16.4914"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <path
-                                        d="M19.8784 16.0712C19.8784 15.4163 20.4093 14.8854 21.0642 14.8854H30.2463C30.9011 14.8854 31.432 15.4163 31.432 16.0712C31.432 16.7261 30.9011 17.257 30.2463 17.257H21.0642C20.4093 17.257 19.8784 16.7261 19.8784 16.0712Z"
-                                        fill="#999999"
-                                    />
-                                    <path
-                                        d="M25.6552 22.0001C25.0171 22.0001 24.4999 21.4828 24.4999 20.8447V11.2977C24.4999 10.6596 25.0171 10.1423 25.6552 10.1423C26.2933 10.1423 26.8106 10.6596 26.8106 11.2977V20.8447C26.8106 21.4828 26.2933 22.0001 25.6552 22.0001Z"
-                                        fill="#999999"
-                                    />
-                                </svg>
-                            </button>
-                            <ul class="dropdown-menu bg-color-black pt-3 pb-3 ps-3 pe-3">
-                                <li>
-                                    <a href="" class="none"
-                                    ><i class="fa fa-check"></i> Watch Later
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href=""
-                                    ><i class="fas fa-plus"></i> Add to Playlist
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="{{ route('watching') }}">
-                            <p>One Piece</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-                    <div class="anime-blog">
-                        <a href="{{ route('watching') }}" class="img-block">
-                            <img src="media/anime/img-2.png" alt=""/>
-                        </a>
-                        <a href="{{ route('watching') }}" class="action-overlay"
-                        ><i class="fal fa-play-circle"></i> Play Now</a
-                        >
-                        <p class="text-box">dub 8</p>
-                        <p class="text-box">sub 12</p>
-                        <p class="text">Tv</p>
-                        <div class="dropdown">
-                            <button
-                                type="button"
-                                class="dropdown-toggle"
-                                data-bs-toggle="dropdown"
+                            <a href="{{ route('watching', $recentAnime) }}" class="action-overlay"
+                            ><i class="fal fa-play-circle"></i> Play Now</a
                             >
-                                <svg
-                                    width="32"
-                                    height="22"
-                                    viewBox="0 0 32 22"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
+                            <p class="light-text">{{ $recentAnime->imdb_rating }}</p>
+                            <p class="text">
+                                @if($recentAnime->category == "0")
+                                    {{ 'Series' }}
+                                @else
+                                    {{ 'Single' }}
+                                @endif
+                            </p>
+                            <div class="dropdown">
+                                <button
+                                    type="button"
+                                    class="dropdown-toggle"
+                                    data-bs-toggle="dropdown"
                                 >
-                                    <rect
-                                        x="0.145264"
-                                        y="0.00012207"
-                                        width="21.4395"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <rect
-                                        x="0.145264"
-                                        y="7.41272"
-                                        width="21.4395"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <rect
-                                        x="0.145264"
-                                        y="14.8258"
-                                        width="16.4914"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <path
-                                        d="M19.8784 16.0712C19.8784 15.4163 20.4093 14.8854 21.0642 14.8854H30.2463C30.9011 14.8854 31.432 15.4163 31.432 16.0712C31.432 16.7261 30.9011 17.257 30.2463 17.257H21.0642C20.4093 17.257 19.8784 16.7261 19.8784 16.0712Z"
-                                        fill="#999999"
-                                    />
-                                    <path
-                                        d="M25.6552 22.0001C25.0171 22.0001 24.4999 21.4828 24.4999 20.8447V11.2977C24.4999 10.6596 25.0171 10.1423 25.6552 10.1423C26.2933 10.1423 26.8106 10.6596 26.8106 11.2977V20.8447C26.8106 21.4828 26.2933 22.0001 25.6552 22.0001Z"
-                                        fill="#999999"
-                                    />
-                                </svg>
-                            </button>
-                            <ul class="dropdown-menu bg-color-black pt-3 pb-3 ps-3 pe-3">
-                                <li>
-                                    <a href="" class="none"
-                                    ><i class="fa fa-check"></i> Watch Later
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href=""
-                                    ><i class="fas fa-plus"></i> Add to Playlist
-                                    </a>
-                                </li>
-                            </ul>
+                                    <svg
+                                        width="32"
+                                        height="22"
+                                        viewBox="0 0 32 22"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <rect
+                                            x="0.145264"
+                                            y="0.00012207"
+                                            width="21.4395"
+                                            height="2.68125"
+                                            rx="1.34062"
+                                            fill="#999999"
+                                        />
+                                        <rect
+                                            x="0.145264"
+                                            y="7.41272"
+                                            width="21.4395"
+                                            height="2.68125"
+                                            rx="1.34062"
+                                            fill="#999999"
+                                        />
+                                        <rect
+                                            x="0.145264"
+                                            y="14.8258"
+                                            width="16.4914"
+                                            height="2.68125"
+                                            rx="1.34062"
+                                            fill="#999999"
+                                        />
+                                        <path
+                                            d="M19.8784 16.0712C19.8784 15.4163 20.4093 14.8854 21.0642 14.8854H30.2463C30.9011 14.8854 31.432 15.4163 31.432 16.0712C31.432 16.7261 30.9011 17.257 30.2463 17.257H21.0642C20.4093 17.257 19.8784 16.7261 19.8784 16.0712Z"
+                                            fill="#999999"
+                                        />
+                                        <path
+                                            d="M25.6552 22.0001C25.0171 22.0001 24.4999 21.4828 24.4999 20.8447V11.2977C24.4999 10.6596 25.0171 10.1423 25.6552 10.1423C26.2933 10.1423 26.8106 10.6596 26.8106 11.2977V20.8447C26.8106 21.4828 26.2933 22.0001 25.6552 22.0001Z"
+                                            fill="#999999"
+                                        />
+                                    </svg>
+                                </button>
+                                <ul class="dropdown-menu bg-color-black pt-3 pb-3 ps-3 pe-3">
+                                    <li>
+                                        <a href="" class="none"
+                                        ><i class="fa fa-check"></i> Watch Later
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href=""
+                                        ><i class="fas fa-plus"></i> Add to Playlist
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="{{ route('watching', $anime) }}">
+                                <p>{{ $recentAnime->title }}</p>
+                            </a>
                         </div>
-                        <a href="{{ route('watching') }}">
-                            <p>My Hero Academia</p>
-                        </a>
                     </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-                    <div class="anime-blog">
-                        <a href="{{ route('watching') }}" class="img-block">
-                            <img src="media/anime/img-3.png" alt=""/>
-                        </a>
-                        <a href="{{ route('watching') }}" class="action-overlay"
-                        ><i class="fal fa-play-circle"></i> Play Now</a
-                        >
-                        <p class="text-box">dub 8</p>
-                        <p class="text-box">sub 12</p>
-                        <p class="text">Tv</p>
-                        <div class="dropdown">
-                            <button
-                                type="button"
-                                class="dropdown-toggle"
-                                data-bs-toggle="dropdown"
-                            >
-                                <svg
-                                    width="32"
-                                    height="22"
-                                    viewBox="0 0 32 22"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <rect
-                                        x="0.145264"
-                                        y="0.00012207"
-                                        width="21.4395"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <rect
-                                        x="0.145264"
-                                        y="7.41272"
-                                        width="21.4395"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <rect
-                                        x="0.145264"
-                                        y="14.8258"
-                                        width="16.4914"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <path
-                                        d="M19.8784 16.0712C19.8784 15.4163 20.4093 14.8854 21.0642 14.8854H30.2463C30.9011 14.8854 31.432 15.4163 31.432 16.0712C31.432 16.7261 30.9011 17.257 30.2463 17.257H21.0642C20.4093 17.257 19.8784 16.7261 19.8784 16.0712Z"
-                                        fill="#999999"
-                                    />
-                                    <path
-                                        d="M25.6552 22.0001C25.0171 22.0001 24.4999 21.4828 24.4999 20.8447V11.2977C24.4999 10.6596 25.0171 10.1423 25.6552 10.1423C26.2933 10.1423 26.8106 10.6596 26.8106 11.2977V20.8447C26.8106 21.4828 26.2933 22.0001 25.6552 22.0001Z"
-                                        fill="#999999"
-                                    />
-                                </svg>
-                            </button>
-                            <ul class="dropdown-menu bg-color-black pt-3 pb-3 ps-3 pe-3">
-                                <li>
-                                    <a href="" class="none"
-                                    ><i class="fa fa-check"></i> Watch Later
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href=""
-                                    ><i class="fas fa-plus"></i> Add to Playlist
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="{{ route('watching') }}">
-                            <p>Blue Lock</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-                    <div class="anime-blog">
-                        <a href="{{ route('watching') }}" class="img-block">
-                            <img src="media/anime/img-4.png" alt=""/>
-                        </a>
-                        <a href="{{ route('watching') }}" class="action-overlay"
-                        ><i class="fal fa-play-circle"></i> Play Now</a
-                        >
-                        <p class="text-box">dub 8</p>
-                        <p class="text-box">sub 12</p>
-                        <p class="text">Tv</p>
-                        <div class="dropdown">
-                            <button
-                                type="button"
-                                class="dropdown-toggle"
-                                data-bs-toggle="dropdown"
-                            >
-                                <svg
-                                    width="32"
-                                    height="22"
-                                    viewBox="0 0 32 22"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <rect
-                                        x="0.145264"
-                                        y="0.00012207"
-                                        width="21.4395"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <rect
-                                        x="0.145264"
-                                        y="7.41272"
-                                        width="21.4395"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <rect
-                                        x="0.145264"
-                                        y="14.8258"
-                                        width="16.4914"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <path
-                                        d="M19.8784 16.0712C19.8784 15.4163 20.4093 14.8854 21.0642 14.8854H30.2463C30.9011 14.8854 31.432 15.4163 31.432 16.0712C31.432 16.7261 30.9011 17.257 30.2463 17.257H21.0642C20.4093 17.257 19.8784 16.7261 19.8784 16.0712Z"
-                                        fill="#999999"
-                                    />
-                                    <path
-                                        d="M25.6552 22.0001C25.0171 22.0001 24.4999 21.4828 24.4999 20.8447V11.2977C24.4999 10.6596 25.0171 10.1423 25.6552 10.1423C26.2933 10.1423 26.8106 10.6596 26.8106 11.2977V20.8447C26.8106 21.4828 26.2933 22.0001 25.6552 22.0001Z"
-                                        fill="#999999"
-                                    />
-                                </svg>
-                            </button>
-                            <ul class="dropdown-menu bg-color-black pt-3 pb-3 ps-3 pe-3">
-                                <li>
-                                    <a href="" class="none"
-                                    ><i class="fa fa-check"></i> Watch Later
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href=""
-                                    ><i class="fas fa-plus"></i> Add to Playlist
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="{{ route('watching') }}">
-                            <p>One Piece</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-                    <div class="anime-blog">
-                        <a href="{{ route('watching') }}" class="img-block">
-                            <img src="media/anime/img-5.png" alt=""/>
-                        </a>
-                        <a href="{{ route('watching') }}" class="action-overlay"
-                        ><i class="fal fa-play-circle"></i> Play Now</a
-                        >
-                        <p class="text-box">dub 8</p>
-                        <p class="text-box">sub 12</p>
-                        <p class="text">Tv</p>
-                        <div class="dropdown">
-                            <button
-                                type="button"
-                                class="dropdown-toggle"
-                                data-bs-toggle="dropdown"
-                            >
-                                <svg
-                                    width="32"
-                                    height="22"
-                                    viewBox="0 0 32 22"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <rect
-                                        x="0.145264"
-                                        y="0.00012207"
-                                        width="21.4395"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <rect
-                                        x="0.145264"
-                                        y="7.41272"
-                                        width="21.4395"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <rect
-                                        x="0.145264"
-                                        y="14.8258"
-                                        width="16.4914"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <path
-                                        d="M19.8784 16.0712C19.8784 15.4163 20.4093 14.8854 21.0642 14.8854H30.2463C30.9011 14.8854 31.432 15.4163 31.432 16.0712C31.432 16.7261 30.9011 17.257 30.2463 17.257H21.0642C20.4093 17.257 19.8784 16.7261 19.8784 16.0712Z"
-                                        fill="#999999"
-                                    />
-                                    <path
-                                        d="M25.6552 22.0001C25.0171 22.0001 24.4999 21.4828 24.4999 20.8447V11.2977C24.4999 10.6596 25.0171 10.1423 25.6552 10.1423C26.2933 10.1423 26.8106 10.6596 26.8106 11.2977V20.8447C26.8106 21.4828 26.2933 22.0001 25.6552 22.0001Z"
-                                        fill="#999999"
-                                    />
-                                </svg>
-                            </button>
-                            <ul class="dropdown-menu bg-color-black pt-3 pb-3 ps-3 pe-3">
-                                <li>
-                                    <a href="" class="none"
-                                    ><i class="fa fa-check"></i> Watch Later
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href=""
-                                    ><i class="fas fa-plus"></i> Add to Playlist
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="{{ route('watching') }}">
-                            <p>Haikyu</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-                    <div class="anime-blog">
-                        <a href="{{ route('watching') }}" class="img-block">
-                            <img src="media/anime/img-6.png" alt=""/>
-                        </a>
-                        <a href="{{ route('watching') }}" class="action-overlay"
-                        ><i class="fal fa-play-circle"></i> Play Now</a
-                        >
-                        <p class="text-box">dub 8</p>
-                        <p class="text-box">sub 12</p>
-                        <p class="text">Tv</p>
-                        <div class="dropdown">
-                            <button
-                                type="button"
-                                class="dropdown-toggle"
-                                data-bs-toggle="dropdown"
-                            >
-                                <svg
-                                    width="32"
-                                    height="22"
-                                    viewBox="0 0 32 22"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <rect
-                                        x="0.145264"
-                                        y="0.00012207"
-                                        width="21.4395"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <rect
-                                        x="0.145264"
-                                        y="7.41272"
-                                        width="21.4395"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <rect
-                                        x="0.145264"
-                                        y="14.8258"
-                                        width="16.4914"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <path
-                                        d="M19.8784 16.0712C19.8784 15.4163 20.4093 14.8854 21.0642 14.8854H30.2463C30.9011 14.8854 31.432 15.4163 31.432 16.0712C31.432 16.7261 30.9011 17.257 30.2463 17.257H21.0642C20.4093 17.257 19.8784 16.7261 19.8784 16.0712Z"
-                                        fill="#999999"
-                                    />
-                                    <path
-                                        d="M25.6552 22.0001C25.0171 22.0001 24.4999 21.4828 24.4999 20.8447V11.2977C24.4999 10.6596 25.0171 10.1423 25.6552 10.1423C26.2933 10.1423 26.8106 10.6596 26.8106 11.2977V20.8447C26.8106 21.4828 26.2933 22.0001 25.6552 22.0001Z"
-                                        fill="#999999"
-                                    />
-                                </svg>
-                            </button>
-                            <ul class="dropdown-menu bg-color-black pt-3 pb-3 ps-3 pe-3">
-                                <li>
-                                    <a href="" class="none"
-                                    ><i class="fa fa-check"></i> Watch Later
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href=""
-                                    ><i class="fas fa-plus"></i> Add to Playlist
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="{{ route('watching') }}">
-                            <p>Psycho Pass</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-                    <div class="anime-blog">
-                        <a href="streaming-movie.html" class="img-block">
-                            <img src="media/anime/img-7.png" alt=""/>
-                        </a>
-                        <a href="./streaming-movie.html" class="action-overlay"
-                        ><i class="fal fa-play-circle"></i> Play Now</a
-                        >
-                        <p class="text-box">dub 8</p>
-                        <p class="text-box">sub 12</p>
-                        <p class="text">Movie</p>
-                        <div class="dropdown">
-                            <button
-                                type="button"
-                                class="dropdown-toggle"
-                                data-bs-toggle="dropdown"
-                            >
-                                <svg
-                                    width="32"
-                                    height="22"
-                                    viewBox="0 0 32 22"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <rect
-                                        x="0.145264"
-                                        y="0.00012207"
-                                        width="21.4395"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <rect
-                                        x="0.145264"
-                                        y="7.41272"
-                                        width="21.4395"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <rect
-                                        x="0.145264"
-                                        y="14.8258"
-                                        width="16.4914"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <path
-                                        d="M19.8784 16.0712C19.8784 15.4163 20.4093 14.8854 21.0642 14.8854H30.2463C30.9011 14.8854 31.432 15.4163 31.432 16.0712C31.432 16.7261 30.9011 17.257 30.2463 17.257H21.0642C20.4093 17.257 19.8784 16.7261 19.8784 16.0712Z"
-                                        fill="#999999"
-                                    />
-                                    <path
-                                        d="M25.6552 22.0001C25.0171 22.0001 24.4999 21.4828 24.4999 20.8447V11.2977C24.4999 10.6596 25.0171 10.1423 25.6552 10.1423C26.2933 10.1423 26.8106 10.6596 26.8106 11.2977V20.8447C26.8106 21.4828 26.2933 22.0001 25.6552 22.0001Z"
-                                        fill="#999999"
-                                    />
-                                </svg>
-                            </button>
-                            <ul class="dropdown-menu bg-color-black pt-3 pb-3 ps-3 pe-3">
-                                <li>
-                                    <a href="" class="none"
-                                    ><i class="fa fa-check"></i> Watch Later
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href=""
-                                    ><i class="fas fa-plus"></i> Add to Playlist
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="./streaming-movie.html">
-                            <p>Your Name</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-                    <div class="anime-blog">
-                        <a href="{{ route('watching') }}" class="img-block">
-                            <img src="media/anime/img-8.png" alt=""/>
-                        </a>
-                        <a href="{{ route('watching') }}" class="action-overlay"
-                        ><i class="fal fa-play-circle"></i> Play Now</a
-                        >
-                        <p class="text-box">dub 8</p>
-                        <p class="text-box">sub 12</p>
-                        <p class="text">Tv</p>
-                        <div class="dropdown">
-                            <button
-                                type="button"
-                                class="dropdown-toggle"
-                                data-bs-toggle="dropdown"
-                            >
-                                <svg
-                                    width="32"
-                                    height="22"
-                                    viewBox="0 0 32 22"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <rect
-                                        x="0.145264"
-                                        y="0.00012207"
-                                        width="21.4395"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <rect
-                                        x="0.145264"
-                                        y="7.41272"
-                                        width="21.4395"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <rect
-                                        x="0.145264"
-                                        y="14.8258"
-                                        width="16.4914"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <path
-                                        d="M19.8784 16.0712C19.8784 15.4163 20.4093 14.8854 21.0642 14.8854H30.2463C30.9011 14.8854 31.432 15.4163 31.432 16.0712C31.432 16.7261 30.9011 17.257 30.2463 17.257H21.0642C20.4093 17.257 19.8784 16.7261 19.8784 16.0712Z"
-                                        fill="#999999"
-                                    />
-                                    <path
-                                        d="M25.6552 22.0001C25.0171 22.0001 24.4999 21.4828 24.4999 20.8447V11.2977C24.4999 10.6596 25.0171 10.1423 25.6552 10.1423C26.2933 10.1423 26.8106 10.6596 26.8106 11.2977V20.8447C26.8106 21.4828 26.2933 22.0001 25.6552 22.0001Z"
-                                        fill="#999999"
-                                    />
-                                </svg>
-                            </button>
-                            <ul class="dropdown-menu bg-color-black pt-3 pb-3 ps-3 pe-3">
-                                <li>
-                                    <a href="" class="none"
-                                    ><i class="fa fa-check"></i> Watch Later
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href=""
-                                    ><i class="fas fa-plus"></i> Add to Playlist
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="{{ route('watching') }}">
-                            <p>Darling in the Franxx!</p>
-                        </a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
-    <!--=====================================-->
-    <!--=        Coming out Area Start     =-->
-    <!--=====================================-->
-    <section class="coming-out style-1 sec-mar sec-pad">
-        <div class="container">
-            <div class="comingOut-content">
-                <h2 class="title">
-                    ATTACK ON <br/>
-                    TITANS
-                </h2>
-                <p class="light-text">Season 4</p>
-                <p class="text">Dark fantasy, Post Apocalyptic</p>
-                <p class="text-box active">Pg-13</p>
-                <p class="text-box">dub</p>
-                <p class="text-box">sub</p>
-                <p class="copyright-text">Coming Out in</p>
-                <ul class="timer countdown">
-                    <li>29<small>d</small></li>
-                    <li>23<small>h</small></li>
-                    <li>50<small>m</small></li>
-                    <li>34<small>s</small></li>
-                </ul>
-            </div>
-        </div>
     </section>
     <!--=====================================-->
-    <!--=        Popular Anime Area Start =-->
+    <!--=        Best Rating Anime Area Start =-->
     <!--=====================================-->
     <section class="popular sec-mar">
         <div class="container">
@@ -759,310 +140,89 @@
                 <h2>Popular Anime</h2>
             </div>
             <div class="row">
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-                    <div class="anime-blog">
-                        <a href="{{ route('watching') }}" class="img-block">
-                            <img src="media/anime/img-5.png" alt=""/>
-                        </a>
-                        <a href="{{ route('watching') }}" class="action-overlay"
-                        ><i class="fal fa-play-circle"></i> Play Now</a
-                        >
-                        <p class="text-box">dub 8</p>
-                        <p class="text-box">sub 12</p>
-                        <p class="text">Tv</p>
-                        <div class="dropdown">
-                            <button
-                                type="button"
-                                class="dropdown-toggle"
-                                data-bs-toggle="dropdown"
+                @foreach($bestAnimes as $bestAnime)
+                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+                        <div class="anime-blog">
+                            <a href="{{ route('watching', $anime) }}" class="img-block">
+                                <img src="{{ asset("media/thumbnail/$bestAnime->thumbnail") }}" alt=""/>
+                            </a>
+                            <a href="{{ route('watching', $anime) }}" class="action-overlay"
+                            ><i class="fal fa-play-circle"></i> Play Now</a
                             >
-                                <svg
-                                    width="32"
-                                    height="22"
-                                    viewBox="0 0 32 22"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
+                            <p class="light-text">{{ $bestAnime->imdb_rating }}</p>
+                            <p class="text">
+                                @if($bestAnime->category == "0")
+                                    {{ 'Series' }}
+                                @else
+                                    {{ 'Single' }}
+                                @endif
+                            </p>
+                            <div class="dropdown">
+                                <button
+                                    type="button"
+                                    class="dropdown-toggle"
+                                    data-bs-toggle="dropdown"
                                 >
-                                    <rect
-                                        x="0.145264"
-                                        y="0.00012207"
-                                        width="21.4395"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <rect
-                                        x="0.145264"
-                                        y="7.41272"
-                                        width="21.4395"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <rect
-                                        x="0.145264"
-                                        y="14.8258"
-                                        width="16.4914"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <path
-                                        d="M19.8784 16.0712C19.8784 15.4163 20.4093 14.8854 21.0642 14.8854H30.2463C30.9011 14.8854 31.432 15.4163 31.432 16.0712C31.432 16.7261 30.9011 17.257 30.2463 17.257H21.0642C20.4093 17.257 19.8784 16.7261 19.8784 16.0712Z"
-                                        fill="#999999"
-                                    />
-                                    <path
-                                        d="M25.6552 22.0001C25.0171 22.0001 24.4999 21.4828 24.4999 20.8447V11.2977C24.4999 10.6596 25.0171 10.1423 25.6552 10.1423C26.2933 10.1423 26.8106 10.6596 26.8106 11.2977V20.8447C26.8106 21.4828 26.2933 22.0001 25.6552 22.0001Z"
-                                        fill="#999999"
-                                    />
-                                </svg>
-                            </button>
-                            <ul class="dropdown-menu bg-color-black pt-3 pb-3 ps-3 pe-3">
-                                <li>
-                                    <a href="" class="none"
-                                    ><i class="fa fa-check"></i> Watch Later
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href=""
-                                    ><i class="fas fa-plus"></i> Add to Playlist
-                                    </a>
-                                </li>
-                            </ul>
+                                    <svg
+                                        width="32"
+                                        height="22"
+                                        viewBox="0 0 32 22"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <rect
+                                            x="0.145264"
+                                            y="0.00012207"
+                                            width="21.4395"
+                                            height="2.68125"
+                                            rx="1.34062"
+                                            fill="#999999"
+                                        />
+                                        <rect
+                                            x="0.145264"
+                                            y="7.41272"
+                                            width="21.4395"
+                                            height="2.68125"
+                                            rx="1.34062"
+                                            fill="#999999"
+                                        />
+                                        <rect
+                                            x="0.145264"
+                                            y="14.8258"
+                                            width="16.4914"
+                                            height="2.68125"
+                                            rx="1.34062"
+                                            fill="#999999"
+                                        />
+                                        <path
+                                            d="M19.8784 16.0712C19.8784 15.4163 20.4093 14.8854 21.0642 14.8854H30.2463C30.9011 14.8854 31.432 15.4163 31.432 16.0712C31.432 16.7261 30.9011 17.257 30.2463 17.257H21.0642C20.4093 17.257 19.8784 16.7261 19.8784 16.0712Z"
+                                            fill="#999999"
+                                        />
+                                        <path
+                                            d="M25.6552 22.0001C25.0171 22.0001 24.4999 21.4828 24.4999 20.8447V11.2977C24.4999 10.6596 25.0171 10.1423 25.6552 10.1423C26.2933 10.1423 26.8106 10.6596 26.8106 11.2977V20.8447C26.8106 21.4828 26.2933 22.0001 25.6552 22.0001Z"
+                                            fill="#999999"
+                                        />
+                                    </svg>
+                                </button>
+                                <ul class="dropdown-menu bg-color-black pt-3 pb-3 ps-3 pe-3">
+                                    <li>
+                                        <a href="" class="none"
+                                        ><i class="fa fa-check"></i> Watch Later
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href=""
+                                        ><i class="fas fa-plus"></i> Add to Playlist
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="{{ route('watching', $anime) }}">
+                                <p>{{ $bestAnime->title }}</p>
+                            </a>
                         </div>
-                        <a href="{{ route('watching') }}">
-                            <p>Haikyu</p>
-                        </a>
                     </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-                    <div class="anime-blog">
-                        <a href="{{ route('watching') }}" class="img-block">
-                            <img src="media/anime/img-6.png" alt=""/>
-                        </a>
-                        <a href="{{ route('watching') }}" class="action-overlay"
-                        ><i class="fal fa-play-circle"></i> Play Now</a
-                        >
-                        <p class="text-box">dub 8</p>
-                        <p class="text-box">sub 12</p>
-                        <p class="text">Tv</p>
-                        <div class="dropdown">
-                            <button
-                                type="button"
-                                class="dropdown-toggle"
-                                data-bs-toggle="dropdown"
-                            >
-                                <svg
-                                    width="32"
-                                    height="22"
-                                    viewBox="0 0 32 22"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <rect
-                                        x="0.145264"
-                                        y="0.00012207"
-                                        width="21.4395"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <rect
-                                        x="0.145264"
-                                        y="7.41272"
-                                        width="21.4395"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <rect
-                                        x="0.145264"
-                                        y="14.8258"
-                                        width="16.4914"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <path
-                                        d="M19.8784 16.0712C19.8784 15.4163 20.4093 14.8854 21.0642 14.8854H30.2463C30.9011 14.8854 31.432 15.4163 31.432 16.0712C31.432 16.7261 30.9011 17.257 30.2463 17.257H21.0642C20.4093 17.257 19.8784 16.7261 19.8784 16.0712Z"
-                                        fill="#999999"
-                                    />
-                                    <path
-                                        d="M25.6552 22.0001C25.0171 22.0001 24.4999 21.4828 24.4999 20.8447V11.2977C24.4999 10.6596 25.0171 10.1423 25.6552 10.1423C26.2933 10.1423 26.8106 10.6596 26.8106 11.2977V20.8447C26.8106 21.4828 26.2933 22.0001 25.6552 22.0001Z"
-                                        fill="#999999"
-                                    />
-                                </svg>
-                            </button>
-                            <ul class="dropdown-menu bg-color-black pt-3 pb-3 ps-3 pe-3">
-                                <li>
-                                    <a href="" class="none"
-                                    ><i class="fa fa-check"></i> Watch Later
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href=""
-                                    ><i class="fas fa-plus"></i> Add to Playlist
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="{{ route('watching') }}">
-                            <p>Psycho Pass</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-                    <div class="anime-blog">
-                        <a href="./streaming-movie.html" class="img-block">
-                            <img src="media/anime/img-7.png" alt=""/>
-                        </a>
-                        <a href="./streaming-movie.html" class="action-overlay"
-                        ><i class="fal fa-play-circle"></i> Play Now</a
-                        >
-                        <p class="text-box">dub 8</p>
-                        <p class="text-box">sub 12</p>
-                        <p class="text">Movie</p>
-                        <div class="dropdown">
-                            <button
-                                type="button"
-                                class="dropdown-toggle"
-                                data-bs-toggle="dropdown"
-                            >
-                                <svg
-                                    width="32"
-                                    height="22"
-                                    viewBox="0 0 32 22"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <rect
-                                        x="0.145264"
-                                        y="0.00012207"
-                                        width="21.4395"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <rect
-                                        x="0.145264"
-                                        y="7.41272"
-                                        width="21.4395"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <rect
-                                        x="0.145264"
-                                        y="14.8258"
-                                        width="16.4914"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <path
-                                        d="M19.8784 16.0712C19.8784 15.4163 20.4093 14.8854 21.0642 14.8854H30.2463C30.9011 14.8854 31.432 15.4163 31.432 16.0712C31.432 16.7261 30.9011 17.257 30.2463 17.257H21.0642C20.4093 17.257 19.8784 16.7261 19.8784 16.0712Z"
-                                        fill="#999999"
-                                    />
-                                    <path
-                                        d="M25.6552 22.0001C25.0171 22.0001 24.4999 21.4828 24.4999 20.8447V11.2977C24.4999 10.6596 25.0171 10.1423 25.6552 10.1423C26.2933 10.1423 26.8106 10.6596 26.8106 11.2977V20.8447C26.8106 21.4828 26.2933 22.0001 25.6552 22.0001Z"
-                                        fill="#999999"
-                                    />
-                                </svg>
-                            </button>
-                            <ul class="dropdown-menu bg-color-black pt-3 pb-3 ps-3 pe-3">
-                                <li>
-                                    <a href="" class="none"
-                                    ><i class="fa fa-check"></i> Watch Later
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href=""
-                                    ><i class="fas fa-plus"></i> Add to Playlist
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="./streaming-movie.html">
-                            <p>Your Name</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-                    <div class="anime-blog">
-                        <a href="{{ route('watching') }}" class="img-block">
-                            <img src="media/anime/img-8.png" alt=""/>
-                        </a>
-                        <a href="{{ route('watching') }}" class="action-overlay"
-                        ><i class="fal fa-play-circle"></i> Play Now</a
-                        >
-                        <p class="text-box">dub 8</p>
-                        <p class="text-box">sub 12</p>
-                        <p class="text">Tv</p>
-                        <div class="dropdown">
-                            <button
-                                type="button"
-                                class="dropdown-toggle"
-                                data-bs-toggle="dropdown"
-                            >
-                                <svg
-                                    width="32"
-                                    height="22"
-                                    viewBox="0 0 32 22"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <rect
-                                        x="0.145264"
-                                        y="0.00012207"
-                                        width="21.4395"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <rect
-                                        x="0.145264"
-                                        y="7.41272"
-                                        width="21.4395"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <rect
-                                        x="0.145264"
-                                        y="14.8258"
-                                        width="16.4914"
-                                        height="2.68125"
-                                        rx="1.34062"
-                                        fill="#999999"
-                                    />
-                                    <path
-                                        d="M19.8784 16.0712C19.8784 15.4163 20.4093 14.8854 21.0642 14.8854H30.2463C30.9011 14.8854 31.432 15.4163 31.432 16.0712C31.432 16.7261 30.9011 17.257 30.2463 17.257H21.0642C20.4093 17.257 19.8784 16.7261 19.8784 16.0712Z"
-                                        fill="#999999"
-                                    />
-                                    <path
-                                        d="M25.6552 22.0001C25.0171 22.0001 24.4999 21.4828 24.4999 20.8447V11.2977C24.4999 10.6596 25.0171 10.1423 25.6552 10.1423C26.2933 10.1423 26.8106 10.6596 26.8106 11.2977V20.8447C26.8106 21.4828 26.2933 22.0001 25.6552 22.0001Z"
-                                        fill="#999999"
-                                    />
-                                </svg>
-                            </button>
-                            <ul class="dropdown-menu bg-color-black pt-3 pb-3 ps-3 pe-3">
-                                <li>
-                                    <a href="" class="none"
-                                    ><i class="fa fa-check"></i> Watch Later
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href=""
-                                    ><i class="fas fa-plus"></i> Add to Playlist
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="{{ route('watching') }}">
-                            <p>Darling in the Franxx!</p>
-                        </a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -1189,7 +349,7 @@
                             </div>
                         </div>
                         <div class="tab-pane active" id="sunday">
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -1228,7 +388,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -1267,7 +427,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -1308,7 +468,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -1347,7 +507,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -1386,7 +546,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -1426,7 +586,7 @@
                             </a>
                         </div>
                         <div class="tab-pane" id="monday">
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -1465,7 +625,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -1504,7 +664,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -1545,7 +705,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -1584,7 +744,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -1623,7 +783,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -1663,7 +823,7 @@
                             </a>
                         </div>
                         <div class="tab-pane" id="tuesday">
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -1702,7 +862,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -1741,7 +901,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -1782,7 +942,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -1821,7 +981,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -1860,7 +1020,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -1900,7 +1060,7 @@
                             </a>
                         </div>
                         <div class="tab-pane" id="wednesday">
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -1939,7 +1099,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -1978,7 +1138,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -2019,7 +1179,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -2058,7 +1218,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -2097,7 +1257,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -2137,7 +1297,7 @@
                             </a>
                         </div>
                         <div class="tab-pane" id="thursday">
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -2176,7 +1336,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -2215,7 +1375,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -2256,7 +1416,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -2295,7 +1455,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -2334,7 +1494,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -2374,7 +1534,7 @@
                             </a>
                         </div>
                         <div class="tab-pane" id="friday">
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -2413,7 +1573,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -2452,7 +1612,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -2493,7 +1653,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -2532,7 +1692,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -2571,7 +1731,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -2611,7 +1771,7 @@
                             </a>
                         </div>
                         <div class="tab-pane" id="saturday">
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -2650,7 +1810,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -2689,7 +1849,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -2730,7 +1890,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -2769,7 +1929,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -2808,7 +1968,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching') }}">
+                            <a href="{{ route('watching', $anime) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -2861,7 +2021,7 @@
                 >
                     <h3>Top Rated Anime</h3>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching') }}">
+                        <a href="{{ route('watching', $anime) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                       <span class="light-text text-center color-primary"
@@ -2888,7 +2048,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching') }}">
+                        <a href="{{ route('watching', $anime) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <span class="light-text text-center color-purple">2</span>
@@ -2913,7 +2073,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching') }}">
+                        <a href="{{ route('watching', $anime) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <span class="light-text text-center color-grey">3</span>
@@ -2938,7 +2098,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching') }}">
+                        <a href="{{ route('watching', $anime) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <span class="light-text text-center">4</span>
@@ -2963,7 +2123,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching') }}">
+                        <a href="{{ route('watching', $anime) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <span class="light-text text-center">5</span>
@@ -2988,7 +2148,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching') }}">
+                        <a href="{{ route('watching', $anime) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <span class="light-text text-center">6</span>
@@ -3018,7 +2178,7 @@
                 >
                     <h3>New</h3>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching') }}">
+                        <a href="{{ route('watching', $anime) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
@@ -3040,7 +2200,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching') }}">
+                        <a href="{{ route('watching', $anime) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
@@ -3063,7 +2223,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching') }}">
+                        <a href="{{ route('watching', $anime) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
@@ -3085,7 +2245,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching') }}">
+                        <a href="{{ route('watching', $anime) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
@@ -3107,7 +2267,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching') }}">
+                        <a href="{{ route('watching', $anime) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
@@ -3129,7 +2289,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching') }}">
+                        <a href="{{ route('watching', $anime) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
@@ -3156,7 +2316,7 @@
                 >
                     <h3>Recently Completed</h3>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching') }}">
+                        <a href="{{ route('watching', $anime) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
@@ -3178,7 +2338,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching') }}">
+                        <a href="{{ route('watching', $anime) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
@@ -3200,7 +2360,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching') }}">
+                        <a href="{{ route('watching', $anime) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
@@ -3222,7 +2382,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching') }}">
+                        <a href="{{ route('watching', $anime) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
@@ -3244,7 +2404,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching') }}">
+                        <a href="{{ route('watching', $anime) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
@@ -3267,7 +2427,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black mb-0">
-                        <a href="{{ route('watching') }}">
+                        <a href="{{ route('watching', $anime) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
