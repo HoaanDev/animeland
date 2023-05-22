@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Anime;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreAnimeRequest;
 use App\Http\Requests\UpdateAnimeRequest;
@@ -29,7 +30,10 @@ class AnimeController extends Controller
      */
     public function create()
     {
-        return view('admin.anime.create');
+        $genres = Genre::get();
+        return view('admin.anime.create', [
+            'genres' => $genres,
+        ]);
     }
 
     /**
@@ -40,8 +44,9 @@ class AnimeController extends Controller
      */
     public function store(Request $request)
     {
+        $genres = $request->only('genres'); // id của các genres cần lưu
         $anime = new Anime();
-        $animeInfo = $request->except('_token');
+        $animeInfo = $request->except('_token', 'genres');
         if ($request->file('thumbnail') != '') {
             $destinationPath = 'media/thumbnail/';
             $animeInfo['thumbnail'] = $request->file('thumbnail')->getClientOriginalName();
@@ -61,8 +66,14 @@ class AnimeController extends Controller
             //for update in table
         }
         $anime->fill($animeInfo);
-
         $anime->save();
+
+//        dd($anime->genres()->attach($genres));
+        foreach ($genres as $genre) {
+            $anime->genres()->sync($genre);
+        }
+
+
         return redirect()->route('animes.create');
     }
 
@@ -85,8 +96,13 @@ class AnimeController extends Controller
      */
     public function edit(Anime $anime)
     {
+
+        $genres = Genre::get();
+        $anime_genre = $anime->genres;
         return view('admin.anime.detail', [
             'anime' => $anime,
+            'genres' => $genres,
+            'anime_genre' => $anime_genre,
         ]);
     }
 
@@ -119,6 +135,12 @@ class AnimeController extends Controller
             //for update in table
         }
         $anime->update($animeInfo);
+        $genres = $request->only('genres');
+        $anime_genres = $anime->genres;
+        $anime->genres()->detach($anime_genres);
+        foreach ($genres as $genre) {
+            $anime->genres()->sync($genre);
+        }
         return redirect()->route('animes.animes');
     }
 
@@ -131,6 +153,8 @@ class AnimeController extends Controller
     public function destroy(Anime $anime)
     {
         $anime->delete();
+        $anime_genres = $anime->genres;
+        $anime->genres()->detach($anime_genres);
         return redirect()->route('animes.animes');
     }
 }

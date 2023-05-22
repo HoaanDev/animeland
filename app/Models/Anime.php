@@ -22,17 +22,8 @@ class Anime extends Model
         'status',
     ];
 
-    protected function category(): Attribute
+    public function genres()
     {
-        return Attribute::make(
-            get: fn (string $value) => ucfirst($value),
-        );
-    }
-
-    protected function status(): Attribute
-    {
-        return Attribute::make(
-            get: fn (string $value) => ucfirst($value),
-        );
+        return $this->belongsToMany(Genre::class, 'anime_genre', 'anime_id', 'genre_id')->withTimestamps();
     }
 }

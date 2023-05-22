@@ -1,11 +1,10 @@
 <?php
 
 use App\Http\Controllers\AnimeController;
+use App\Http\Controllers\AnimeGenreController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
-use App\Http\Controllers\Controller;
 use App\Http\Controllers\EpisodeController;
-use App\Http\Controllers\FollowingController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
@@ -89,3 +88,13 @@ Route::group(['prefix' => 'genres', 'as' => 'genres.'], function () {
 Route::group(['prefix' => 'comments', 'as' => 'comments.'], function () {
     Route::get('/comments', [CommentController::class, 'index'])->name('comments');
 });
+
+////Animes_Genres
+//Route::group(['prefix' => 'anime_genres', 'as' => 'anime_genres.'], function () {
+//    Route::get('/', [AnimeGenreController::class, 'index'])->name('anime_genres');
+//    Route::get('/create', [AnimeGenreController::class, 'create'])->name('create');
+//    Route::post('/store', [AnimeGenreController::class, 'store'])->name('store');
+//    Route::get('/detail/{anime_genre}', [AnimeGenreController::class, 'edit'])->name('detail');
+//    Route::post('/update/{anime_genre}', [AnimeGenreController::class, 'update'])->name('update');
+//    Route::delete('/destroy/{anime_genre}', [AnimeGenreController::class, 'destroy'])->name('destroy');
+//});
