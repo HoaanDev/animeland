@@ -1997,10 +1997,11 @@ ul.pagination li a.current {
   Anime blog
 -------------------------*/
 .anime-blog {
+    min-height: 610px;
   margin-bottom: 30px;
-  border-bottom: 2px solid var(--color-purple);
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border: 2px solid deepskyblue;
+    border-radius: 6px;
+    background-color: rgba(220, 220, 220, 0.2);
   position: relative;
 }
 
