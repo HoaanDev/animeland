@@ -54,4 +54,8 @@ class PageController extends Controller
     public function dashboard() {
         return view('admin.dashboard');
     }
+
+    public function comingSoon() {
+        return view('pages.coming_soon');
+    }
 }

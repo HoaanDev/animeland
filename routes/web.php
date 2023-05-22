@@ -24,8 +24,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 //User Interface
-
-Route::get('/watching', [PageController::class, 'watchingPage'])->name('watching');
 Route::get('/filter', [PageController::class, 'filterPage'])->name('filter');
 Route::get('/search', [PageController::class, 'searchPage'])->name('search-results');
 Route::get('/policy', [PageController::class, 'policyPage'])->name('policy');
@@ -33,11 +31,12 @@ Route::get('/profile', [PageController::class, 'profilePage'])->name('profile');
 Route::get('/edit-profile', [PageController::class, 'editProfilePage'])->name('edit-profile');
 Route::get('/following', [PageController::class, 'followingPage'])->name('following');
 Route::get('/watch-history', [PageController::class, 'watchHistoryPage'])->name('watch-history');
+Route::get('/coming-soon', [PageController::class, 'comingSoon'])->name('coming-soon');
 //Home Interface
 Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 
 //Watching Interface
-Route::get('/watching/{anime}', [WatchingController::class, 'index'])->name('watching');
+Route::get('/watching/{anime}/{episode}', [WatchingController::class, 'index'])->name('watching');
 
 //Admin Interface
 Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');

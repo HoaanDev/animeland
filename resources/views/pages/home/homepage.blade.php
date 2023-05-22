@@ -1,3 +1,4 @@
+@php use App\Models\Episode; @endphp
 @extends('pages.navigation')
 
 @section('title', 'Home')
@@ -18,7 +19,8 @@
                                 <p>
                                     {{ Illuminate\Support\Str::limit($anime ->description, $limit = 80, $end = '...') }}
                                 </p>
-                                <a class="banner-btn" href="{{ route('watching', $anime) }}"
+                                <a class="banner-btn"
+                                   href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}"
                                 >PLAY NOW</a
                                 >
                             </div>
@@ -44,13 +46,25 @@
                 @foreach($recentAnimes as $recentAnime)
                     <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
                         <div class="anime-blog">
-                            <a href="{{ route('watching', $recentAnime) }}" class="img-block">
+                            <a href="@if (Episode::where('anime_id', $recentAnime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$recentAnime, Episode::where('anime_id', $recentAnime->id)->value('id')]) }}
+                            @endif" class="img-block">
                                 <img src="{{ asset("media/thumbnail/$recentAnime->thumbnail") }}" alt=""/>
                             </a>
-                            <a href="{{ route('watching', $recentAnime) }}" class="action-overlay"
+                            <a href="@if (Episode::where('anime_id', $recentAnime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$recentAnime, Episode::where('anime_id', $recentAnime->id)->value('id')]) }}
+                            @endif" class="action-overlay"
                             ><i class="fal fa-play-circle"></i> Play Now</a
                             >
-                            <a href="{{ route('watching', $recentAnime) }}" class="action-overlay"
+                            <a href="@if (Episode::where('anime_id', $recentAnime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$recentAnime, Episode::where('anime_id', $recentAnime->id)->value('id')]) }}
+                            @endif" class="action-overlay"
                             ><i class="fal fa-play-circle"></i> Play Now</a
                             >
                             <p class="light-text">{{ $recentAnime->imdb_rating }}</p>
@@ -121,7 +135,11 @@
                                     </li>
                                 </ul>
                             </div>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="@if (Episode::where('anime_id', $recentAnime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$recentAnime, Episode::where('anime_id', $recentAnime->id)->value('id')]) }}
+                            @endif">
                                 <p>{{ $recentAnime->title }}</p>
                             </a>
                         </div>
@@ -143,10 +161,18 @@
                 @foreach($bestAnimes as $bestAnime)
                     <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
                         <div class="anime-blog">
-                            <a href="{{ route('watching', $anime) }}" class="img-block">
+                            <a href="@if (Episode::where('anime_id', $bestAnime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$bestAnime, Episode::where('anime_id', $bestAnime->id)->value('id')]) }}
+                            @endif" class="img-block">
                                 <img src="{{ asset("media/thumbnail/$bestAnime->thumbnail") }}" alt=""/>
                             </a>
-                            <a href="{{ route('watching', $anime) }}" class="action-overlay"
+                            <a href="@if (Episode::where('anime_id', $bestAnime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$bestAnime, Episode::where('anime_id', $bestAnime->id)->value('id')]) }}
+                            @endif" class="action-overlay"
                             ><i class="fal fa-play-circle"></i> Play Now</a
                             >
                             <p class="light-text">{{ $bestAnime->imdb_rating }}</p>
@@ -217,7 +243,11 @@
                                     </li>
                                 </ul>
                             </div>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="@if (Episode::where('anime_id', $bestAnime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$bestAnime, Episode::where('anime_id', $bestAnime->id)->value('id')]) }}
+                            @endif">
                                 <p>{{ $bestAnime->title }}</p>
                             </a>
                         </div>
@@ -349,7 +379,7 @@
                             </div>
                         </div>
                         <div class="tab-pane active" id="sunday">
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -388,7 +418,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -427,7 +457,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -468,7 +498,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -507,7 +537,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -546,7 +576,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -586,7 +616,7 @@
                             </a>
                         </div>
                         <div class="tab-pane" id="monday">
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -625,7 +655,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -664,7 +694,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -705,7 +735,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -744,7 +774,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -783,7 +813,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -823,7 +853,7 @@
                             </a>
                         </div>
                         <div class="tab-pane" id="tuesday">
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -862,7 +892,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -901,7 +931,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -942,7 +972,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -981,7 +1011,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -1020,7 +1050,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -1060,7 +1090,7 @@
                             </a>
                         </div>
                         <div class="tab-pane" id="wednesday">
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -1099,7 +1129,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -1138,7 +1168,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -1179,7 +1209,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -1218,7 +1248,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -1257,7 +1287,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -1297,7 +1327,7 @@
                             </a>
                         </div>
                         <div class="tab-pane" id="thursday">
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -1336,7 +1366,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -1375,7 +1405,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -1416,7 +1446,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -1455,7 +1485,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -1494,7 +1524,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -1534,7 +1564,7 @@
                             </a>
                         </div>
                         <div class="tab-pane" id="friday">
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -1573,7 +1603,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -1612,7 +1642,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -1653,7 +1683,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -1692,7 +1722,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -1731,7 +1761,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -1771,7 +1801,7 @@
                             </a>
                         </div>
                         <div class="tab-pane" id="saturday">
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -1810,7 +1840,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -1849,7 +1879,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -1890,7 +1920,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -1929,7 +1959,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -1968,7 +1998,7 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', $anime) }}">
+                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -2021,7 +2051,7 @@
                 >
                     <h3>Top Rated Anime</h3>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching', $anime) }}">
+                        <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                       <span class="light-text text-center color-primary"
@@ -2048,7 +2078,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching', $anime) }}">
+                        <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <span class="light-text text-center color-purple">2</span>
@@ -2073,7 +2103,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching', $anime) }}">
+                        <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <span class="light-text text-center color-grey">3</span>
@@ -2098,7 +2128,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching', $anime) }}">
+                        <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <span class="light-text text-center">4</span>
@@ -2123,7 +2153,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching', $anime) }}">
+                        <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <span class="light-text text-center">5</span>
@@ -2148,7 +2178,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching', $anime) }}">
+                        <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <span class="light-text text-center">6</span>
@@ -2178,7 +2208,7 @@
                 >
                     <h3>New</h3>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching', $anime) }}">
+                        <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
@@ -2200,7 +2230,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching', $anime) }}">
+                        <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
@@ -2223,7 +2253,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching', $anime) }}">
+                        <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
@@ -2245,7 +2275,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching', $anime) }}">
+                        <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
@@ -2267,7 +2297,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching', $anime) }}">
+                        <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
@@ -2289,7 +2319,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching', $anime) }}">
+                        <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
@@ -2316,7 +2346,7 @@
                 >
                     <h3>Recently Completed</h3>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching', $anime) }}">
+                        <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
@@ -2338,7 +2368,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching', $anime) }}">
+                        <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
@@ -2360,7 +2390,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching', $anime) }}">
+                        <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
@@ -2382,7 +2412,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching', $anime) }}">
+                        <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
@@ -2404,7 +2434,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black">
-                        <a href="{{ route('watching', $anime) }}">
+                        <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img
@@ -2427,7 +2457,7 @@
                         </a>
                     </div>
                     <div class="anime-box bg-color-black mb-0">
-                        <a href="{{ route('watching', $anime) }}">
+                        <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
                             <div class="row m-0">
                                 <div class="p-0 col-2">
                                     <img

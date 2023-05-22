@@ -8,13 +8,13 @@ use Illuminate\Http\Request;
 
 class WatchingController extends Controller
 {
-    public function index(Anime $anime)
+    public function index(Anime $anime, Episode $episode)
     {
-        $animeInfo = Anime::find($anime);
-        $episodes = Episode::get($anime);
+        $episodes = $anime->episodes;
         return view('pages.anime.anime_watching', [
-            'animeInfo' => $animeInfo,
+            'anime' => $anime,
             'episodes' => $episodes,
+            'episode' => $episode,
         ]);
     }
 }

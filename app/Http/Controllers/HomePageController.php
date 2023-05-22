@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Anime;
+use App\Models\Episode;
 use Illuminate\Http\Request;
 
 class HomePageController extends Controller
@@ -15,7 +16,7 @@ class HomePageController extends Controller
         return view('pages.home.homepage', [
             'animes' => $animes,
             'recentAnimes' => $recentAnimes,
-            'bestAnimes' => $bestAnimes
+            'bestAnimes' => $bestAnimes,
         ]);
     }
 }

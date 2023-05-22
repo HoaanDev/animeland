@@ -11,138 +11,28 @@
         <div class="container">
             <div class="row">
                 <div class=" col-lg-9 col-sm-8 col-12">
-                    <div class="img-box">
-                        <img class="detail-image" src="media/video/video-img.png" alt="">
-                        <div class="overlay">
-                            <a href="#" class="play-btn"><i class="fas fa-play"></i></a>
-                        </div>
-                    </div>
                     <div class="video-box">
-                        <video controls>
-                            <source src="https://vjs.zencdn.net/v/oceans.mp4?HD" type="video/mp4">
+                        <video width="320" height="240" controls autoplay>
+                            <source src="{{ asset("media/video/$episode->video_url") }}" type="video/mp4">
                         </video>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-4 col-12">
                     <ul class="video-sidebar overflow-auto">
-                        {{--                        <li>--}}
-                        {{--                            <a href="#" class="accordion-button" data-bs-toggle="collapse" data-bs-target="#season1"--}}
-                        {{--                               aria-expanded="true" aria-controls="season1">--}}
-                        {{--                                Season 6 <span><i class="fa fa-chevron-down"></i></span>--}}
-                        {{--                            </a>--}}
-                        {{--                            <div id="season1" class="accordion-collapse collapse "--}}
-                        {{--                                 data-bs-parent="#accordionExample">--}}
-                        {{--                                <ul class="accordion-body">--}}
-                        {{--                                    <li>--}}
-                        {{--                                        <a href="#">Season 01</a>--}}
-                        {{--                                    </li>--}}
-                        {{--                                    <li>--}}
-                        {{--                                        <a href="#">Season 02</a>--}}
-                        {{--                                    </li>--}}
-                        {{--                                    <li>--}}
-                        {{--                                        <a href="#">Season 03</a>--}}
-                        {{--                                    </li>--}}
-                        {{--                                    <li>--}}
-                        {{--                                        <a href="#">Season 04</a>--}}
-                        {{--                                    </li>--}}
-                        {{--                                    <li>--}}
-                        {{--                                        <a href="#">Season 05</a>--}}
-                        {{--                                    </li>--}}
-                        {{--                                    <li>--}}
-                        {{--                                        <a href="#">Season 06</a>--}}
-                        {{--                                    </li>--}}
-                        {{--                                </ul>--}}
-                        {{--                            </div>--}}
-                        {{--                        </li>--}}
+                        @foreach($episodes as $episodeInfo)
                         <li>
-                            <a href="#" class="active">Episode 01</a>
+                            <a href="{{ route('watching', [$anime, $episodeInfo]) }}" class="active">{{ $episodeInfo->name }}</a>
                         </li>
-                        <li>
-                            <a href="#">Episode 02</a>
-                        </li>
-                        <li>
-                            <a href="#">Episode 03</a>
-                        </li>
-                        <li>
-                            <a href="#">Episode 04</a>
-                        </li>
-                        <li>
-                            <a href="#">Episode 05</a>
-                        </li>
-                        <li>
-                            <a href="#">Episode 06</a>
-                        </li>
-                        <li>
-                            <a href="#">Episode 07</a>
-                        </li>
-                        <li>
-                            <a href="#">Episode 08</a>
-                        </li>
-                        <li>
-                            <a href="#">Episode 09</a>
-                        </li>
-                        <li>
-                            <a href="#">Episode 10</a>
-                        </li>
-                        <li>
-                            <a href="#">Episode 11</a>
-                        </li>
-                        <li>
-                            <a href="#">Episode 12</a>
-                        </li>
-                        <li>
-                            <a href="#">Episode 13</a>
-                        </li>
-                        <li>
-                            <a href="#">Episode 14</a>
-                        </li>
-                        <li>
-                            <a href="#">Episode 15</a>
-                        </li>
-                        <li>
-                            <a href="#">Episode 16</a>
-                        </li>
-                        <li>
-                            <a href="#">Episode 17</a>
-                        </li>
-                        <li>
-                            <a href="#">Episode 18</a>
-                        </li>
-                        <li>
-                            <a href="#">Episode 19</a>
-                        </li>
-                        <li>
-                            <a href="#">Episode 20</a>
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
             <div class="video-content bg-color-black">
                 <div class="row">
                     <div class="col-lg-3 col-md-4 col-sm-12">
-                        <p>You're watching <b>Episode 1.</b> <br> If current servers doesn't work, please try other
-                            servers.</p>
+                        <p>You're watching <b>{{ $episode->name }}</b></p>
                     </div>
                     <div class="col-lg-6 col-md-8 col-sm-12">
-                        <div class="server-blok">
-                            <p class="primery">SUB</p>
-                            <div class="btn-block">
-                                <a href="" class="active">Server 1</a>
-                                <a href="">Server 2</a>
-                                <a href="">Server 3</a>
-                                <a href="">Server 4</a>
-                                <a href="">Server 5</a>
-                            </div>
-                            <br>
-                            <p>DUB</p>
-                            <div class="btn-block">
-                                <a href="" class="active">Server 1</a>
-                                <a href="">Server 2</a>
-                                <a href="">Server 3</a>
-                                <a href="">Server 4</a>
-                                <a href="">Server 5</a>
-                            </div>
-                        </div>
                     </div>
                     <div class="col-lg-3 offset-lg-0">
                         <div class="align-middle actions">
