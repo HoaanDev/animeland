@@ -10,8 +10,7 @@ class Genre extends Model
     use HasFactory;
 
     protected $fillable = [
-        'anime_id',
-        'genre_id',
+        'name',
     ];
 
     public function animes()
