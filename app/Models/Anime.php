@@ -26,4 +26,9 @@ class Anime extends Model
     {
         return $this->belongsToMany(Genre::class, 'anime_genre', 'anime_id', 'genre_id')->withTimestamps();
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
