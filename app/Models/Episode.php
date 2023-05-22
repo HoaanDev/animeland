@@ -14,4 +14,9 @@ class Episode extends Model
         'video_url',
         'anime_id',
     ];
+
+    public function anime()
+    {
+        return $this->belongsTo(Genre::class);
+    }
 }

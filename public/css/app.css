@@ -5,7 +5,7 @@ Description: AnimeLoop HTML5 Template
 Author: TPD-Themes
 Version: 1.0.0
 
-===============================================   
+===============================================
 STYLESHEET INDEXING
 |
 |___ Default Styles
@@ -13,7 +13,7 @@ STYLESHEET INDEXING
 |	|___ Reset Styels
 |	|___ Typography
 |	|___ Forms Styles
-|	|___ Helper Classes 
+|	|___ Helper Classes
 |
 |___ Elements Styles
 |	|___ Preloader
@@ -570,7 +570,7 @@ a.text-box.active {
   }
 }
 /*-------------------------
-    Back To Top  
+    Back To Top
 --------------------------*/
 
 .back-to-top {
@@ -710,7 +710,7 @@ a.text-box.active {
 }
 
 /* -----------------------
-  Heading Styles 
+  Heading Styles
 --------------------------*/
 .heading.style-1 {
   margin-bottom: 40px;
@@ -824,7 +824,7 @@ a.text-box.active {
 }
 
 /* -----------------------
-  Card 
+  Card
 --------------------------*/
 .card {
   background-color: #f1f1f1;
@@ -837,7 +837,7 @@ a.text-box.active {
 }
 
 /* -----------------------
-Pagination 
+Pagination
 --------------------------*/
 .pagination-wrape {
   padding: 30px 0 0 0;
@@ -991,7 +991,7 @@ ul.pagination li a.current {
 }
 
 /* -----------------------
- Timer Countdown 
+ Timer Countdown
 --------------------------*/
 .timer {
   list-style: none;
@@ -1044,7 +1044,7 @@ ul.pagination li a.current {
 }
 
 /*=======================================================================
-3.Blocks Styles 
+3.Blocks Styles
 =========================================================================*/
 
 /*-------------------------
@@ -3588,7 +3588,7 @@ ul.pagination li a.current {
 }
 
 .video .video-box {
-  display: none;
+  display: inline-block;
 }
 
 .video .video-box video {

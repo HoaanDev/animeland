@@ -72,7 +72,7 @@
         <div class="container">
             <!-- Start Mainmanu Nav -->
             <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="{{  route('homepage') }}"><img src="media/animeland_logo.png" class="img-fluid" alt="" /></a>
+                <a class="navbar-brand" href="{{  route('homepage') }}"><img src="{{ asset('media/animeland_logo.png') }}" class="img-fluid" alt="" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -127,7 +127,7 @@
                     <div class="col-lg-5 col-sm-12 col-12">
                         <div class="footer-widget">
                             <a href="{{  route('homepage') }}">
-                                <img alt="" src="media/animeland_logo.png" />
+                                <img alt="" src="{{ asset('media/animeland_logo.png') }}" />
                             </a>
                             <p class="mt-3 mb-5">
                                 Welcome to my website.
