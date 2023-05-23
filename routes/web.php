@@ -37,6 +37,8 @@ Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 
 //Watching Interface
 Route::get('/watching/{anime}/{episode}', [WatchingController::class, 'index'])->name('watching');
+Route::post('/watching/store', [WatchingController::class, 'storeComment'])->name('comment.store');
+Route::delete('/destroy/{comment}', [WatchingController::class, 'destroyComment'])->name('comment.destroy');
 
 //Admin Interface
 Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
