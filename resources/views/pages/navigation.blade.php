@@ -100,7 +100,7 @@
                             <button class="input-group-text anime-btn" type="submit">
                                 <i class="fal fa-search"></i>
                             </button>
-                            <input class="form-control" name="search" type="text" placeholder="Search" />
+                            <input class="form-control" name="search" type="text" placeholder="Search" required/>
                         </div>
                     </form>
                     <div class="d-flex right-nav">

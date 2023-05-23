@@ -19,6 +19,9 @@ class SearchController extends Controller
 
     public function index(Request $request)
     {
+        $request->validate([
+            'keyword' => 'required',
+        ]);
         $searchKeywords = explode(' ', $request->input('search'));
         $animes = DB::table('animes')
             ->where(function ($query) use ($searchKeywords) {
@@ -32,5 +35,5 @@ class SearchController extends Controller
                 'animes' => $animes,
             ]);
     }
-    
+
 }
