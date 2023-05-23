@@ -3,7 +3,6 @@
 @section('title', 'Profile')
 
 @section('content')
-
     <!--=====================================-->
     <!--=      Profile Area Start        =-->
     <!--=====================================-->
@@ -14,15 +13,15 @@
                     <div class="row pb-5">
                         <div class="col-lg-4 col-sm-6 col-12">
                             <div class="img-box">
-                                <img src="media/profile/profile.png" alt="">
+                                <img src="{{ asset("media/avatar/" . auth()->user()->avatar) }}" style="width: 300px;height: 300px" alt="">
                             </div>
                         </div>
                         <div class="profile-seting col-lg-8 col-sm-6 col-12">
-                            <h5>XYX USER</h5>
-                            <p>@username</p>
-                            <p class="pb-3">youremail@example.com</p>
-                            <a href="{{ route('edit-profile') }}" class="anime-btn btn-dark border-change">
-                                EDIT PROFILE
+                            <h5>{{ auth()->user()->name }}</h5>
+                            <p>{{ auth()->user()->username }}</p>
+                            <p class="pb-3">{{ auth()->user()->email }}</p>
+                            <a href="{{ route('profiles.edit-profile') }}" class="anime-btn btn-dark border-change">
+                                EDIT YOUR PROFILE
                             </a>
                         </div>
                     </div>
