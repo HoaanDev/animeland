@@ -8,6 +8,7 @@ use App\Http\Controllers\EpisodeController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WatchingController;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,13 @@ Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 Route::get('/watching/{anime}/{episode}', [WatchingController::class, 'index'])->name('watching');
 Route::post('/watching/store', [WatchingController::class, 'storeComment'])->name('comment.store');
 Route::delete('/destroy/{comment}', [WatchingController::class, 'destroyComment'])->name('comment.destroy');
+
+//Profile Interface
+Route::group(['prefix' => 'profiles', 'as' => 'profiles.'], function () {
+    Route::get('/', [ProfileController::class, 'index'])->name('profiles');
+    Route::get('/edit-profile', [ProfileController::class, 'editProfile'])->name('edit-profile');
+    Route::post('/update/{user}', [ProfileController::class, 'updateProfile'])->name('update-profile');
+});
 
 //Admin Interface
 Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');

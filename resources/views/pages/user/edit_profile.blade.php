@@ -14,19 +14,21 @@
                     <div class="row pb-5">
                         <div class="col-lg-4 col-sm-12 col-12">
                             <div class="img-box">
-                                <img src="media/profile/edit-profile.png" alt="">
-                                <a href="#"> <i class="far fa-edit"></i> Change Profile Image</a>
+                                <img src="{{ asset("media/avatar/". auth()->user()->avatar) }}" style="width: 300px;height: 300px" alt="">
+                                <a href="#avatar"> <i class="far fa-edit action-overlay"></i><label for="avatar">Change Profile Image</label> </a>
                             </div>
                         </div>
                         <div class="col-lg-8 col-sm-12 col-12">
-                            <form action="./profile.html">
+                            <form action="{{ route('profiles.update-profile', auth()->user()->id) }}" method="post" enctype="multipart/form-data">
+                                @csrf
+                                <input type="file" id="avatar" name="avatar" hidden>
                                 <div class="form-group">
-                                    <label>Old Name</label>
-                                    <input class="form-control" type="text" name="name" required placeholder="Old Name">
+                                    <label>Your Name</label>
+                                    <input class="form-control" type="text" name="name" value="{{ auth()->user()->name }}" required placeholder="Your Name">
                                 </div>
                                 <div class="form-group">
-                                    <label>Old Email</label>
-                                    <input class="form-control" type="email" name="email" required
+                                    <label>Your Email</label>
+                                    <input class="form-control" type="email" name="email" value="{{ auth()->user()->email }}" required
                                            placeholder="email@example.com">
                                 </div>
                                 <button type="submit" class="anime-btn btn-dark border-change">
