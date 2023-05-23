@@ -5,6 +5,7 @@ use App\Http\Controllers\AnimeGenreController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\EpisodeController;
+use App\Http\Controllers\FilterController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\PageController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WatchingController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +27,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 //User Interface
-Route::get('/filter', [PageController::class, 'filterPage'])->name('filter');
+//Route::get('/filter', [PageController::class, 'filterPage'])->name('filter');
 Route::get('/search', [PageController::class, 'searchPage'])->name('search-results');
 Route::get('/policy', [PageController::class, 'policyPage'])->name('policy');
 Route::get('/profile', [PageController::class, 'profilePage'])->name('profile');
@@ -47,6 +49,12 @@ Route::group(['prefix' => 'profiles', 'as' => 'profiles.'], function () {
     Route::get('/edit-profile', [ProfileController::class, 'editProfile'])->name('edit-profile');
     Route::post('/update/{user}', [ProfileController::class, 'updateProfile'])->name('update-profile');
 });
+
+//Searching
+Route::get('/search', [SearchController::class, 'index'])->name('search-results');
+
+//Filter
+Route::get('/filter', [FilterController::class, 'index'])->name('filter');
 
 //Admin Interface
 Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
