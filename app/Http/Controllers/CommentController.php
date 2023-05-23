@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Anime;
 use App\Models\Comment;
 use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\UpdateCommentRequest;
+use App\Models\Episode;
+use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
@@ -37,9 +40,13 @@ class CommentController extends Controller
      * @param  \App\Http\Requests\StoreCommentRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCommentRequest $request)
+    public function store(Request $request)
     {
-        //
+        $comment = new Comment();
+        $commentInfo = $request->except('_token', 'episode');
+        $comment->fill($commentInfo);
+        $comment->save();
+        return redirect()->route('comments.comments');
     }
 
     /**
@@ -84,6 +91,7 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        $comment->delete();
+        return redirect()->route('comments.comments');
     }
 }

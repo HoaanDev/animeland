@@ -25,7 +25,7 @@
                                 >
                             </div>
                             <div class="col-lg-7 col-12">
-                                <img src="{{ asset("media/thumbnail/$anime->thumbnail") }}" class="img-fluid" style="width: 360px;height: 405px; border-radius: 6px" alt=""/>
+                                <img src="{{ asset("media/thumbnail/$anime->thumbnail") }}" alt=""/>
                             </div>
 
                         </div>
@@ -45,13 +45,15 @@
             <div class="row">
                 @foreach($recentAnimes as $recentAnime)
                     <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-                        <div class="anime-blog">
+                        <div class="anime-blog"
+                             style="border: 2px solid deepskyblue;border-radius: 6px;background-color: rgba(220, 220, 220, 0.5);">
                             <a href="@if (Episode::where('anime_id', $recentAnime->id)->value('id') == null)
                             {{ route('coming-soon') }}
                             @else
                             {{ route('watching', [$recentAnime, Episode::where('anime_id', $recentAnime->id)->value('id')]) }}
                             @endif" class="img-block">
-                                <img src="{{ asset("media/thumbnail/$recentAnime->thumbnail") }}" class="img-fluid" style="width: 360px;height: 405px; border-radius: 6px" alt=""/>
+                                <img src="{{ asset("media/thumbnail/$recentAnime->thumbnail") }}" class="img-fluid"
+                                     style="width: 360px;height: 405px; border-radius: 6px" alt=""/>
                             </a>
                             <a href="@if (Episode::where('anime_id', $recentAnime->id)->value('id') == null)
                             {{ route('coming-soon') }}
@@ -106,7 +108,8 @@
                             @else
                             {{ route('watching', [$bestAnime, Episode::where('anime_id', $bestAnime->id)->value('id')]) }}
                             @endif" class="img-block">
-                                <img src="{{ asset("media/thumbnail/$bestAnime->thumbnail") }}" class="img-fluid" style="width: 360px;height: 405px; border-radius: 6px" alt=""/>
+                                <img src="{{ asset("media/thumbnail/$bestAnime->thumbnail") }}" class="img-fluid"
+                                     style="width: 360px;height: 405px; border-radius: 6px" alt=""/>
                             </a>
                             <a href="@if (Episode::where('anime_id', $bestAnime->id)->value('id') == null)
                             {{ route('coming-soon') }}

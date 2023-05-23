@@ -20,9 +20,10 @@
                 <div class="col-lg-3 col-sm-4 col-12">
                     <ul class="video-sidebar overflow-auto">
                         @foreach($episodes as $episodeInfo)
-                        <li>
-                            <a href="{{ route('watching', [$anime, $episodeInfo]) }}" class="active">{{ $episodeInfo->name }}</a>
-                        </li>
+                            <li>
+                                <a href="{{ route('watching', [$anime, $episodeInfo]) }}"
+                                   class="active">{{ $episodeInfo->name }}</a>
+                            </li>
                         @endforeach
                     </ul>
                 </div>
@@ -36,8 +37,8 @@
                     </div>
                     <div class="col-lg-3 offset-lg-0">
                         <div class="align-middle actions">
-                            <a href="" class="anime-btn btn-dark border-change mb-2">DOWNLOAD NOW</a>
-                            <p class="text">RATING: 7.8 <b>/10</b></p>
+                            {{--                            <a href="" class="anime-btn btn-dark border-change mb-2">DOWNLOAD NOW</a>--}}
+                            {{--                            <p class="text">RATING: 7.8 <b>/10</b></p>--}}
                         </div>
                     </div>
                 </div>
@@ -47,31 +48,31 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-4 col-sm-6 col-12">
                             <div class="trailer-box">
-                                <img src="media/video/trailer-img.png" alt="" class="image">
-                                <div class="overlay">
-                                    <a href="#" class="icon" data-bs-toggle="modal" data-bs-target="#videoModal"><i
-                                            class="fas fa-play"></i></a>
-                                    <p>Watch Trailer</p>
-                                </div>
+                                <img src="{{ asset("media/thumbnail/$anime->thumbnail") }}" alt="" class="image">
+                                {{--                                <div class="overlay">--}}
+                                {{--                                    <a href="#" class="icon" data-bs-toggle="modal" data-bs-target="#videoModal"><i--}}
+                                {{--                                            class="fas fa-play"></i></a>--}}
+                                {{--                                    <p>Watch Trailer</p>--}}
+                                {{--                                </div>--}}
                             </div>
-                            <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-body">
-                                            <iframe style="border: 0;width: 100%;height: 350px;"
-                                                    src="https://www.youtube.com/embed/6R6q2fAp2n4"
-                                                    title="Suzume no Tojimari - Official Trailer 2 | English Sub"
-                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                                    allowfullscreen></iframe>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            {{--                            <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-hidden="true">--}}
+                            {{--                                <div class="modal-dialog" role="document">--}}
+                            {{--                                    <div class="modal-content">--}}
+                            {{--                                        <div class="modal-body">--}}
+                            {{--                                            <iframe style="border: 0;width: 100%;height: 350px;"--}}
+                            {{--                                                    src="https://www.youtube.com/embed/6R6q2fAp2n4"--}}
+                            {{--                                                    title="Suzume no Tojimari - Official Trailer 2 | English Sub"--}}
+                            {{--                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"--}}
+                            {{--                                                    allowfullscreen></iframe>--}}
+                            {{--                                        </div>--}}
+                            {{--                                    </div>--}}
+                            {{--                                </div>--}}
+                            {{--                            </div>--}}
                         </div>
                         <div class="col-lg-6 col-md-8 col-sm-6 col-12">
                             <div class="trailer-content">
-                                <h2>My Hero Academia</h2>
-                                <p class="light-text">Season 06</p>
+                                <h2>{{ $anime->title }}</h2>
+                                {{--                                <p class="light-text">Season 06</p>--}}
                                 <div class="dropdown">
                                     <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown">
                                         <svg width="32" height="22" viewBox="0 0 32 22" fill="none"
@@ -92,19 +93,15 @@
                                     </button>
                                     <ul class="dropdown-menu bg-color-black pt-3 pb-3 ps-3 pe-3">
                                         <li>
-                                            <a href="" class="none"><i class="fa fa-check"></i> Watch Later </a>
+                                            <a href="" class="none"><i class="fa fa-check"></i> Following </a>
                                         </li>
-                                        <li>
-                                            <a href=""><i class="fas fa-plus"></i> Add to Playlist </a>
-                                        </li>
+                                        {{--                                        <li>--}}
+                                        {{--                                            <a href=""><i class="fas fa-plus"></i> Add to Playlist </a>--}}
+                                        {{--                                        </li>--}}
                                     </ul>
                                 </div>
-                                <h3>Plot Summary</h3>
-                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                                    praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
-                                    excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
-                                    officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem
-                                    rerum facilis est et expedita distinctio. </p>
+                                {{--                                <h3>Plot Summary</h3>--}}
+                                <p>{{ $anime->description }}</p>
                             </div>
                         </div>
                     </div>
@@ -117,31 +114,39 @@
                         </div>
                         <div class="col-md-4 col-sm-6 col-12">
                             <div class="rating-content">
-                                <h4>IBM RATING</h4>
-                                <p>RATING: <span>7.2</span> <b>/10</b></p>
+                                <h4>IMDB RATING</h4>
+                                <p>RATING: <span>{{ $anime->imdb_rating }}</span> <b>/10</b></p>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-6 col-12">
-                            <div class="rating-content">
-                                <h4>ROTTEN TOMATO RATING</h4>
-                                <p>RATING: <span>8.8</span> <b>/10</b></p>
-                            </div>
-                        </div>
+                        {{--                        <div class="col-md-4 col-sm-6 col-12">--}}
+                        {{--                            <div class="rating-content">--}}
+                        {{--                                <h4>ROTTEN TOMATO RATING</h4>--}}
+                        {{--                                <p>RATING: <span>8.8</span> <b>/10</b></p>--}}
+                        {{--                            </div>--}}
+                        {{--                        </div>--}}
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="trailer-content">
-                        <h3>Tech Detail</h3>
-                        <p><span>Type:</span> <b>TV</b></p>
-                        <p><span>Studio:</span> <b>Bones</b></p>
-                        <p><span>Date aired:</span> Jan 15, 2023</p>
-                        <p><span>Status:</span> <b>Completed</b></p>
-                        <p><span>Genre:</span> Action, School, Shounen</p>
-                        <p><span>Country:</span> Japan</p>
-                        <p><span>Scores:</span> 2.53 by 4,405 reviews</p>
-                        <p><span>Premiered:</span> Winter 2023</p>
-                        <p><span>Duration:</span> 24 min</p>
-                        <p><span>Views:</span> 18,284</p>
+                        <h3>Anime Detail</h3>
+                        <p><span>Category:</span> <b>@if($anime->category == "0")
+                                    {{ 'Series' }}
+                                @else
+                                    {{ 'Single' }}
+                                @endif</b></p>
+                        <p><span>Studio:</span> <b> {{ $anime->studio }}</b></p>
+                        <p><span>Release Date:</span> {{ $anime->release_date }}</p>
+                        <p><span>Status:</span> <b>@if($anime->status == "0")
+                                    {{ 'On Going' }}
+                                @else
+                                    {{ 'Completed' }}
+                                @endif</b></p>
+                        <p><span>Genre:</span></p>
+                        <p><span>Duration:</span> {{ $anime->duration }} min</p>
+                        {{--                        <p><span>Scores:</span> 2.53 by 4,405 reviews</p>--}}
+                        {{--                        <p><span>Premiered:</span> Winter 2023</p>--}}
+                        {{--                        <p><span>Duration:</span> 24 min</p>--}}
+                        {{--                        <p><span>Views:</span> 18,284</p>--}}
                     </div>
                 </div>
             </div>
@@ -164,385 +169,73 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-1 col-2">
-                            <a href="./profile.html"><img src="media/comment/comment-img.png" alt=""></a>
+                            <img src="{{ asset("media/avatar/". auth()->user()->avatar)}}" alt="">
                         </div>
                         <div class="col-lg-11 col-10">
-                            <form action="streaming-season.html">
+                            <form action="{{ route('comment.store') }}" method="post">
+                                @csrf
                                 <div class="input-group form-group footer-email-box">
-                                    <input class="form-control" type="text" name="post"
-                                           placeholder="Join the discussion">
-                                    <button class="input-group-text post-btn" type="submit">Post</button>
+                                    <input type="hidden" name="anime_id" value="{{ $anime->id }}">
+                                    <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                                    <input class="form-control" type="text" name="content"
+                                           placeholder="Comment here">
+                                    <input type="hidden" name="episode" value="{{ $episode->id }}">
+                                    <button class="input-group-text post-btn" type="submit">Comment</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                     <div class="site-comment">
-                        <div class="row">
-                            <div class="col-lg-1 col-2">
-                                <a href="./profile.html"><img src="media/comment/comment-img-2.png"
-                                                              alt=""></a>
-                            </div>
-                            <div class="col-lg-11 col-10">
-                                <h5><a href="./profile.html">@username</a><b>5 minutes ago</b></h5>
-                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                                    praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias.
-                                </p>
-                                <a href="" class="comment-btn"><i class="fa fa-thumbs-up"></i></a>
-                                <a href="" class="comment-btn"><i class="fa fa-thumbs-down"></i></a>
-                                <button class=" accordion-button comment-btn" data-bs-toggle="collapse"
-                                        data-bs-target="#reply1" aria-expanded="true">Reply
-                                </button>
-                                <div id="reply1" class="accordion-collapse collapse "
-                                     data-bs-parent="#accordionExample">
-                                    <div class="card card-body">
-                                        <div class="d-flex pt-3">
-                                            <a href="./profile.html"><img
-                                                    src="media/comment/comment-img-sm-2.png" alt=""></a>
-                                            <input type="text" placeholder="Add a reply">
-                                        </div>
-                                        <div class="text-end">
-                                            <button class="comment-btn">Cencel</button>
-                                            <button class="comment-btn active">Reply</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-1 col-2">
-                                <a href="./profile.html"><img src="media/comment/comment-img-3.png"
-                                                              alt=""></a>
-                            </div>
+                        @foreach($comments as $comment)
 
-                            <div class="col-lg-11 col-10">
-                                <h5><a href="./profile.html">@username</a> <b>5 minutes ago</b></h5>
-                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                                    praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias.
-                                </p>
-                                <a href="" class="comment-btn"><i class="fa fa-thumbs-up"></i></a>
-                                <a href="" class="comment-btn"><i class="fa fa-thumbs-down"></i></a>
-                                <button class=" accordion-button comment-btn" data-bs-toggle="collapse"
-                                        data-bs-target="#reply2" aria-expanded="true">Reply
-                                </button>
-                                <div id="reply2" class="accordion-collapse collapse show"
-                                     data-bs-parent="#accordionExample">
-                                    <div class="card card-body">
-                                        <div class="d-flex pt-3">
-                                            <a href="./profile.html"><img
-                                                    src="media/comment/comment-img-sm-1.png" alt=""></a>
-                                            <input type="text" placeholder="Add a reply">
-                                        </div>
-                                        <div class="text-end">
-                                            <button class="comment-btn">Cencel</button>
-                                            <button class="comment-btn active">Reply</button>
-                                        </div>
-                                    </div>
+                            <div class="row">
+                                <div class="col-lg-1 col-2">
+                                    <img src="{{ asset("media/avatar/$usersInfo->avatar")}}"
+                                         alt="">
                                 </div>
 
-                            </div>
-                        </div>
-                        <a href="#" class="accordion-button comment-btn active" data-bs-toggle="collapse"
-                           data-bs-target="#reply" aria-expanded="true" aria-controls="reply"><i
-                                class="fa fa-chevron-up"></i> 40 Replies</a>
-                        <div id="reply" class="accordion-collapse collapse show "
-                             data-bs-parent="#accordionExample">
-                            <div class="card card-body">
-                                <div class="row pt-3">
-                                    <div class="col-lg-11 offset-lg-1 offset-2 col-10 pb-4">
-                                        <div class="d-inline-flex align-items-start">
-
-                                            <a href="./profile.html"><img
-                                                    src="media/comment/comment-img-sm-1.png" alt=""></a>
-                                            <div class="replies">
-                                                <h5><a href="./profile.html">@username</a> <b>5 minutes ago</b></h5>
-                                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                                                    blanditiis praesentium voluptatum deleniti atque corrupti quos
-                                                    dolores et quas molestias.</p>
-                                                <a href="" class="comment-btn"><i class="fa fa-thumbs-up"></i></a>
-                                                <a href="" class="comment-btn"><i class="fa fa-thumbs-down"></i></a>
-                                                <button class=" accordion-button comment-btn"
-                                                        data-bs-toggle="collapse" data-bs-target="#reply30"
-                                                        aria-expanded="true">Reply
-                                                </button>
-                                                <div id="reply30" class="accordion-collapse collapse"
-                                                     data-bs-parent="#accordionExample">
-                                                    <div class="card card-body">
-                                                        <div class="d-flex pt-3">
-                                                            <img src="media/comment/comment-img-sm-2.png"
-                                                                 alt="">
-                                                            <input type="text" placeholder="Add a reply">
-                                                        </div>
-                                                        <div class="text-end">
-                                                            <button class="comment-btn">Cencel</button>
-                                                            <button class="comment-btn active">Reply</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-11 offset-lg-1 offset-2 col-10 pb-4">
-                                        <div class="d-inline-flex align-items-start">
-                                            <a href="./profile.html"><img
-                                                    src="media/comment/comment-img-sm-3.png" alt=""></a>
-                                            <div class="replies">
-                                                <h5><a href="./profile.html">@username</a> <b>5 minutes ago</b></h5>
-                                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                                                    blanditiis praesentium voluptatum deleniti atque corrupti quos
-                                                    dolores et quas molestias.</p>
-                                                <a href="" class="comment-btn"><i class="fa fa-thumbs-up"></i></a>
-                                                <a href="" class="comment-btn"><i class="fa fa-thumbs-down"></i></a>
-                                                <button class=" accordion-button comment-btn"
-                                                        data-bs-toggle="collapse" data-bs-target="#reply60"
-                                                        aria-expanded="true">Reply
-                                                </button>
-                                                <div id="reply60" class="accordion-collapse collapse"
-                                                     data-bs-parent="#accordionExample">
-                                                    <div class="card card-body">
-                                                        <div class="d-flex pt-3">
-                                                            <img src="media/comment/comment-img-sm-1.png"
-                                                                 alt="">
-                                                            <input type="text" placeholder="Add a reply">
-                                                        </div>
-                                                        <div class="text-end">
-                                                            <button class="comment-btn">Cencel</button>
-                                                            <button class="comment-btn active">Reply</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-11 offset-lg-1 offset-2 col-10 pb-4">
-                                        <div class="d-inline-flex align-items-start">
-                                            <a href="./profile.html"><img
-                                                    src="media/comment/comment-img-sm-4.png" alt=""></a>
-                                            <div class="replies">
-                                                <h5><a href="./profile.html">@username</a> <b>5 minutes ago</b></h5>
-                                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                                                    blanditiis praesentium voluptatum deleniti atque corrupti quos
-                                                    dolores et quas molestias.</p>
-                                                <a href="" class="comment-btn"><i class="fa fa-thumbs-up"></i></a>
-                                                <a href="" class="comment-btn"><i class="fa fa-thumbs-down"></i></a>
-                                                <button class=" accordion-button comment-btn"
-                                                        data-bs-toggle="collapse" data-bs-target="#reply7"
-                                                        aria-expanded="true">Reply
-                                                </button>
-                                                <div id="reply7" class="accordion-collapse collapse"
-                                                     data-bs-parent="#accordionExample">
-                                                    <div class="card card-body">
-                                                        <div class="d-flex pt-3">
-                                                            <img src="media/comment/comment-img-sm-3.png"
-                                                                 alt="">
-                                                            <input type="text" placeholder="Add a reply">
-                                                        </div>
-                                                        <div class="text-end">
-                                                            <button class="comment-btn">Cencel</button>
-                                                            <button class="comment-btn active">Reply</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-11 offset-lg-1 offset-2 col-10 pb-4">
-
-                                        <div id="more" class="accordion-collapse collapse "
-                                             data-bs-parent="#accordionExample">
-                                            <div class="card card-body">
-                                                <div class="d-inline-flex align-items-start">
-                                                    <a href="./profile.html"><img
-                                                            src="media/comment/comment-img-sm-2.png"
-                                                            alt=""></a>
-                                                    <div class="replies">
-                                                        <h5><a href="./profile.html">@username</a> <b>5 minutes
-                                                                ago</b></h5>
-                                                        <p>At vero eos et accusamus et iusto odio dignissimos
-                                                            ducimus qui
-                                                            blanditiis praesentium voluptatum deleniti atque
-                                                            corrupti quos
-                                                            dolores et quas molestias.</p>
-                                                        <button class="comment-btn"><i
-                                                                class="fa fa-thumbs-up"></i></button>
-                                                        <button class="comment-btn"><i
-                                                                class="fa fa-thumbs-down"></i></button>
-                                                        <button class=" accordion-button comment-btn"
-                                                                data-bs-toggle="collapse" data-bs-target="#reply9"
-                                                                aria-expanded="true">Reply
-                                                        </button>
-                                                        <div id="reply9" class="accordion-collapse collapse "
-                                                             data-bs-parent="#accordionExample">
-                                                            <div class="card card-body">
-                                                                <div class="d-flex pt-3">
-                                                                    <img src="media/comment/comment-img-sm-1.png"
-                                                                         alt="">
-                                                                    <input type="text" placeholder="Add a reply">
-                                                                </div>
-                                                                <div class="text-end">
-                                                                    <button class="comment-btn">Cencel</button>
-                                                                    <button
-                                                                        class="comment-btn active">Reply
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="accordion-button comment-btn active"
-                                           data-bs-toggle="collapse" data-bs-target="#more" aria-expanded="true"
-                                           aria-controls="more"><i class="fa fa-chevron-down"></i> Show More
-                                            Replies</a>
-                                    </div>
+                                <div class="col-lg-10 col-8">
+                                    <h5>{{ $usersInfo->name }}</h5>
+                                    <p> {{ $comment->content }}
+                                    </p>
+                                    {{--                                    <a href="" class="comment-btn"><i class="fa fa-thumbs-up"></i></a>--}}
+                                    {{--                                    <a href="" class="comment-btn"><i class="fa fa-thumbs-down"></i></a>--}}
+                                    {{--                                    <button class=" accordion-button comment-btn" data-bs-toggle="collapse"--}}
+                                    {{--                                            data-bs-target="#reply1" aria-expanded="true">Reply--}}
+                                    {{--                                    </button>--}}
+                                    {{--                                    <div id="reply1" class="accordion-collapse collapse "--}}
+                                    {{--                                         data-bs-parent="#accordionExample">--}}
+                                    {{--                                        <div class="card card-body">--}}
+                                    {{--                                            <div class="d-flex pt-3">--}}
+                                    {{--                                                <a href="./profile.html"><img--}}
+                                    {{--                                                        src="media/comment/comment-img-sm-2.png" alt=""></a>--}}
+                                    {{--                                                <input type="text" placeholder="Add a reply">--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                            <div class="text-end">--}}
+                                    {{--                                                <button class="comment-btn">Cencel</button>--}}
+                                    {{--                                                <button class="comment-btn active">Reply</button>--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                    </div>--}}
+                                </div>
+                                <div class="col-lg-1 col-2">
+                                    <form action="{{ route('comment.destroy', $comment) }}" method="post"
+                                          class="d-inline-block">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn-transition btn btn-outline-danger">Delete</button>
+                                    </form>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-1 col-2">
-                                <a href="./profile.html"><img src="media/comment/comment-img-4.png"
-                                                              alt=""></a>
-                            </div>
-                            <div class="col-lg-11 col-10">
-                                <h5><a href="./profile.html">@username</a> <b>5 minutes ago</b></h5>
-                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                                    praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias.
-                                </p>
-                                <a href="" class="comment-btn"><i class="fa fa-thumbs-up"></i></a>
-                                <a href="" class="comment-btn"><i class="fa fa-thumbs-down"></i></a>
-                                <button class=" accordion-button comment-btn" data-bs-toggle="collapse"
-                                        data-bs-target="#reply3" aria-expanded="true">Reply
-                                </button>
-                                <div id="reply3" class="accordion-collapse collapse "
-                                     data-bs-parent="#accordionExample">
-                                    <div class="card card-body">
-                                        <div class="d-flex pt-3">
-                                            <a href="./profile.html"><img
-                                                    src="media/comment/comment-img-sm-1.png" alt=""></a>
-                                            <input type="text" placeholder="Add a reply">
-                                        </div>
-                                        <div class="text-end">
-                                            <button class="comment-btn">Cencel</button>
-                                            <button class="comment-btn active">Reply</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <a href="#" class="accordion-button comment-btn active" data-bs-toggle="collapse"
-                           data-bs-target="#reply20" aria-expanded="true"><i class="fa fa-chevron-down"></i> 40
-                            Replies</a>
-                        <div id="reply20" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
-                            <div class="card card-body">
-                                <div class="row pt-3">
-                                    <div class="col-lg-11 offset-lg-1 offset-2 col-10 pb-4">
-                                        <div class="d-inline-flex align-items-start">
-                                            <a href="./profile.html"><img
-                                                    src="media/comment/comment-img-sm-3.png" alt=""></a>
-                                            <div class="replies">
-                                                <h5><a href="./profile.html">@username</a> <b>5 minutes ago</b></h5>
-                                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                                                    blanditiis praesentium voluptatum deleniti atque corrupti quos
-                                                    dolores et quas molestias.</p>
-                                                <a href="" class="comment-btn"><i class="fa fa-thumbs-up"></i></a>
-                                                <a href="" class="comment-btn"><i class="fa fa-thumbs-down"></i></a>
-                                                <button class=" accordion-button comment-btn"
-                                                        data-bs-toggle="collapse" data-bs-target="#reply4"
-                                                        aria-expanded="true" aria-controls="reply">Reply
-                                                </button>
-                                                <div id="reply4" class="accordion-collapse collapse  "
-                                                     data-bs-parent="#accordionExample">
-                                                    <div class="card card-body">
-                                                        <div class="d-flex pt-3">
-                                                            <img src="media/comment/comment-img-sm-2.png"
-                                                                 alt="">
-                                                            <input type="text" placeholder="Add a reply">
-                                                        </div>
-                                                        <div class="text-end">
-                                                            <button class="comment-btn">Cencel</button>
-                                                            <button class="comment-btn active">Reply</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-11 offset-lg-1 offset-2 col-10 pb-4">
-                                        <div class="d-inline-flex align-items-start">
-                                            <a href="./profile.html"><img
-                                                    src="media/comment/comment-img-sm-1.png" alt=""></a>
-                                            <div class="replies">
-                                                <h5><a href="./profile.html">@username</a> <b>5 minutes ago</b></h5>
-                                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                                                    blanditiis praesentium voluptatum deleniti atque corrupti quos
-                                                    dolores et quas molestias.</p>
-                                                <a href="" class="comment-btn"><i class="fa fa-thumbs-up"></i></a>
-                                                <a href="" class="comment-btn"><i class="fa fa-thumbs-down"></i></a>
-                                                <button class=" accordion-button comment-btn"
-                                                        data-bs-toggle="collapse" data-bs-target="#reply5"
-                                                        aria-expanded="true" aria-controls="reply">Reply
-                                                </button>
-                                                <div id="reply5" class="accordion-collapse collapse  "
-                                                     data-bs-parent="#accordionExample">
-                                                    <div class="card card-body">
-                                                        <div class="d-flex pt-3">
-                                                            <img src="media/comment/comment-img-sm-1.png"
-                                                                 alt="">
-                                                            <input type="text" placeholder="Add a reply">
-                                                        </div>
-                                                        <div class="text-end">
-                                                            <button class="comment-btn">Cencel</button>
-                                                            <button class="comment-btn active">Reply</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-11 offset-lg-1 offset-2 col-10 pb-4">
-                                        <div class="d-inline-flex align-items-start">
-                                            <a href="./profile.html"><img
-                                                    src="media/comment/comment-img-sm-3.png" alt=""></a>
-                                            <div class="replies">
-                                                <h5><a href="./profile.html">@username</a> <b>5 minutes ago</b></h5>
-                                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                                                    blanditiis praesentium voluptatum deleniti atque corrupti quos
-                                                    dolores et quas molestias.</p>
-                                                <a href="" class="comment-btn"><i class="fa fa-thumbs-up"></i></a>
-                                                <a href="" class="comment-btn"><i class="fa fa-thumbs-down"></i></a>
-                                                <button class=" accordion-button comment-btn"
-                                                        data-bs-toggle="collapse" data-bs-target="#reply6"
-                                                        aria-expanded="true" aria-controls="reply">Reply
-                                                </button>
-                                                <div id="reply6" class="accordion-collapse collapse  "
-                                                     data-bs-parent="#accordionExample">
-                                                    <div class="card card-body">
-                                                        <div class="d-flex pt-3">
-                                                            <img src="media/comment/comment-img-sm-2.png"
-                                                                 alt="">
-                                                            <input type="text" placeholder="Add a reply">
-                                                        </div>
-                                                        <div class="text-end">
-                                                            <button class="comment-btn">Cencel</button>
-                                                            <button class="comment-btn active">Reply</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center">
-                            <a href="#" class="comment-btn">Load More Comment</a>
-                        </div>
+                        @endforeach
+{{--                        <div class="text-center">--}}
+{{--                            <a href="#" class="comment-btn">Load More Comment</a>--}}
+{{--                        </div>--}}
                         <hr>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-8 offset-lg-0 offset-md-3 offset-sm-2 mt-lg-0 mt-3">
-                    <h3 class="small-title">SIMILAR</h3>
+                    <h3 class="small-title">SIMILAR ANIME</h3>
                     <div class="anime-box bg-color-black">
                         <a href="streaming-season.html">
                             <div class="row m-0">
