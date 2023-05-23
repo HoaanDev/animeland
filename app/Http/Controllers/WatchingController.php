@@ -7,6 +7,7 @@ use App\Models\Comment;
 use App\Models\Episode;
 use App\Models\User;
 use Illuminate\Http\Request;
+use function PHPUnit\Framework\countOf;
 
 class WatchingController extends Controller
 {
@@ -14,6 +15,17 @@ class WatchingController extends Controller
     {
         $episodes = $anime->episodes;
         $comments = $anime->comments;
+        if(session()->get('watched')) {
+            $count = count(session()->get('watched'));
+            if($count >= 8 ) {
+                $animesWatched = session()->pull('watched', []);
+                $animesWatched = array_values($animesWatched);
+                unset($animesWatched[0]);
+                session()->put('watched', $animesWatched);
+            }
+        }
+        $episodesSession = collect($episode);
+        session()->push('watched', $episodesSession);
         foreach ($comments as $comment) {
             $usersInfo = User::where('id', $comment->user_id)->first();
         }
