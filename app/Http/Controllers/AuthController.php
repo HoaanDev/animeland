@@ -21,9 +21,10 @@ class AuthController extends Controller
             'username' => 'required',
             'password' => 'required',
         ]);
-
         $credentials = $request->only('username', 'password');
         if (Auth::attempt($credentials)) {
+            $userId = Auth::user()->id;
+            session()->put('user_id', $userId);
             return redirect()->route('homepage')
                 ->withSuccess('Signed in');
         }
