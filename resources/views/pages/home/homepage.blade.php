@@ -20,7 +20,11 @@
                                     {{ Illuminate\Support\Str::limit($anime ->description, $limit = 80, $end = '...') }}
                                 </p>
                                 <a class="banner-btn"
-                                   href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}"
+                                   href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif"
                                 >PLAY NOW</a
                                 >
                             </div>
@@ -262,7 +266,11 @@
                             </div>
                         </div>
                         <div class="tab-pane active" id="sunday">
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -301,7 +309,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -340,7 +352,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -381,7 +397,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -420,7 +440,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -459,7 +483,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -499,7 +527,11 @@
                             </a>
                         </div>
                         <div class="tab-pane" id="monday">
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -538,7 +570,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -577,7 +613,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -618,7 +658,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -657,7 +701,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -696,7 +744,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -736,7 +788,11 @@
                             </a>
                         </div>
                         <div class="tab-pane" id="tuesday">
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -775,7 +831,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -814,7 +874,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -855,7 +919,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -894,7 +962,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -933,7 +1005,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -973,7 +1049,11 @@
                             </a>
                         </div>
                         <div class="tab-pane" id="wednesday">
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -1012,7 +1092,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -1051,7 +1135,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -1092,7 +1180,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -1131,7 +1223,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -1170,7 +1266,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -1210,7 +1310,11 @@
                             </a>
                         </div>
                         <div class="tab-pane" id="thursday">
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -1249,7 +1353,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -1288,7 +1396,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -1329,7 +1441,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -1368,7 +1484,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -1407,7 +1527,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -1447,7 +1571,11 @@
                             </a>
                         </div>
                         <div class="tab-pane" id="friday">
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -1486,7 +1614,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -1525,7 +1657,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -1566,7 +1702,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -1605,7 +1745,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -1644,7 +1788,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>
@@ -1684,7 +1832,11 @@
                             </a>
                         </div>
                         <div class="tab-pane" id="saturday">
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">12:00</p>
@@ -1723,7 +1875,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">14:00</p>
@@ -1762,7 +1918,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">23:00</p>
@@ -1803,7 +1963,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">22:00</p>
@@ -1842,7 +2006,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">19:00</p>
@@ -1881,7 +2049,11 @@
                                 </div>
                             </a>
                             <hr/>
-                            <a href="{{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}">
+                            <a href="@if (Episode::where('anime_id', $anime->id)->value('id') == null)
+                            {{ route('coming-soon') }}
+                            @else
+                            {{ route('watching', [$anime, Episode::where('anime_id', $anime->id)->value('id')]) }}
+                            @endif">
                                 <div class="row align-items-center">
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-0">
                                         <p class="text">07:00</p>

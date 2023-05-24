@@ -52,9 +52,8 @@
                     <div class="form-group">
                         <label for="anime_id">Anime Title</label>
                         <div>
-                            <select class="multiselect-dropdown form-control">
+                            <select class="multiselect-dropdown form-control" id="anime_id" name="anime_id">
                                 @foreach($animes as $anime)
-
                                     <option value="{{ $anime->id }}"
                                             @if($episode->anime_id == $anime->id)
                                                 selected
