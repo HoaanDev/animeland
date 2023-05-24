@@ -13,89 +13,7 @@
             <h2>Filter <span> Showing 1 – 09 of 5000
                     Anime</span></h2>
         </div>
-        <ul class="filter-block">
-            <li>
-                <a href="#" class="anime-btn btn-dark active">All</a>
-            </li>
-            <li>
-                <a href="#" class="anime-btn btn-dark">0-1</a>
-            </li>
-            <li>
-                <a href="#" class="anime-btn btn-dark">A</a>
-            </li>
-            <li>
-                <a href="#" class="anime-btn btn-dark">B</a>
-            </li>
-            <li>
-                <a href="#" class="anime-btn btn-dark">C</a>
-            </li>
-            <li>
-                <a href="#" class="anime-btn btn-dark">D</a>
-            </li>
-            <li>
-                <a href="#" class="anime-btn btn-dark">E</a>
-            </li>
-            <li>
-                <a href="#" class="anime-btn btn-dark">F</a>
-            </li>
-            <li>
-                <a href="#" class="anime-btn btn-dark">G</a>
-            </li>
-            <li>
-                <a href="#" class="anime-btn btn-dark">H</a>
-            </li>
-            <li>
-                <a href="#" class="anime-btn btn-dark">I</a>
-            </li>
-            <li>
-                <a href="#" class="anime-btn btn-dark">J</a>
-            </li>
-            <li>
-                <a href="#" class="anime-btn btn-dark">L</a>
-            </li>
-            <li>
-                <a href="#" class="anime-btn btn-dark">M</a>
-            </li>
-            <li>
-                <a href="#" class="anime-btn btn-dark">N</a>
-            </li>
-            <li>
-                <a href="#" class="anime-btn btn-dark">O</a>
-            </li>
-            <li>
-                <a href="#" class="anime-btn btn-dark">P</a>
-            </li>
-            <li>
-                <a href="#" class="anime-btn btn-dark">Q</a>
-            </li>
-            <li>
-                <a href="#" class="anime-btn btn-dark">R</a>
-            </li>
-            <li>
-                <a href="#" class="anime-btn btn-dark">S</a>
-            </li>
-            <li>
-                <a href="#" class="anime-btn btn-dark">T</a>
-            </li>
-            <li>
-                <a href="#" class="anime-btn btn-dark">U</a>
-            </li>
-            <li>
-                <a href="#" class="anime-btn btn-dark">V</a>
-            </li>
-            <li>
-                <a href="#" class="anime-btn btn-dark">W</a>
-            </li>
-            <li>
-                <a href="#" class="anime-btn btn-dark">X</a>
-            </li>
-            <li>
-                <a href="#" class="anime-btn btn-dark">Y</a>
-            </li>
-            <li>
-                <a href="#" class="anime-btn btn-dark">Z</a>
-            </li>
-        </ul>
+        
         <ul class="filter-block style-2">
             <li>
                 <a href="#" class="anime-btn btn-dark dropdown-toggle" id="genre" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
@@ -801,30 +719,7 @@
             @endforeach
         </div>
         <div class="pagination-wrape">
-            <ul class="pagination">
-                <li class="page-item">
-                    <a href="#" class="page-link arrow" aria-label="Previous">
-                        <i class="fa fa-chevron-left"></i>
-                    </a>
-                </li>
-                <li class="page-item">
-                    <a href="#" class="page-link current">1</a>
-                </li>
-                <li class="page-item">
-                    <a href="#" class="page-link">2</a>
-                </li>
-                <li class="page-item">
-                    <a href="#" class="page-link">3</a>
-                </li>
-                <li class="page-item">
-                    <a href="#" class="page-link">4</a>
-                </li>
-                <li class="page-item">
-                    <a href="#" class="page-link arrow" aria-label="next">
-                        <i class="fa fa-chevron-right"></i>
-                    </a>
-                </li>
-            </ul>
+            {{$animes->links()}}
         </div>
     </div>
 </section>

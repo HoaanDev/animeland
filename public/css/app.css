@@ -845,7 +845,7 @@ Pagination
 }
 
 ul.pagination {
-  display: block;
+  display: inline;
 }
 
 ul.pagination li {

@@ -801,30 +801,7 @@
             @endforeach
         </div>
         <div class="pagination-wrape">
-            <ul class="pagination">
-                <li class="page-item">
-                    <a href="#" class="page-link arrow" aria-label="Previous">
-                        <i class="fa fa-chevron-left"></i>
-                    </a>
-                </li>
-                <li class="page-item">
-                    <a href="#" class="page-link current">1</a>
-                </li>
-                <li class="page-item">
-                    <a href="#" class="page-link">2</a>
-                </li>
-                <li class="page-item">
-                    <a href="#" class="page-link">3</a>
-                </li>
-                <li class="page-item">
-                    <a href="#" class="page-link">4</a>
-                </li>
-                <li class="page-item">
-                    <a href="#" class="page-link arrow" aria-label="next">
-                        <i class="fa fa-chevron-right"></i>
-                    </a>
-                </li>
-            </ul>
+            {{$animes ->links()}}
         </div>
     </div>
 </section>

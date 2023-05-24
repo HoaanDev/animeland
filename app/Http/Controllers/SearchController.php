@@ -28,6 +28,8 @@ class SearchController extends Controller
                 }
             })
             ->get();
+
+            $animes = Anime::paginate(4);
             return view('pages.anime.anime_filter', [
                 'animes' => $animes,
             ]);
