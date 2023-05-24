@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+
 class WatchingController extends Controller
 {
     public function index(Anime $anime, Episode $episode)
@@ -29,6 +30,22 @@ class WatchingController extends Controller
             ->select('comments.id AS comment_id', 'comments.content', 'users.id AS user_id', 'users.name', 'users.avatar')
             ->get();
         if (empty($comments)) {
+        $comments = $anime->comments;
+        if(session()->get('watched')) {
+            $count = count(session()->get('watched'));
+            if($count >= 8 ) {
+                $animesWatched = session()->pull('watched', []);
+                $animesWatched = array_values($animesWatched);
+                unset($animesWatched[0]);
+                session()->put('watched', $animesWatched);
+            }
+        }
+        $episodesSession = collect($episode);
+        session()->push('watched', $episodesSession);
+        foreach ($comments as $comment) {
+            $usersInfo = User::where('id', $comment->user_id)->first();
+        }
+        if (empty($usersInfo)) {
             return view('pages.anime.anime_watching', [
                 'anime' => $anime,
                 'episodes' => $episodes,
