@@ -30,14 +30,15 @@ class WatchingController extends Controller
             ->select('comments.id AS comment_id', 'comments.content', 'users.id AS user_id', 'users.name', 'users.avatar')
             ->get();
         if (empty($comments)) {
-        $comments = $anime->comments;
-        if(session()->get('watched')) {
-            $count = count(session()->get('watched'));
-            if($count >= 8 ) {
-                $animesWatched = session()->pull('watched', []);
-                $animesWatched = array_values($animesWatched);
-                unset($animesWatched[0]);
-                session()->put('watched', $animesWatched);
+            $comments = $anime->comments;
+            if (session()->get('watched')) {
+                $count = count(session()->get('watched'));
+                if ($count >= 8) {
+                    $animesWatched = session()->pull('watched', []);
+                    $animesWatched = array_values($animesWatched);
+                    unset($animesWatched[0]);
+                    session()->put('watched', $animesWatched);
+                }
             }
         }
         $episodesSession = collect($episode);
@@ -65,7 +66,8 @@ class WatchingController extends Controller
         }
     }
 
-    public function storeComment(Request $request)
+    public
+    function storeComment(Request $request)
     {
         $comment = new Comment();
         $commentInfo = $request->except('_token', 'episode');
@@ -75,10 +77,12 @@ class WatchingController extends Controller
         return redirect()->route('watching', [$comment->anime_id, $episode['episode']]);
     }
 
-    public function destroyComment(Request $request, Comment $comment)
+    public
+    function destroyComment(Request $request, Comment $comment)
     {
         $episode = $request->only('episode');
         $comment->delete();
         return redirect()->route('watching', [$comment->anime_id, $episode['episode']]);
     }
 }
+

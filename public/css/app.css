@@ -1417,7 +1417,7 @@ ul.pagination li a.current {
 -------------------------*/
 
 .footer-main.style-1 {
-  background: url(../media/footer/footer-bg.png);
+  background: url(../media/footer/footer-bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -1631,7 +1631,7 @@ ul.pagination li a.current {
 -------------------------*/
 
 .banner.style-1 .banner-block.style-1 {
-  background: url(../media/banner/banner-bg-1.png);
+  background: url(../media/banner/banner_bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
