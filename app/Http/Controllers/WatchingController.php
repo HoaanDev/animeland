@@ -26,7 +26,10 @@ class WatchingController extends Controller
                 $userRatingValue = $rating->rating_value;
             }
         }
-        $isFollowing = Following::where('user_id', Auth::user()->id)->where('anime_id', $anime->id)->first();
+        $isFollowing = "";
+        if (!empty(session('user_id'))) {
+            $isFollowing = Following::where('user_id', Auth::user()->id)->where('anime_id', $anime->id)->first();
+        }
         $similarAnimes = DB::table('animes')
             ->join('anime_genre', 'animes.id', '=', 'anime_genre.anime_id')
             ->join('episodes', 'animes.id', '=', 'episodes.anime_id')
@@ -54,15 +57,13 @@ class WatchingController extends Controller
         if (empty($comments)) {
             if (empty($ratings)) {
                 if (empty($userRatingValue)) {
-                    if (empty($isFollowing)) {
-                        return view('pages.anime.anime_watching', [
-                            'anime' => $anime,
-                            'episodes' => $episodes,
-                            'episode' => $episode,
-                            'genres' => $genres,
-                            'similarAnimes' => $similarAnimes,
-                        ]);
-                    }
+                    return view('pages.anime.anime_watching', [
+                        'anime' => $anime,
+                        'episodes' => $episodes,
+                        'episode' => $episode,
+                        'genres' => $genres,
+                        'similarAnimes' => $similarAnimes,
+                    ]);
                 }
             }
         } else {
