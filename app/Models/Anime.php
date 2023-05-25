@@ -36,4 +36,9 @@ class Anime extends Model
     {
         return $this->hasMany(Episode::class);
     }
+
+    public function ratings()
+    {
+        return $this->hasMany(Rating::class);
+    }
 }
