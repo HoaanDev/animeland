@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{ asset('/css/vendor/slick-theme.css') }}" />
     <link rel="stylesheet" href="{{ asset('/css/vendor/sal.css') }}" />
 
+
     <!-- Site Stylesheet -->
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}" />
 

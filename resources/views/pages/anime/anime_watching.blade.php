@@ -31,15 +31,39 @@
             </div>
             <div class="video-content bg-color-black">
                 <div class="row">
-                    <div class="col-lg-3 col-md-4 col-sm-12">
+                    <div class="col-lg-9 col-md-9 col-sm-12">
                         <p>You're watching <b>{{ $episode->name }}</b></p>
                     </div>
-                    <div class="col-lg-6 col-md-8 col-sm-12">
-                    </div>
-                    <div class="col-lg-3 offset-lg-0">
+                    <div class="col-lg-3 col-md-3 col-sm-12">
                         <div class="align-middle actions">
-                            <a href="" class="anime-btn btn-dark border-change mb-2">DOWNLOAD NOW</a>
-                            <p class="text">YOUR RATING: 7.8 <b>/10</b></p>
+                            @if (!empty(session('user_id')))
+                                @if(empty($ratings) || $userRatingValue == 0)
+                            <form action="{{ route('rating-anime', $anime->id) }}" method="post">
+                                @csrf
+                                <div class="input-group form-group footer-email-box">
+                                    <input type="hidden" name="anime_id" value="{{ $anime->id }}">
+                                    <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                                    <label class="text" for="rating_value" style="margin-bottom: -20px; line-height: 40px">YOUR RATING </label>
+                                    <select class="multiselect-dropdown form-control" id="rating_value" name="rating_value">
+                                        @for($i = 1; $i <= 10; $i++)
+                                            <option class="text" value="{{ $i }}"
+                                                    @if($i == 1)
+                                                        selected
+                                                @endif>{{ $i }}</option>
+                                        @endfor
+                                    </select>
+                                    <button class="input-group-text post-btn" type="submit">Rating</button>
+                                </div>
+                            </form>
+                                @else
+                                    <label class="text" for="rating_value" style="margin-bottom: -20px; line-height: 40px">YOUR RATING: {{ $userRatingValue }} </label>
+                                @endif
+                            @else
+                                <p><a href="{{ route('login') }}">
+                                        <mark>Login</mark>
+                                    </a> to rating this anime!
+                                </p>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -65,13 +89,13 @@
                         <div class="col-md-4 col-sm-6 col-12">
                             <div class="rating-content">
                                 <h4>USER RATING</h4>
-                                <p>RATING: <b>_/10</b></p>
+                                <p>RATING: <span>{{ number_format((float)$avgRating, 1, '.', '') }}</span><b>/10</b></p>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 col-12">
                             <div class="rating-content">
                                 <h4>IMDB RATING</h4>
-                                <p>RATING: <span>{{ $anime->imdb_rating }}</span> <b>/10</b></p>
+                                <p>RATING: <span>{{ $anime->imdb_rating }}</span><b>/10</b></p>
                             </div>
                         </div>
                         {{--                        <div class="col-md-4 col-sm-6 col-12">--}}
@@ -150,7 +174,10 @@
                                 </form>
                             </div>
                         @else
-                            <p><a href="{{ route('login') }}"><mark>Login</mark></a> to comment this anime!</p>
+                            <p><a href="{{ route('login') }}">
+                                    <mark>Login</mark>
+                                </a> to comment this anime!
+                            </p>
                         @endif
                     </div>
                     <div class="site-comment">
@@ -168,11 +195,11 @@
                                 </div>
                                 @if (session('user_id') == $comment->user_id)
                                     <div class="col-lg-2 col-2">
-                                        <form action="{{ route('comment.destroy', $comment->comment_id) }}" method="post"
+                                        <form action="{{ route('comment.destroy', $comment->comment_id) }}"
+                                              method="post"
                                               class="d-inline-block">
                                             @csrf
                                             @method('DELETE')
-                                            <input type="hidden" name="episode" value="{{ $episode->id }}">
                                             <button type="submit" class="btn-transition btn btn-outline-danger">Delete
                                             </button>
                                         </form>

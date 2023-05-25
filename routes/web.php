@@ -42,6 +42,7 @@ Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 Route::get('/watching/{anime}/{episode}', [WatchingController::class, 'index'])->name('watching');
 Route::post('/watching/store', [WatchingController::class, 'storeComment'])->name('comment.store');
 Route::delete('/destroy/{comment}', [WatchingController::class, 'destroyComment'])->name('comment.destroy');
+Route::post('/rating/{anime}', [WatchingController::class, 'ratingAnime'])->name('rating-anime');
 
 //Profile Interface
 Route::group(['prefix' => 'profiles', 'as' => 'profiles.'], function () {

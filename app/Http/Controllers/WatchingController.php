@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Anime;
 use App\Models\Comment;
 use App\Models\Episode;
+use App\Models\Rating;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 
@@ -16,10 +18,17 @@ class WatchingController extends Controller
     {
         $episodes = $anime->episodes;
         $genres = $anime->genres;
+        $ratings = $anime->ratings;
+        $userRatingValue = 0;
+        foreach ($ratings as $rating) {
+            if ($rating->user_id == session('user_id')) {
+                $userRatingValue = $rating->rating_value;
+            }
+        }
         $similarAnimes = DB::table('animes')
             ->join('anime_genre', 'animes.id', '=', 'anime_genre.anime_id')
             ->join('episodes', 'animes.id', '=', 'episodes.anime_id')
-            ->where('anime_genre.genre_id', '=', 3)
+            ->where('anime_genre.genre_id', '=', $genres[0])
             ->groupBy('animes.title')
             ->limit(6)
             ->get();
@@ -41,20 +50,28 @@ class WatchingController extends Controller
         $episodesSession = collect($episode);
         session()->push('watched', $episodesSession);
         if (empty($comments)) {
-            return view('pages.anime.anime_watching', [
-                'anime' => $anime,
-                'episodes' => $episodes,
-                'episode' => $episode,
-                'genres' => $genres,
-                'similarAnimes' => $similarAnimes,
-            ]);
+            if (empty($ratings)) {
+                if (empty($userRatingValue)) {
+                return view('pages.anime.anime_watching', [
+                    'anime' => $anime,
+                    'episodes' => $episodes,
+                    'episode' => $episode,
+                    'genres' => $genres,
+                    'similarAnimes' => $similarAnimes,
+                ]);
+                }
+            }
         } else {
+            $avgRating = Rating::where('anime_id', '=', $anime->id)->avg('rating_value');
             return view('pages.anime.anime_watching', [
                 'anime' => $anime,
                 'episodes' => $episodes,
                 'episode' => $episode,
                 'comments' => $comments,
                 'genres' => $genres,
+                'ratings' => $ratings,
+                'userRatingValue' => $userRatingValue,
+                'avgRating' => $avgRating,
                 'similarAnimes' => $similarAnimes,
             ]);
         }
@@ -64,19 +81,25 @@ class WatchingController extends Controller
     function storeComment(Request $request)
     {
         $comment = new Comment();
-        $commentInfo = $request->except('_token', 'episode');
-        $episode = $request->only('episode');
+        $commentInfo = $request->except('_token');
         $comment->fill($commentInfo);
         $comment->save();
-        return redirect()->route('watching', [$comment->anime_id, $episode['episode']]);
+        return redirect()->back();
     }
 
     public
     function destroyComment(Request $request, Comment $comment)
     {
-        $episode = $request->only('episode');
         $comment->delete();
-        return redirect()->route('watching', [$comment->anime_id, $episode['episode']]);
+        return redirect()->back();
+    }
+
+    public function ratingAnime (Request $request, Anime $anime) {
+        $rating = new Rating;
+        $ratingInfo = $request->except('_token');
+        $rating->fill($ratingInfo);
+        $rating->save();
+        return redirect()->back();
     }
 }
 
