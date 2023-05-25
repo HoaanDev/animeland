@@ -33,11 +33,10 @@ class WatchingController extends Controller
         $similarAnimes = DB::table('animes')
             ->join('anime_genre', 'animes.id', '=', 'anime_genre.anime_id')
             ->join('episodes', 'animes.id', '=', 'episodes.anime_id')
-            ->where('anime_genre.genre_id', '=', $genres[0])
+            ->where('anime_genre.genre_id', '=', $genres[0]->id)
             ->groupBy('animes.title')
             ->limit(6)
             ->get();
-
         $comments = DB::table('comments')
             ->join('users', 'comments.user_id', '=', 'users.id')
             ->where('comments.anime_id', '=', $anime->only('id'))
