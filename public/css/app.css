@@ -854,21 +854,7 @@ ul.pagination li {
   margin: 0 15px;
 }
 
-ul.pagination li a {
-  line-height: 42px;
-  width: 42px;
-  text-align: center;
-  color: var(--color-grey-light);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-  display: block;
-  padding: 0 10px;
-  font-size: 32px;
-  transition: all 0.5s;
-  border: var(--border-light);
-  border-radius: 4px;
-  background: var(--color-dark-grey);
-}
+
 
 ul.pagination li a:focus {
   outline: 0;

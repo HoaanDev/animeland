@@ -38,25 +38,29 @@
                         <div class="align-middle actions">
                             @if (!empty(session('user_id')))
                                 @if(empty($ratings) || $userRatingValue == 0)
-                            <form action="{{ route('rating-anime', $anime->id) }}" method="post">
-                                @csrf
-                                <div class="input-group form-group footer-email-box">
-                                    <input type="hidden" name="anime_id" value="{{ $anime->id }}">
-                                    <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-                                    <label class="text" for="rating_value" style="margin-bottom: -20px; line-height: 40px">YOUR RATING </label>
-                                    <select class="multiselect-dropdown form-control" id="rating_value" name="rating_value">
-                                        @for($i = 1; $i <= 10; $i++)
-                                            <option class="text" value="{{ $i }}"
-                                                    @if($i == 1)
-                                                        selected
-                                                @endif>{{ $i }}</option>
-                                        @endfor
-                                    </select>
-                                    <button class="input-group-text post-btn" type="submit">Rating</button>
-                                </div>
-                            </form>
+                                    <form action="{{ route('rating-anime', $anime->id) }}" method="post">
+                                        @csrf
+                                        <div class="input-group form-group footer-email-box">
+                                            <input type="hidden" name="anime_id" value="{{ $anime->id }}">
+                                            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                                            <label class="text" for="rating_value"
+                                                   style="margin-bottom: -20px; line-height: 40px">YOUR RATING </label>
+                                            <select class="multiselect-dropdown form-control" id="rating_value"
+                                                    name="rating_value">
+                                                @for($i = 1; $i <= 10; $i++)
+                                                    <option class="text" value="{{ $i }}"
+                                                            @if($i == 1)
+                                                                selected
+                                                        @endif>{{ $i }}</option>
+                                                @endfor
+                                            </select>
+                                            <button class="input-group-text post-btn" type="submit">Rating</button>
+                                        </div>
+                                    </form>
                                 @else
-                                    <label class="text" for="rating_value" style="margin-bottom: -20px; line-height: 40px">YOUR RATING: {{ $userRatingValue }} </label>
+                                    <label class="text" for="rating_value"
+                                           style="margin-bottom: -20px; line-height: 40px">YOUR
+                                        RATING: {{ $userRatingValue }} </label>
                                 @endif
                             @else
                                 <p><a href="{{ route('login') }}">
@@ -79,8 +83,23 @@
                         </div>
                         <div class="col-lg-6 col-md-8 col-sm-6 col-12">
                             <div class="trailer-content">
-                                <h2>{{ $anime->title }} <a href="" class="none"><i class="fa fa-check"></i> Follow </a>
+                                <h2>{{ $anime->title }}
                                 </h2>
+                                @if(empty(session('user_id')))
+
+                                @else
+                                    @if(empty($isFollowing))
+                                        <form method="post" action="{{ route('following-anime', $anime->id) }}">
+                                            @csrf
+                                            <button type="submit"><i class="fa fa-plus"></i> Follow</button>
+                                        </form>
+                                    @else
+                                        <form method="post" action="{{ route('unfollowing-anime', $anime->id) }}">
+                                            @csrf
+                                            <button type="submit"><i class="fa fa-check"></i> Following</button>
+                                        </form>
+                                    @endif
+                                @endif
                                 <p>{{ $anime->description }}</p>
                             </div>
                         </div>

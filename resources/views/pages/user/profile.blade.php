@@ -29,9 +29,9 @@
                 <div class="col-lg-3 offset-lg-0 col-sm-8 offset-sm-2 col-12">
                     <div class="profile-link bg-color-black">
                         <h5>Watch History</h5>
-                        <a href="{{ route('watch-history') }}" class="pb-3">Watch History</a>
+                        <a href="{{ route('profiles.watch-history') }}" class="pb-3">Watch History</a>
                         <h5>Following Anime</h5>
-                        <a href="{{ route('following') }}" class="pb-3">Following</a>
+                        <a href="{{ route('profiles.following') }}" class="pb-3">Following</a>
                     </div>
                 </div>
             </div>

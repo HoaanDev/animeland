@@ -53,4 +53,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function followings()
+    {
+        return $this->hasMany(Following::class);
+    }
+
+    public function followingAnimes()
+    {
+        return $this->belongsToMany(Anime::class, 'followings')->withTimestamps();
+    }
 }
