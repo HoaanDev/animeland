@@ -40,16 +40,6 @@ class PageController extends Controller
         return view('pages.user.edit_profile');
     }
 
-    //Watch History Page
-    public function watchHistoryPage() {
-        return view('pages.anime.anime_watch_history');
-    }
-
-    //Following Page
-    public function followingPage() {
-        return view('pages.user.following');
-    }
-
     //Admin Dashboard
     public function dashboard() {
         return view('admin.dashboard');

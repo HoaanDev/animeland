@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Anime;
 use App\Models\Comment;
 use App\Models\Episode;
+use App\Models\Following;
 use App\Models\Rating;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -25,6 +26,7 @@ class WatchingController extends Controller
                 $userRatingValue = $rating->rating_value;
             }
         }
+        $isFollowing = Following::where('user_id', Auth::user()->id)->where('anime_id', $anime->id)->first();
         $similarAnimes = DB::table('animes')
             ->join('anime_genre', 'animes.id', '=', 'anime_genre.anime_id')
             ->join('episodes', 'animes.id', '=', 'episodes.anime_id')
@@ -52,13 +54,15 @@ class WatchingController extends Controller
         if (empty($comments)) {
             if (empty($ratings)) {
                 if (empty($userRatingValue)) {
-                return view('pages.anime.anime_watching', [
-                    'anime' => $anime,
-                    'episodes' => $episodes,
-                    'episode' => $episode,
-                    'genres' => $genres,
-                    'similarAnimes' => $similarAnimes,
-                ]);
+                    if (empty($isFollowing)) {
+                        return view('pages.anime.anime_watching', [
+                            'anime' => $anime,
+                            'episodes' => $episodes,
+                            'episode' => $episode,
+                            'genres' => $genres,
+                            'similarAnimes' => $similarAnimes,
+                        ]);
+                    }
                 }
             }
         } else {
@@ -72,6 +76,7 @@ class WatchingController extends Controller
                 'ratings' => $ratings,
                 'userRatingValue' => $userRatingValue,
                 'avgRating' => $avgRating,
+                'isFollowing' => $isFollowing,
                 'similarAnimes' => $similarAnimes,
             ]);
         }
@@ -94,11 +99,25 @@ class WatchingController extends Controller
         return redirect()->back();
     }
 
-    public function ratingAnime (Request $request, Anime $anime) {
+    public function ratingAnime(Request $request, Anime $anime)
+    {
         $rating = new Rating;
         $ratingInfo = $request->except('_token');
         $rating->fill($ratingInfo);
         $rating->save();
+        return redirect()->back();
+    }
+
+    public function followingAnime(Request $request, Anime $anime)
+    {
+        auth()->user()->followingAnimes()->attach($anime);
+        return redirect()->back();
+    }
+
+    public function unfollowingAnime(Request $request, Anime $anime)
+    {
+        $user = Auth::user();
+        $user->followingAnimes()->detach($anime);
         return redirect()->back();
     }
 }

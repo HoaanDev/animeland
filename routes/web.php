@@ -32,8 +32,6 @@ Route::get('/search', [PageController::class, 'searchPage'])->name('search-resul
 Route::get('/policy', [PageController::class, 'policyPage'])->name('policy');
 Route::get('/profile', [PageController::class, 'profilePage'])->name('profile');
 Route::get('/edit-profile', [PageController::class, 'editProfilePage'])->name('edit-profile');
-Route::get('/following', [PageController::class, 'followingPage'])->name('following');
-Route::get('/watch-history', [PageController::class, 'watchHistoryPage'])->name('watch-history');
 Route::get('/coming-soon', [PageController::class, 'comingSoon'])->name('coming-soon');
 //Home Interface
 Route::get('/', [HomePageController::class, 'index'])->name('homepage');
@@ -43,12 +41,16 @@ Route::get('/watching/{anime}/{episode}', [WatchingController::class, 'index'])-
 Route::post('/watching/store', [WatchingController::class, 'storeComment'])->name('comment.store');
 Route::delete('/destroy/{comment}', [WatchingController::class, 'destroyComment'])->name('comment.destroy');
 Route::post('/rating/{anime}', [WatchingController::class, 'ratingAnime'])->name('rating-anime');
+Route::post('/following/{anime}', [WatchingController::class, 'followingAnime'])->name('following-anime');
+Route::post('/unfollowing/{anime}', [WatchingController::class, 'unfollowingAnime'])->name('unfollowing-anime');
 
 //Profile Interface
 Route::group(['prefix' => 'profiles', 'as' => 'profiles.'], function () {
     Route::get('/', [ProfileController::class, 'index'])->name('profiles');
     Route::get('/edit-profile', [ProfileController::class, 'editProfile'])->name('edit-profile');
     Route::post('/update/{user}', [ProfileController::class, 'updateProfile'])->name('update-profile');
+    Route::get('/watch-history', [ProfileController::class, 'watchHistoryPage'])->name('watch-history');
+    Route::get('/following', [ProfileController::class, 'followingPage'])->name('following');
 });
 
 //Searching
