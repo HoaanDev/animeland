@@ -59,6 +59,9 @@ Route::get('/search', [SearchController::class, 'index'])->name('search-results'
 //Filter
 Route::get('/filter', [FilterController::class, 'index'])->name('filter');
 
+//Filter search 
+Route::get('/filter-results/{page?}',[FilterController::class,'filterResults'])->name('filter-results');
+
 //Admin Interface
 Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
 
