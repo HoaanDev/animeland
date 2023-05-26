@@ -23,7 +23,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <input type="text" placeholder="Email" id="email_address" class="form-control"
-                                   name="email" required autofocus>
+                                   name="email" required>
                             @if ($errors->has('email'))
                                 <span class="text-danger">{{ $errors->first('email') }}</span>
                             @endif
@@ -48,7 +48,7 @@
                     </form>
 
                     <p>By continuing, you agree to ANIMELAND Terms of Use and Privacy Policy.</p>
-                    <p>Already a account? <a href="{{ route('login') }}">Login</a></p>
+                    <p>Already an account? <a href="{{ route('login') }}">Login</a></p>
                 </div>
             </div>
         </div>

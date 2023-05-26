@@ -18,9 +18,16 @@ class AuthController extends Controller
     public function customLogin(Request $request)
     {
         $request->validate([
-            'username' => 'required',
-            'password' => 'required',
+            'username' => [
+                'required',
+                'exists:users,username',
+            ],
+            'password' => [
+                'required',
+            ],
         ]);
+
+
         $credentials = $request->only('username', 'password');
         if (Auth::attempt($credentials)) {
             $userId = Auth::user()->id;
@@ -40,21 +47,31 @@ class AuthController extends Controller
     public function customRegistration(Request $request)
     {
         $request->validate([
-             'name' => 'required',
-             'email' => 'required|email|unique:users',
-             'username' => 'required|min:6',
-             'password' => 'required|min:6',
+            'name' => [
+                'required',
+                'max:255',
+            ],
+            'email' => [
+                'required',
+                'email',
+                'unique:users',
+                'max:255',
+            ],
+            'username' => [
+                'required',
+                'unique:users',
+                'min:6',
+                'max:255',
+            ],
+            'password' => [
+                'required',
+                'min:6',
+                'max:255',
+            ],
         ]);
 
         $data = $request->all();
-//        $file = $request->file('fileToUpload');
-//        $fileName = $file->getClientOriginalName();
-//        //Move Uploaded File
-//        $destinationPath = 'uploads';
-//        $file->move($destinationPath,$file->getClientOriginalName());
-//
-//        $data['fileName'] = 'a_' . $fileName;
-        $check = $this->create($data);
+        $this->create($data);
 
         return redirect()->route('login')->withSuccess('You have signed-in');
     }

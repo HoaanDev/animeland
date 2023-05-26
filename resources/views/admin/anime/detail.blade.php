@@ -1,9 +1,8 @@
-@extends('admin.navigation');
+@extends('admin.navigation')
 
-@section('title', 'Detail Anime');
+@section('title', 'Detail Anime')
 
 @section('content')
-    ;
     <div class="app-main__inner">
         <div class="app-page-title">
             <div class="page-title-wrapper">
@@ -11,84 +10,104 @@
                     <div class="page-title-icon">
                         <i class="lnr-picture text-danger"></i>
                     </div>
-                    <div> Detail Anime
-                        {{-- <div class="page-title-subheading">Inline validation is very easy to implement using the
-                            Architect Framework.</div>--}}
+                    <div>
+                        <p class="fa-2x">DETAIL ANIME</p>
                     </div>
                 </div>
                 <div class="page-title-actions">
                     <button type="submit" class="mb-2 mr-2 btn btn-light"
-                            onclick="window.location.href='{{ route('animes.animes') }}'">Back
+                            onclick="window.location.href='{{ route('animes.animes') }}'">BACK
                     </button>
                 </div>
             </div>
         </div>
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <h5 class="card-title">Information Form</h5>
+                <h5 class="card-title text-center">Information Form</h5>
                 <form id="signupForm" class="col-md-10 mx-auto" method="post"
                       action="{{ route('animes.update', $anime) }}"
                       novalidate="novalidate" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label for="title">Title</label>
+                        <label for="title"><b>Title</b></label>
                         <div>
                             <input type="text" class="form-control" id="title" name="title" value="{{ $anime->title }}"
-                                   placeholder="Title" required>
+                                   placeholder="Title" required autofocus>
+                            @if ($errors->has('title'))
+                                <span class="text-danger">{{ $errors->first('title') }}</span>
+                            @endif
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="description">Description</label>
+                        <label for="description"><b>Description</b></label>
                         <div>
                             <textarea type="text" rows="1" class="form-control autosize-input" id="description"
                                       name="description" style="height: 117px;"
                                       placeholder="Description" required>{{ $anime->description }}</textarea>
+                            @if ($errors->has('description'))
+                                <span class="text-danger">{{ $errors->first('description') }}</span>
+                            @endif
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="thumbnail">Thumbnail </label>
+                        <label for="thumbnail"><b>Thumbnail</b></label>
                         <img src="{{ asset("media/thumbnail/$anime->thumbnail") }}" class="w-25 d-block"
                              alt="thumbnail">
                         <div>
-                            <label for="thumbnail">Pick a new avatar here</label>
+                            <label for="thumbnail"><b>Pick a new avatar here</b></label>
                             <input type="file" class="form-control" id="thumbnail" name="thumbnail"
                                    placeholder="Thumbnail">
+                            @if ($errors->has('thumbnail'))
+                                <span class="text-danger">{{ $errors->first('thumbnail') }}</span>
+                            @endif
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="studio">Studio</label>
+                        <label for="studio"><b>Studio</b></label>
                         <div>
                             <input type="text" class="form-control" id="studio" name="studio"
                                    value="{{ $anime->studio }}"
                                    placeholder="Studio" required>
+                            @if ($errors->has('studio'))
+                                <span class="text-danger">{{ $errors->first('studio') }}</span>
+                            @endif
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="release_date">Release Date</label>
+                        <label for="release_date"><b>Release Date</b></label>
                         <div>
                             <input type="number" min="1900" max="2099" step="1" value="{{ $anime->release_date }}"
                                    class="form-control" id="release_date" name="release_date"
                                    placeholder="Release Date" required>
+                            @if ($errors->has('release_date'))
+                                <span class="text-danger">{{ $errors->first('release_date') }}</span>
+                            @endif
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="duration">Duration (minutes)</label>
+                        <label for="duration"><b>Duration (minutes)</b></label>
                         <div>
                             <input type="number" min="0" max="180" step="1" class="form-control" id="duration"
                                    name="duration" value="{{ $anime->duration }}"
                                    placeholder="Duration" required>
+                            @if ($errors->has('duration'))
+                                <span class="text-danger">{{ $errors->first('duration') }}</span>
+                            @endif
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="imdb_rating">IMDB Rating</label>
+                        <label for="imdb_rating"><b>IMDB Rating</b></label>
                         <div>
                             <input type="number" min="0" max="10" step="0.01" class="form-control" id="imdb_rating"
                                    name="imdb_rating" value="{{ $anime->imdb_rating }}"
                                    placeholder="IMDB Rating" required>
+                            @if ($errors->has('imdb_rating'))
+                                <span class="text-danger">{{ $errors->first('imdb_rating') }}</span>
+                            @endif
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="category">Category</label>
+                        <label for="category"><b>Category</b></label>
                         <div>
                             @if($anime->category == 0)
                                 <input type="radio" class="" id="category_series" name="category" value="0"
@@ -107,10 +126,13 @@
                                        placeholder="Category" checked>
                                 <label for="category_single">Single</label>
                             @endif
+                                @if ($errors->has('category'))
+                                    <span class="text-danger">{{ $errors->first('category') }}</span>
+                                @endif
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="status">Status</label>
+                        <label for="status"><b>Status</b></label>
                         <div>
                             @if($anime->status == 0)
                                 <input type="radio" class="" id="status_ongoing" name="status" value="0"
@@ -129,10 +151,13 @@
                                        placeholder="Status" checked>
                                 <label for="status_completed">Completed</label>
                             @endif
+                                @if ($errors->has('status'))
+                                    <span class="text-danger">{{ $errors->first('status') }}</span>
+                                @endif
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="genres">Genres</label>
+                        <label for="genres"><b>Genres</b></label>
                         <select class="multiselect-dropdown form-control" id="genres" name="genres[]" multiple>
                             @foreach ($genres as $genre)
 
@@ -145,9 +170,17 @@
                                 > {{ $genre->name }} </option>
                             @endforeach
                         </select>
+                        @if ($errors->has('genres'))
+                            <span class="text-danger">{{ $errors->first('genres') }}</span>
+                        @endif
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="mb-2 mr-2 btn btn-warning">Update</button>
+                        <button type="submit" class="mb-2 mr-2 btn btn-warning">UPDATE</button>
+                    </div>
+                    <div class="panel panel-default">
+                        @if (session('success'))
+                            <div class="alert alert-success">{{ session('success') }}</div>
+                        @endif
                     </div>
                 </form>
             </div>

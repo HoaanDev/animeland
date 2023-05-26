@@ -38,11 +38,35 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => [
+                'required',
+                'max:255',
+            ],
+            'email' => [
+                'required',
+                'email',
+                'unique:users',
+                'max:255',
+            ],
+            'username' => [
+                'required',
+                'unique:users',
+                'min:6',
+                'max:255',
+            ],
+            'password' => [
+                'required',
+                'min:6',
+                'max:255',
+            ],
+        ]);
+        $data = $request->all();
         $user = new User();
-        $user->fill($request->except('_token'));
+        $user->fill($data);
         $user['password'] = Hash::make($user['password']);
         $user->save();
-        return redirect()->route('users.users');
+        return redirect()->back()->withSuccess('Create succeed!');
     }
 
     /**
@@ -78,8 +102,29 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-
-        $userInfo = $request->except('_token');
+        $request->validate([
+            'name' => [
+                'required',
+                'max:255',
+            ],
+            'email' => [
+                'required',
+                'email',
+                'exists:users,email',
+                'max:255',
+            ],
+            'username' => [
+                'required',
+                'exists:users,username',
+                'min:6',
+                'max:255',
+            ],
+            'avatar' => [
+                'image',
+                'max:2048',
+            ],
+        ]);
+        $userInfo = $request->all();
         if ($request->file('avatar') != '') {
             $destinationPath = 'media/avatar/';
             $userInfo['avatar'] = $request->file('avatar')->getClientOriginalName();
@@ -99,7 +144,7 @@ class UserController extends Controller
             //for update in table
         }
         $user->update($userInfo);
-        return redirect()->route('users.users');
+        return redirect()->back()->withSuccess('Update succeed!');
     }
 
     /**
@@ -111,6 +156,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('users.users');
+        return redirect()->back()->withSuccess('Delete succeed!');
     }
 }

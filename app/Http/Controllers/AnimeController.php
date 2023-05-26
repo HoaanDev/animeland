@@ -7,6 +7,7 @@ use App\Models\Genre;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreAnimeRequest;
 use App\Http\Requests\UpdateAnimeRequest;
+use function Symfony\Component\String\s;
 
 class AnimeController extends Controller
 {
@@ -44,9 +45,62 @@ class AnimeController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => [
+                'required',
+                'unique:animes',
+                'max:255',
+            ],
+            'description' => [
+                'required',
+                'string',
+            ],
+            'thumbnail' => [
+                'required',
+                'image',
+                'max:2048',
+            ],
+            'studio' => [
+                'required',
+                'max:255',
+            ],
+            'release_date' => [
+                'required',
+                'integer',
+                'digits:4',
+                'min:1900',
+                'max:2099',
+            ],
+            'duration' => [
+                'required',
+                'integer',
+                'min:0',
+                'max:180',
+            ],
+            'imdb_rating' => [
+                'required',
+                'decimal:0,2',
+                'min:0',
+                'max:10',
+            ],
+            'category' => [
+                'required',
+                'in:0,1',
+            ],
+            'status' => [
+                'required',
+                'in:0,1',
+            ],
+            'genres' => [
+                'required',
+                'array',
+                'min:1',
+                'max:4',
+            ],
+        ]);
         $genres = $request->only('genres'); // id của các genres cần lưu
         $anime = new Anime();
-        $animeInfo = $request->except('_token', 'genres');
+        $animeInfo = $request->except('genres');
         if ($request->file('thumbnail') != '') {
             $destinationPath = 'media/thumbnail/';
             $animeInfo['thumbnail'] = $request->file('thumbnail')->getClientOriginalName();
@@ -74,7 +128,7 @@ class AnimeController extends Controller
         }
 
 
-        return redirect()->route('animes.create');
+        return redirect()->back()->withSuccess('Create succeed!');
     }
 
     /**
@@ -115,7 +169,59 @@ class AnimeController extends Controller
      */
     public function update(Request $request, Anime $anime)
     {
-        $animeInfo = $request->except('_token');
+        $request->validate([
+            'title' => [
+                'required',
+                'unique:animes',
+                'max:255',
+            ],
+            'description' => [
+                'required',
+                'string',
+            ],
+            'thumbnail' => [
+                'image',
+                'max:2048',
+            ],
+            'studio' => [
+                'required',
+                'max:255',
+            ],
+            'release_date' => [
+                'required',
+                'integer',
+                'digits:4',
+                'min:1900',
+                'max:2099',
+            ],
+            'duration' => [
+                'required',
+                'integer',
+                'min:0',
+                'max:180',
+            ],
+            'imdb_rating' => [
+                'required',
+                'decimal:0,2',
+                'min:0',
+                'max:10',
+            ],
+            'category' => [
+                'required',
+                'in:0,1',
+            ],
+            'status' => [
+                'required',
+                'in:0,1',
+            ],
+            'genres' => [
+                'required',
+                'array',
+                'min:1',
+                'max:4',
+            ],
+        ]);
+        $animeInfo = $request->except('genres');
         if ($request->file('thumbnail') != '') {
             $destinationPath = 'media/thumbnail/';
             $animeInfo['thumbnail'] = $request->file('thumbnail')->getClientOriginalName();
@@ -141,7 +247,7 @@ class AnimeController extends Controller
         foreach ($genres as $genre) {
             $anime->genres()->sync($genre);
         }
-        return redirect()->route('animes.animes');
+        return redirect()->back()->withSuccess('Update succeed!');
     }
 
     /**
@@ -155,6 +261,6 @@ class AnimeController extends Controller
         $anime->delete();
         $anime_genres = $anime->genres;
         $anime->genres()->detach($anime_genres);
-        return redirect()->route('animes.animes');
+        return redirect()->back()->withSuccess('Delete succeed!');
     }
 }

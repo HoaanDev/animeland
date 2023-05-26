@@ -57,7 +57,7 @@ class ProfileController extends Controller
             ->join('animes', 'followings.anime_id', '=', 'animes.id')
             ->where('followings.user_id', '=', Auth::user()->id)
             ->groupBy('animes.title')
-            ->paginate(6);
+            ->paginate(2);
         if(count($followingAnimes) == 0) {
             return view('pages.user.following');
         }

@@ -8,16 +8,15 @@
             <div class="page-title-wrapper">
                 <div class="page-title-heading">
                     <div class="page-title-icon">
-                        <i class="pe-7s-medal icon-gradient bg-tempting-azure"></i>
+                        <i class="pe-7s-film icon-gradient bg-tempting-azure"></i>
                     </div>
-                    <div>Data Tables Episodes
-                        {{-- <div class="page-title-subheading">Choose between regular React Bootstrap tables or--}}
-                        {{-- advanced dynamic ones.</div>--}}
+                    <div>
+                        <p class="fa-2x">DATA TABLE EPISODES</p>
                     </div>
                 </div>
                 <div class="page-title-actions">
                     <button class="mb-2 mr-2 btn btn-success"
-                            onclick="window.location.href='{{ route('episodes.create') }}'">Create new episode
+                            onclick="window.location.href='{{ route('episodes.create') }}'">CREATE
                     </button>
                 </div>
             </div>
@@ -30,7 +29,7 @@
                         <th>Episode Name</th>
                         <th>Video URL</th>
                         <th>Anime Title</th>
-                        <th>Action</th>
+                        <th style="width: 50px">Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -52,27 +51,24 @@
                             </td>
                             <td>
                                 <button class="btn-transition btn btn-outline-info"
-                                        onclick="window.location.href='{{ route('episodes.detail', $episode) }}'">Detail
+                                        onclick="window.location.href='{{ route('episodes.detail', $episode) }}'">DETAIL
                                 </button>
+                                <hr>
                                 <form action="{{ route('episodes.destroy', $episode) }}" method="post"
                                       class="d-inline-block">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn-transition btn btn-outline-danger">Delete</button>
+                                    <button type="submit" class="btn-transition btn btn-outline-danger">DELETE</button>
                                 </form>
                             </td>
                         </tr>
                     @endforeach
                     </tbody>
-                    {{-- <tfoot>--}}
-                    {{-- <tr>--}}
-                    {{-- <th>Avatar</th>--}}
-                    {{-- <th>Name</th>--}}
-                    {{-- <th>Email</th>--}}
-                    {{-- <th>Username</th>--}}
-                    {{-- <th>Action</th>--}}
-                    {{-- </tr>--}}
-                    {{-- </tfoot>--}}
+                    <div class="panel panel-default">
+                        @if (session('success'))
+                            <div class="alert alert-success">{{ session('success') }}</div>
+                        @endif
+                    </div>
                 </table>
             </div>
         </div>

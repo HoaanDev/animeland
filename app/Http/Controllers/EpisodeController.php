@@ -46,8 +46,24 @@ class EpisodeController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => [
+                'required',
+                'max:255',
+            ],
+            'video_url' => [
+                'required',
+                'mimetypes:video/mp4,video/quicktime',
+                'max:102400',
+            ],
+            'anime_id' => [
+                'required',
+                'integer',
+                'exists:animes,id',
+            ],
+        ]);
         $episode = new Episode();
-        $episodeInfo = $request->except('_token');
+        $episodeInfo = $request->all();
         if ($request->file('video_url') != '') {
             $destinationPath = 'media/video/';
             $episodeInfo['video_url'] = $request->file('video_url')->getClientOriginalName();
@@ -69,7 +85,7 @@ class EpisodeController extends Controller
         $episode->fill($episodeInfo);
 
         $episode->save();
-        return redirect()->route('episodes.create');
+        return redirect()->back()->withSuccess('Create succeed!');
     }
 
     /**
@@ -107,7 +123,22 @@ class EpisodeController extends Controller
      */
     public function update(Request $request, Episode $episode)
     {
-        $episodesInfo = $request->except('_token');
+        $request->validate([
+            'name' => [
+                'required',
+                'max:255',
+            ],
+            'video_url' => [
+                'mimetypes:video/mp4,video/quicktime',
+                'max:102400',
+            ],
+            'anime_id' => [
+                'required',
+                'integer',
+                'exists:animes,id',
+            ],
+        ]);
+        $episodesInfo = $request->all();
         if ($request->file('video_url') != '') {
             $destinationPath = 'media/video/';
             $episodesInfo['video_url'] = $request->file('video_url')->getClientOriginalName();
@@ -127,7 +158,7 @@ class EpisodeController extends Controller
             //for update in table
         }
         $episode->update($episodesInfo);
-        return redirect()->route('episodes.episodes');
+        return redirect()->back()->withSuccess('Update succeed!');
     }
 
     /**
@@ -139,6 +170,6 @@ class EpisodeController extends Controller
     public function destroy(Episode $episode)
     {
         $episode->delete();
-        return redirect()->route('episodes.episodes');
+        return redirect()->back()->withSuccess('Delete succeed!');
     }
 }

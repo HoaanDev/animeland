@@ -3,24 +3,19 @@
 @section('title', 'Login')
 
 @section('content')
-
     <!--=====================================-->
-    <!--=        login Area Start          =-->
+    <!--=        Login Area Start          =-->
     <!--=====================================-->
     <section class="login text-center">
         <div class="container">
             <div class="login-block">
                 <div class="login-content">
                     <h3>Log in</h3>
-                    {{--                    <button class="hide-link"><img src="media/login/google.png" alt=""> Continue with Google</button>--}}
-                    {{--                    <button class="hide-link"><img src="media/login/facebook-icon.png" alt=""> Continue with Facebook</button>--}}
-                    {{--                    <button id="continue-email" class="hide-link"><img src="media/login/email-icon.png" alt=""> Continue with email</button>--}}
                     <div class="login-sec">
-
                         <form method="POST" action="{{ route('login.custom') }}">
                             @csrf
                             <div class="form-group mb-3">
-                                <input type="text" placeholder="Username" id="username" class="form-control" name="username"
+                                <input type="text" placeholder="Username" id="username" class="form-control" name="username" value="{{ old('username') }}"
                                        required
                                        autofocus>
                                 @if ($errors->has('username'))
@@ -38,14 +33,10 @@
                                 <button type="submit" class="btn btn-dark btn-block">Login</button>
                             </div>
                         </form>
-                        <p><a href="./reset-password.html">Forget Password</a></p>
                     </div>
-                    <p><a href="{{ route('register-user') }}">Sign Up <i class="fal fa-arrow-alt-right"></i></a></p>
+                    <p>Don't have an account? <a href="{{ route('register-user') }}">Sign Up <i class="fal fa-arrow-alt-right"></i></a></p>
                 </div>
             </div>
         </div>
     </section>
-    <!--=====================================-->
-    <!--=           Footer Area Start       =-->
-    <!--=====================================-->
 @endsection
