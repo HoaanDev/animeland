@@ -13,83 +13,126 @@ class FilterController extends Controller
     public function index()
     {
         $genres = Genre::get();
-        $animes = Anime::paginate(4);
+        $animes = Anime::paginate(6);
 
         return view('pages.anime.anime_filter', [
             'animes' => $animes,
             'genres' => $genres,
         ]);
     }
+
     public function filterResults(Request $request)
     {
-        $genres = Genre::get();
-        $search =  $request->only('q');
-        if ($request->studio) {
-            $animes = Anime::where('studio', 'LIKE', "%" .  $request->studio . "%")->paginate(2);
+        if ($request->only('q')) {
+            $request = $request->only('q');
+            $filter = $request;
+            if ($request['q']['genre'] == null || empty($request['q']['genre'])) {
+                $filter['genre'] = "";
+            } else {
+                $filter['genre'] = $request['q']['genre'];
+            }
+            if ($request['q']['release_date'] == null || empty($request['q']['release_date'])) {
+                $filter['release_date'] = "";
+            } else {
+                $filter['release_date'] = $request['q']['release_date'];
+            }
+            if ($request['q']['studio'] == null || empty($request['q']['studio'])) {
+                $filter['studio'] = "";
+            } else {
+                $filter['studio'] = $request['q']['studio'];
+            }
+            if ($request['q']['category'] == null || empty($request['q']['category'])) {
+                $filter['category'] = "";
+            } else {
+                $filter['category'] = $request['q']['category'];
+            }
+            if ($request['q']['status'] == null || empty($request['q']['status'])) {
+                $filter['status'] = "";
+            } else {
+                $filter['status'] = $request['q']['status'];
+            }
+            unset($filter['q']);
+        } else {
+            $filter = $request->except('_token');
+            if ($filter['genre'] == null || empty($filter['genre'])) {
+                $filter['genre'] = "";
+            }
+            if ($filter['release_date'] == null || empty($filter['release_date'])) {
+                $filter['release_date'] = "";
+            }
+            if ($filter['studio'] == null || empty($filter['studio'])) {
+                $filter['studio'] = "";
+            }
+            if ($filter['category'] == null || empty($filter['category'])) {
+                $filter['category'] = "";
+            }
+            if ($filter['status'] == null || empty($filter['status'])) {
+                $filter['status'] = "";
+            }
         }
-        if ($request->release_date) {
-            $animes = Anime::where('release_date', 'LIKE', "%" .  $request->release_date . "%")->paginate(2);
-        }
-        if ($request->category) {
-            $animes = Anime::where('category', '=',  $request->category )->paginate(2);
-        }
-        if ($request->status) {
-            $animes = Anime::where('status', '=',  $request->status )->paginate(2);
-        }
-        if ($request->genre) {
-            $genreInfo = Genre::where('name', $request->genre)->get();
+        if ($filter['genre'] != "") {
+            $genreInfo = Genre::where('name', $filter['genre'])->get();
             $animes = DB::table('animes')
-            ->join('anime_genre', 'animes.id', '=', 'anime_genre.anime_id')
-            ->where('anime_genre.genre_id', '=', $genreInfo[0]->id)
-            ->paginate(2);
-            
+                ->join('anime_genre', 'animes.id', '=', 'anime_genre.anime_id')
+                ->where('anime_genre.genre_id', '=', $genreInfo[0]->id)
+                ->paginate(6);
         }
-        if ($request->studio && $request->release_date && $request->category && $request->status) {
-            $animes = Anime::where('studio', 'Like', "%" . $request->studio . "%")
-                ->where('release_date', 'Like', "%" .  $request->release_date . "%")
-                ->where('category', 'Like', "%" .  $request->category . "%")
-                ->where('status', 'Like', "%" .  $request->status . "%")
-                ->get();
+        if ($filter['release_date'] != "") {
+            $animes = Anime::where('release_date', '=', $filter['release_date'])->paginate(6);
         }
-        if ($request->studio && $request->release_date && $request->category  && $request->genre) {
-            $animes = Anime::where('studio', 'Like', "%" .  $request->studio . "%")
-                ->where('release_date', 'Like', "%" .  $request->release_date . "%")
-                ->where('category', 'Like', "%" .  $request->category . "%")
-                ->where('genre', 'Like', "%" .  $request->genre . "%")
-                ->get();
+        if ($filter['studio'] != "") {
+            $animes = Anime::where('studio', '=', $filter['studio'])->paginate(6);
         }
-        if ($request->studio && $request->release_date  && $request->status && $request->genre) {
-            $animes = Anime::where('studio', 'Like', "%" .  $request->studio . "%")
-                ->where('release_date', 'Like', "%" .  $request->release_date . "%")
-                ->where('status', 'Like', "%" .  $request->status . "%")
-                ->where('genre', 'Like', "%" .  $request->genre . "%")
-                ->get();
+        if ($filter['category'] != "") {
+            $animes = Anime::where('category', '=', $filter['category'])->paginate(6);
         }
-        if ($request->studio  && $request->category && $request->status && $request->genre) {
-            $animes = Anime::where('studio', 'Like', "%" .  $request->studio . "%")
-                ->where('category', 'Like', "%" .  $request->category . "%")
-                ->where('status', 'Like', "%" .  $request->status . "%")
-                ->where('genre', 'Like', "%" .  $request->genre . "%")
-                ->get();
+        if ($filter['status'] != "") {
+            $animes = Anime::where('status', '=', $filter['status'])->paginate(6);
         }
-        if ($request->release_date && $request->category && $request->status && $request->genre) {
-            $animes = Anime::where('release_date', 'Like', "%" .  $request->release_date . "%")
-                ->where('category', 'Like', "%" .  $request->category . "%")
-                ->where('status', 'Like', "%" .  $request->status . "%")
-                ->where('genre', 'Like', "%" .  $request->genre . "%")
-                ->get();
+        if ($filter['studio'] != "" && $filter['release_date'] != "" && $filter['category'] != "" && $filter['status'] != "") {
+            $animes = Anime::where('studio', '=', $filter['studio'])
+                ->where('release_date', '=', $filter['release_date'])
+                ->where('category', '=', $filter['category'])
+                ->where('status', '=', $filter['status'])
+                ->paginate(6);
         }
-        if ($request->studio && $request->release_date && $request->category && $request->status && $request->genre) {
-            $animes = Anime::where('studio', 'Like', "%" .  $request->studio . "%")
-                ->where('release_date', 'Like', "%" .  $request->release_date . "%")
-                ->where('category', 'Like', "%" .  $request->category . "%")
-                ->where('status', 'Like', "%" .  $request->status . "%")
-                ->where('genre', 'Like', "%" .  $request->genre . "%")
-                ->get();
+        if ($filter['studio'] != "" && $filter['release_date'] != "" && $filter['category'] != "" && $filter['genre'] != "") {
+            $animes = Anime::where('studio', '=', $filter['studio'])
+                ->where('release_date', '=', $filter['release_date'])
+                ->where('category', '=', $filter['category'])
+                ->where('genre', '=', $filter['genre'])
+                ->paginate(6);
         }
-        $animes->appends(['q' => $search]);
+        if ($filter['studio'] != "" && $filter['release_date'] != "" && $filter['status'] != "" && $filter['genre'] != "") {
+            $animes = Anime::where('studio', '=', $filter['studio'])
+                ->where('release_date', '=', $filter['release_date'])
+                ->where('status', '=', $filter['status'])
+                ->where('genre', '=', $filter['genre'])
+                ->paginate(6);
+        }
+        if ($filter['studio'] != "" && $filter['category'] != "" && $filter['status'] != "" && $filter['genre'] != "") {
+            $animes = Anime::where('studio', '=', $filter['studio'])
+                ->where('category', '=', $filter['category'])
+                ->where('status', '=', $filter['status'])
+                ->where('genre', '=', $filter['genre'])
+                ->paginate(6);
+        }
+        if ($filter['release_date'] != "" && $filter['category'] != "" && $filter['status'] != "" && $filter['genre'] != "") {
+            $animes = Anime::where('release_date', '=', $filter['release_date'])
+                ->where('category', '=', $filter['category'])
+                ->where('status', '=', $filter['status'])
+                ->where('genre', '=', $filter['genre'])
+                ->paginate(6);
+        }
+        if ($filter['studio'] != "" && $filter['release_date'] != "" && $filter['category'] != "" && $filter['status'] != "" && $filter['genre'] != "") {
+            $animes = Anime::where('studio', '=', $filter['studio'])
+                ->where('release_date', '=', $filter['release_date'])
+                ->where('category', '=', $filter['category'])
+                ->where('status', '=', $filter['status'])
+                ->where('genre', '=', $filter['genre'])
+                ->paginate(6);
+        }
+        $animes->appends(['q' => $filter]);
         return view('pages.anime.anime_filter_result', compact('animes'));
-
-
     }
 }
