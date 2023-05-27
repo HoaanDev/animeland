@@ -60,12 +60,12 @@
                                 <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                    class="p-0 btn">
                                     <img width="42" class="rounded-circle"
-                                         src="{{ asset('assets/images/avatars/1.jpg') }}" alt/>
+                                         src="{{ asset("media/avatar/" . auth()->user()->avatar) }}" alt/>
                                 </a>
                             </div>
                         </div>
                         <div class="widget-content-left ml-3 header-user-info">
-                            <div class="widget-heading">Admin</div>
+                            <div class="widget-heading">{{ auth()->user()->name }}</div>
                             <div class="widget-subheading">Administrator</div>
                         </div>
                         <div class="widget-content-right header-user-info ml-3">
@@ -73,7 +73,8 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-pill btn-shadow btn-shine btn btn-focus">
+                <button class="btn-pill btn-shadow btn-shine btn btn-focus"
+                        onclick="window.location.href='{{ route('signout') }}'">
                     Logout
                 </button>
             </div>
