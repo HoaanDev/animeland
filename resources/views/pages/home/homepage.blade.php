@@ -16,6 +16,7 @@
                             <div class="col-lg-6 col-12">
                                 <h2 class="title">{{ $anime->title }}</h2>
                                 <p class="light-text">{{ $anime->release_date }}</p>
+                                <p class="text">{{ $anime->studio }}</p>
                                 <p class="mx-auto d-block">
                                     {{ Illuminate\Support\Str::limit($anime ->description, $limit = 80, $end = '...') }}
                                 </p>
@@ -71,13 +72,7 @@
                             @endif" class="action-overlay"
                             ><i class="fal fa-play-circle"></i> Play Now</a>
                             <p class="text-warning m-0"><small>{{">> " . $recentAnime->imdb_rating . " <<"}}</small></p>
-                            <p class="text">
-                                @if($recentAnime->category == "0")
-                                    {{ 'Series' }}
-                                @else
-                                    {{ 'Single' }}
-                                @endif
-                            </p>
+                            <p class="text">{{ $recentAnime->studio }}</p>
                             <a href="@if (Episode::where('anime_id', $recentAnime->id)->value('id') == null)
                             {{ route('coming-soon') }}
                             @else
@@ -119,13 +114,7 @@
                             @endif" class="action-overlay"
                             ><i class="fal fa-play-circle"></i> Play Now</a>
                             <p class="text-warning m-0"><small>{{">> " . $bestAnime->imdb_rating . " <<"}}</small></p>
-                            <p class="text">
-                                @if($bestAnime->category == "0")
-                                    {{ 'Series' }}
-                                @else
-                                    {{ 'Single' }}
-                                @endif
-                            </p>
+                            <p class="text">{{ $bestAnime->studio }}</p>
                             <a href="@if (Episode::where('anime_id', $bestAnime->id)->value('id') == null)
                             {{ route('coming-soon') }}
                             @else

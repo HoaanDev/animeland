@@ -78,39 +78,38 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="mynavbar">
-                    <ul class="navbar-nav ms-auto mainmenu">
+                    <ul class="navbar-nav mainmenu">
                         <li class="menu-item-has-children">
-                            <a href="{{  route('homepage') }}" class="active">Anime</a>
+                            <a href="{{  route('homepage') }}">HOME</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="{{  route('filter') }}" class="active">Filter</a>
+                            <a href="{{  route('filter') }}">ANIME</a>
                         </li>
-                        <li class="menu-item-has-children">
-                            <a href="{{  route('policy') }}" class="active">Privacy Policy</a>
-                        </li>
-                        @guest
-
-                        @else
-                            <li class="menu-item-has-children">
-                                <a href="{{  route('profile') }}" class="active">Profile</a>
-                            </li>
-                        @endguest
                     </ul>
-                    <form action="{{  route('search-results') }}">
+                    <form action="{{  route('search-results') }}" class="ms-auto" method="get">
                         <div class="input-group form-group header-search-box">
                             <button class="input-group-text anime-btn" type="submit">
                                 <i class="fal fa-search"></i>
                             </button>
-                            <input class="form-control" name="search" type="text" placeholder="Search" required/>
+                            <input class="form-control" name="q" type="text" placeholder="Search" required/>
                         </div>
                     </form>
+                    <ul class="navbar-nav mainmenu ms-auto right-nav">
+                        @guest
+
+                        @else
+                            <li class="menu-item-has-children">
+                                <a href="{{  route('profile') }}"><i class="fa fa-user"></i></a>
+                            </li>
+                        @endguest
+                    </ul>
                     <div class="d-flex right-nav">
                         @guest
                             <a href="{{  route('register-user') }}" class="anime-btn btn-dark border-change me-3">Sign
                                 Up</a>
                             <a href="{{  route('login') }}" class="anime-btn btn-dark">Sign In</a>
                         @else
-                            <a href="{{  route('signout') }}" class="anime-btn btn-dark">Sign Out</a>
+                            <a href="{{  route('signout') }}" class="p-2 rounded btn-close lh-1 "><i class="fal fa-sign-out"></i></a>
                         @endguest
                     </div>
                 </div>
@@ -125,15 +124,18 @@
         <div class="footer-main style-1">
             <div class="container">
                 <div class="row justify-content-between align-items-center">
-                    <div class="col-lg-5 col-sm-12 col-12">
+                    <div class="col-lg-6 col-sm-12 col-12">
                         <div class="footer-widget">
                             <a href="{{  route('homepage') }}">
                                 <img alt="" src="{{ asset('media/animeland_logo.png') }}" />
                             </a>
-                            <p class="mt-3 mb-5">
-                                Welcome to my website.
+                            <p class="mt-3 mb-5 text-info">
+                                Welcome to our website.
                             </p>
-                            <h6 class="mb-2">Join Us on</h6>
+                            <p class="mt-3 mb-5 text-info">
+                                The best website for your favorite.
+                            </p>
+                            <h6 class="mb-2 text-white">Join Us on</h6>
                             <ul class="social-icons">
                                 <li>
                                     <a href=""><img alt="" src="media/footer/reddit.png" /></a>
@@ -150,24 +152,24 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-7 col-sm-12 col-12">
+                    <div class="col-lg-6 col-sm-12 col-12">
                         <div class="footer-widget align-middle">
-                            <h6>GET NOTIFIED</h6>
-                            <p class="light-text">
-                                Get emails for latest news about anime, and more.
-                            </p>
-                            <form action="home.html">
-                                <div class="input-group form-group footer-email-box">
-                                    <input class="form-control" type="email" name="email"
-                                           placeholder="info@example.com" required />
-                                    <button class="input-group-text anime-btn" type="submit">
-                                        Subscribe
-                                    </button>
-                                </div>
-                            </form>
-                            <p class="text">
-                                By subscribing you agree to our terms and conditions
-                            </p>
+{{--                            <h6>GET NOTIFIED</h6>--}}
+{{--                            <p class="light-text">--}}
+{{--                                Get emails for latest news about anime, and more.--}}
+{{--                            </p>--}}
+{{--                            <form action="home.html">--}}
+{{--                                <div class="input-group form-group footer-email-box">--}}
+{{--                                    <input class="form-control" type="email" name="email"--}}
+{{--                                           placeholder="info@example.com" required />--}}
+{{--                                    <button class="input-group-text anime-btn" type="submit">--}}
+{{--                                        Subscribe--}}
+{{--                                    </button>--}}
+{{--                                </div>--}}
+{{--                            </form>--}}
+{{--                            <p class="text">--}}
+{{--                                By subscribing you agree to our terms and conditions--}}
+{{--                            </p>--}}
                         </div>
                     </div>
                 </div>
@@ -176,15 +178,10 @@
         <div class="footer-bottom bg-color-black">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 col-12">
+                    <div class="col-lg-12 col-12">
                         <div class="footer-copyright">
                                 <span class="copyright-text">© 2023. All rights reserved by
                                     <a href="{{  route('homepage') }}">AnimeLand</a>.</span>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-12">
-                        <div class="footer-bottom-link text-end">
-                            <a href="{{  route('policy') }}">Privacy Policy</a>
                         </div>
                     </div>
                 </div>

@@ -24,33 +24,35 @@
                                         </div>
                                     </div>
                                 @else
-                                <div class="row justify-content-between ps-3 pe-3 pb-4">
-                                    <div class="col-lg-12 col-sm-12 col-12">
-                                        <h4 class="d-inline">Anime Details</h4>
+                                    <div class="row justify-content-between ps-3 pe-3 pb-4">
+                                        <div class="col-lg-12 col-sm-12 col-12">
+                                            <h4 class="d-inline">Anime Details</h4>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="tab-pane active" id="later">
-                                    @foreach($followingAnimes as $followingAnime)
-                                        <a href="./streaming-season.html">
-                                            <div class="row ps-3 pe-3">
-                                                <div class="col-xl-7 col-lg-8 col-12 col-md-7 col-sm-8">
-                                                    <div class="row">
-                                                        <div
-                                                            class="col-lg-2 col-sm-3 col-3 ps-0 space-left pe-0 text-end">
-                                                            <img src="{{ asset("media/thumbnail/$followingAnime->thumbnail") }}" alt="">
-                                                        </div>
-                                                        <div class="col-lg-10 col-sm-9 col-9">
-                                                            <div class="schedule-content align-middle align-middle">
-                                                                <p class="small-title">{{ $followingAnime->title }}</p>
+                                    <div class="tab-pane active" id="later">
+                                        @foreach($followingAnimes as $followingAnime)
+                                            <a href="./streaming-season.html">
+                                                <div class="row ps-3 pe-3">
+                                                    <div class="col-xl-7 col-lg-8 col-12 col-md-7 col-sm-8">
+                                                        <div class="row">
+                                                            <div
+                                                                class="col-lg-2 col-sm-3 col-3 ps-0 space-left pe-0 text-end">
+                                                                <img
+                                                                    src="{{ asset("media/thumbnail/$followingAnime->thumbnail") }}"
+                                                                    alt="">
+                                                            </div>
+                                                            <div class="col-lg-10 col-sm-9 col-9">
+                                                                <div class="schedule-content align-middle align-middle">
+                                                                    <p class="small-title">{{ $followingAnime->title }}</p>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                        <hr>
-                                    @endforeach
-                                </div>
+                                            </a>
+                                            <hr>
+                                        @endforeach
+                                    </div>
                                 @endif
                             </div>
                         </div>
@@ -60,7 +62,8 @@
                     <div class="row align-items-end">
                         <div class="col-lg-12 col-sm-8 col-6">
                             <div class="img-box">
-                                <img src="{{ asset("media/avatar/". auth()->user()->avatar) }}" style="width: 300px;height: 300px" alt="">
+                                <img src="{{ asset("media/avatar/". auth()->user()->avatar) }}"
+                                     style="width: 300px;height: 300px" alt="">
                             </div>
                         </div>
                         <div class="col-lg-12 col-sm-6 col-6">
@@ -73,11 +76,11 @@
             <div class="row">
                 @if(empty($followingAnimes))
                 @else
-                <div class="col-xl-9 col-sm-12 col-12">
+                    <div class="col-xl-9 col-sm-12 col-12">
                         <div class="pagination-wrape">
                             {{ $followingAnimes->links() }}
                         </div>
-                </div>
+                    </div>
                 @endif
             </div>
         </div>

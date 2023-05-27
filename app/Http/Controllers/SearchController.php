@@ -19,15 +19,14 @@ class SearchController extends Controller
 
     public function index(Request $request)
     {
-        $searchKeywords = ($request->input('search'));
-
+        $searchKeywords = ($request->input('q'));
         $animes = DB::table('animes')
-            ->where('title', 'like', '%' . $searchKeywords . '%')
-            ->paginate(2);
+            ->where('title', 'LIKE', '%' . $searchKeywords . '%')
+            ->paginate(8);
+        $animes->appends(['q' => $searchKeywords]);
         return view('pages.anime.anime_search_results', [
             'animes' => $animes,
             'searchKeywords' => $searchKeywords,
-
         ]);
     }
 }

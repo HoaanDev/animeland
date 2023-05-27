@@ -227,6 +227,9 @@
                             </div>
                             <hr>
                         @endforeach
+                        <div class="pagination-wrape">
+                            {{ $comments->links() }}
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-8 offset-lg-0 offset-md-3 offset-sm-2 mt-lg-0 mt-3">

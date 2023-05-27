@@ -41,7 +41,7 @@ class WatchingController extends Controller
             ->join('users', 'comments.user_id', '=', 'users.id')
             ->where('comments.anime_id', '=', $anime->only('id'))
             ->select('comments.id AS comment_id', 'comments.content', 'users.id AS user_id', 'users.name', 'users.avatar')
-            ->get();
+            ->paginate(6);
         if (session()->get('watched')) {
             $count = count(session()->get('watched'));
             if ($count >= 8) {

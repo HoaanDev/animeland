@@ -29,13 +29,9 @@
                                 <div class="tab-pane active" id="today">
                                     @foreach(session()->get('watched') as $episode)
                                             @php
-//                                            dd(count(session()->get('watched')));
-//                                            dd(session()->get('watched'));
-//                                                dd($anime = Anime::where('id', $episode->get('anime_id'))->get());
                                                 $anime = Anime::where('id', $episode->get('anime_id'))->get();
-//                                            dd($anime[0]->title);
                                             @endphp
-                                            <a href="./streaming-season.html">
+                                            <a href="{{ route('watching', [$anime[0], $episode->get('id')]) }}">
                                                 <div class="row ps-3 pe-3">
                                                     <div class="col-xl-7 col-lg-8 col-12 col-md-7 col-sm-8">
                                                         <div class="row">
@@ -78,7 +74,7 @@
                         </div>
                         <div class="col-lg-12 col-sm-6 col-6">
                             <p class="small-text">{{ auth()->user()->username }}</p>
-                            <a href="./profile.html" class="d-inline"><h3>{{ auth()->user()->name }}</h3></a>
+                            <a href="{{ route('profile') }}" class="d-inline"><h3>{{ auth()->user()->name }}</h3></a>
                         </div>
                     </div>
                 </div>

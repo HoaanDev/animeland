@@ -1456,7 +1456,7 @@ ul.pagination li a.current {
 .footer-widget p {
   font-family: var(--font-primary);
   font-weight: 400;
-  font-size: 18px;
+  font-size: 24px;
   color: var(--color-semi-grey);
 }
 
