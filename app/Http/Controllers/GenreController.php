@@ -40,10 +40,18 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => [
+                'required',
+                'unique:genres',
+                'max:255',
+            ],
+        ]);
+        $data = $request->all();
         $genre = new Genre();
-        $genre->fill($request->except('_token'));
+        $genre->fill($data);
         $genre->save();
-        return redirect()->route('genres.genres');
+        return redirect()->back()->withSuccess('Create succeed!');
     }
 
     /**
@@ -79,9 +87,17 @@ class GenreController extends Controller
      */
     public function update(Request $request, Genre $genre)
     {
-        $genreInfo = $request->except('_token', '_method');
+        $request->validate([
+            'name' => [
+                'required',
+                'unique:genres',
+                'max:255',
+            ],
+        ]);
+        $data = $request->all();
+        $genreInfo = $data;
         $genre->update($genreInfo);
-        return redirect()->route('genres.genres');
+        return redirect()->back()->withSuccess('Update succeed!');
     }
 
     /**
@@ -93,6 +109,6 @@ class GenreController extends Controller
     public function destroy(Genre $genre)
     {
         $genre->delete();
-        return redirect()->route('genres.genres');
+        return redirect()->back()->withSuccess('Delete succeed!');
     }
 }

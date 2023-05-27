@@ -2,24 +2,25 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta http-equiv="Content-Language" content="en" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Language" content="en"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>AnimeLand Admin | @yield('title')</title>
     <meta name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
-    <meta name="description" content="This is an example dashboard created using build-in elements and components." />
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"/>
+    <meta name="description" content="This is an example dashboard created using build-in elements and components."/>
 
-    <meta name="msapplication-tap-highlight" content="no" />
-    <link href="{{ asset('main.d810cf0ae7f39f28f336.css') }}" rel="stylesheet" />
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <link href="{{ asset('main.d810cf0ae7f39f28f336.css') }}" rel="stylesheet"/>
 </head>
 
 <body>
 <div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
     <div class="app-header header-shadow">
         <div class="app-header__logo">
-            <div class="logo-src img-fluid"><img src="{{ asset('media/animeland_logo.png') }}" class="img-fluid" alt=""></div>
+            <div class="logo-src img-fluid"><img src="{{ asset('media/animeland_logo.png') }}" class="img-fluid" alt="">
+            </div>
             <div class="header__pane ml-auto">
                 <div>
                     <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
@@ -52,29 +53,29 @@
         </div>
         <div class="app-header__content">
             <div class="app-header-right">
-                    <div class="widget-content p-0 mr-5">
-                        <div class="widget-content-wrapper">
-                            <div class="widget-content-left">
-                                <div class="btn-group">
-                                    <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                       class="p-0 btn">
-                                        <img width="42" class="rounded-circle"
-                                             src="{{ asset('assets/images/avatars/1.jpg') }}" alt />
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="widget-content-left ml-3 header-user-info">
-                                <div class="widget-heading">Admin</div>
-                                <div class="widget-subheading">Administrator</div>
-                            </div>
-                            <div class="widget-content-right header-user-info ml-3">
-
+                <div class="widget-content p-0 mr-5">
+                    <div class="widget-content-wrapper">
+                        <div class="widget-content-left">
+                            <div class="btn-group">
+                                <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                   class="p-0 btn">
+                                    <img width="42" class="rounded-circle"
+                                         src="{{ asset('assets/images/avatars/1.jpg') }}" alt/>
+                                </a>
                             </div>
                         </div>
+                        <div class="widget-content-left ml-3 header-user-info">
+                            <div class="widget-heading">Admin</div>
+                            <div class="widget-subheading">Administrator</div>
+                        </div>
+                        <div class="widget-content-right header-user-info ml-3">
+
+                        </div>
                     </div>
-                    <button class="btn-pill btn-shadow btn-shine btn btn-focus">
-                        Logout
-                    </button>
+                </div>
+                <button class="btn-pill btn-shadow btn-shine btn btn-focus">
+                    Logout
+                </button>
             </div>
         </div>
     </div>
@@ -96,7 +97,7 @@
                                                  data-class="fixed-header">
                                                 <div class="switch-animate switch-on">
                                                     <input type="checkbox" checked data-toggle="toggle"
-                                                           data-onstyle="success" />
+                                                           data-onstyle="success"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -117,7 +118,7 @@
                                                  data-class="fixed-sidebar">
                                                 <div class="switch-animate switch-on">
                                                     <input type="checkbox" checked data-toggle="toggle"
-                                                           data-onstyle="success" />
+                                                           data-onstyle="success"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -138,7 +139,7 @@
                                                  data-class="fixed-footer">
                                                 <div class="switch-animate switch-off">
                                                     <input type="checkbox" data-toggle="toggle"
-                                                           data-onstyle="success" />
+                                                           data-onstyle="success"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -426,42 +427,29 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="metismenu-icon pe-7s-browser"></i>Pages
-                                <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                            <a href="{{ route('users.users') }}">
+                                <i class="metismenu-icon pe-7s-users"></i> Table Users
                             </a>
-                            <ul>
-                                <li>
-                                    <a href="{{ route('users.users') }}">
-                                        <i class="metismenu-icon"></i> Table Users
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('animes.animes') }}">
-                                        <i class="metismenu-icon"></i> Table Animes
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('episodes.episodes') }}">
-                                        <i class="metismenu-icon"></i> Table Episodes
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('genres.genres') }}">
-                                        <i class="metismenu-icon"></i> Table Genres
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('comments.comments') }}">
-                                        <i class="metismenu-icon"></i> Table Comments
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="pages-forgot-password-boxed.html">
-                                        <i class="metismenu-icon"></i> Table Ratings
-                                    </a>
-                                </li>
-                            </ul>
+                        </li>
+                        <li>
+                            <a href="{{ route('animes.animes') }}">
+                                <i class="metismenu-icon pe-7s-film"></i> Table Animes
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('episodes.episodes') }}">
+                                <i class="metismenu-icon pe-7s-album"></i> Table Episodes
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('genres.genres') }}">
+                                <i class="metismenu-icon pe-7s-ticket"></i> Table Genres
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('comments.comments') }}">
+                                <i class="metismenu-icon pe-7s-comment"></i> Table Comments
+                            </a>
                         </li>
                     </ul>
                 </div>

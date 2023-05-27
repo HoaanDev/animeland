@@ -19,7 +19,14 @@ class SearchController extends Controller
 
     public function index(Request $request)
     {
-        $searchKeywords = ($request->input('q'));
+        $request->validate([
+            'q' => [
+                'required',
+                'max:255',
+                ],
+        ]);
+        $data = $request->q;
+        $searchKeywords = $data;
         $animes = DB::table('animes')
             ->where('title', 'LIKE', '%' . $searchKeywords . '%')
             ->paginate(8);

@@ -22,8 +22,24 @@ class ProfileController extends Controller
 
     public function updateProfile(Request $request, User $user)
     {
-
-        $userInfo = $request->except('_token');
+        $request->validate([
+            'name' => [
+                'required',
+                'max:255',
+            ],
+            'email' => [
+                'required',
+                'email',
+                'exists:users,email',
+                'max:255',
+            ],
+            'avatar' => [
+                'image',
+                'max:2048',
+            ],
+        ]);
+        $data = $request->all();
+        $userInfo = $data;
         if ($request->file('avatar') != '') {
             $destinationPath = 'media/avatar/';
             $userInfo['avatar'] = $request->file('avatar')->getClientOriginalName();
@@ -43,7 +59,7 @@ class ProfileController extends Controller
             //for update in table
         }
         $user->update($userInfo);
-        return redirect()->route('profiles.profiles');
+        return redirect()->back()->withSuccess('Change succeed!');
     }
 
     //Watch History Page

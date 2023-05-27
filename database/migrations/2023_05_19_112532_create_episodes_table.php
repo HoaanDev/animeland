@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('video_url');
-            $table->foreignId('anime_id')->constrained('animes');
+            $table->foreignId('anime_id')->constrained('animes')->onDelete('cascade');
             $table->timestamps();
         });
     }

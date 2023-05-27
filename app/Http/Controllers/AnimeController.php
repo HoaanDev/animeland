@@ -172,7 +172,7 @@ class AnimeController extends Controller
         $request->validate([
             'title' => [
                 'required',
-                'unique:animes',
+                'exists:animes,title',
                 'max:255',
             ],
             'description' => [

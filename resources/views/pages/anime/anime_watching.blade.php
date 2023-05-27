@@ -33,6 +33,11 @@
                 <div class="row">
                     <div class="col-lg-9 col-md-9 col-sm-12">
                         <p>You're watching <b>{{ $episode->name }}</b></p>
+                        <div class="panel panel-default">
+                            @if (session('success'))
+                                <div class="alert alert-success">{{ session('success') }}</div>
+                            @endif
+                        </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-12">
                         <div class="align-middle actions">
@@ -187,6 +192,9 @@
                                         <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                                         <input class="form-control" type="text" name="content"
                                                placeholder="Comment here">
+                                        @if ($errors->has('content'))
+                                            <span class="text-danger">{{ $errors->first('content') }}</span>
+                                        @endif
                                         <input type="hidden" name="episode" value="{{ $episode->id }}">
                                         <button class="input-group-text post-btn" type="submit">Comment</button>
                                     </div>

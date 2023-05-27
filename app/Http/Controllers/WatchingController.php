@@ -85,40 +85,73 @@ class WatchingController extends Controller
     public
     function storeComment(Request $request)
     {
+        $request->validate([
+            'anime_id' => [
+                'required',
+                'integer',
+                'exists:animes,id',
+            ],
+            'user_id' => [
+                'required',
+                'integer',
+                'exists:users,id',
+            ],
+            'content' => [
+                'required',
+                'max:255',
+            ],
+        ]);
+        $data = $request->all();
         $comment = new Comment();
-        $commentInfo = $request->except('_token');
+        $commentInfo = $data;
         $comment->fill($commentInfo);
         $comment->save();
-        return redirect()->back();
+        return redirect()->back()->withSuccess("Comment succeed!");
     }
 
     public
     function destroyComment(Request $request, Comment $comment)
     {
         $comment->delete();
-        return redirect()->back();
+        return redirect()->back()->withSuccess("Delete succeed!");
     }
 
     public function ratingAnime(Request $request, Anime $anime)
     {
+        $request->validate([
+            'anime_id' => [
+                'required',
+                'integer',
+                'exists:animes,id',
+            ],
+            'user_id' => [
+                'required',
+                'integer',
+                'exists:users,id',
+            ],
+            'rating_value' => [
+                'required',
+            ],
+        ]);
+        $data = $request->all();
         $rating = new Rating;
-        $ratingInfo = $request->except('_token');
+        $ratingInfo = $data;
         $rating->fill($ratingInfo);
         $rating->save();
-        return redirect()->back();
+        return redirect()->back()->withSuccess("Rating succeed!");
     }
 
     public function followingAnime(Request $request, Anime $anime)
     {
         auth()->user()->followingAnimes()->attach($anime);
-        return redirect()->back();
+        return redirect()->back()->withSuccess("Following succeed!");
     }
 
     public function unfollowingAnime(Request $request, Anime $anime)
     {
         $user = Auth::user();
         $user->followingAnimes()->detach($anime);
-        return redirect()->back();
+        return redirect()->back()->withSuccess("Unfollowing succeed!");
     }
 }
 

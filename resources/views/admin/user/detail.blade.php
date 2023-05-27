@@ -23,7 +23,7 @@
         </div>
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <h5 class="card-title">Information Form</h5>
+                <h5 class="card-title text-center">Information Form</h5>
                 <form id="signupForm" class="col-md-10 mx-auto" method="post"
                       action="{{ route('users.update', $user) }}" novalidate="novalidate" enctype="multipart/form-data">
                     @csrf
