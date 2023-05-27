@@ -122,12 +122,6 @@
                                 <p>RATING: <span>{{ $anime->imdb_rating }}</span><b>/10</b></p>
                             </div>
                         </div>
-                        {{--                        <div class="col-md-4 col-sm-6 col-12">--}}
-                        {{--                            <div class="rating-content">--}}
-                        {{--                                <h4>ROTTEN TOMATO RATING</h4>--}}
-                        {{--                                <p>RATING: <span>8.8</span> <b>/10</b></p>--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6 col-12">
@@ -155,10 +149,6 @@
                             @endforeach
                         </p>
                         <p><span>Duration:</span> {{ $anime->duration }} min</p>
-                        {{--                        <p><span>Scores:</span> 2.53 by 4,405 reviews</p>--}}
-                        {{--                        <p><span>Premiered:</span> Winter 2023</p>--}}
-                        {{--                        <p><span>Duration:</span> 24 min</p>--}}
-                        {{--                        <p><span>Views:</span> 18,284</p>--}}
                     </div>
                 </div>
             </div>
@@ -175,9 +165,6 @@
                         <div class="heading style-1 m-0">
                             <h2>COMMENTS</h2>
                         </div>
-                        <p>We hope you have a good time browsing the comment section! <br>
-                            Please read our <a href="{{ route('policy') }}">Comment Policy</a> before commenting.
-                        </p>
                     </div>
                     <div class="row">
                         @if(!empty(session('user_id')))

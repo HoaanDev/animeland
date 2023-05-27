@@ -68,7 +68,7 @@
                         </div>
                         <div class="col-lg-12 col-sm-6 col-6">
                             <p class="small-text">{{ auth()->user()->username }}</p>
-                            <a href="{{  route('profile') }}" class="d-inline"><h3>{{ auth()->user()->name }}</h3></a>
+                            <a href="{{  route('profiles.profiles') }}" class="d-inline"><h3>{{ auth()->user()->name }}</h3></a>
                         </div>
                     </div>
                 </div>

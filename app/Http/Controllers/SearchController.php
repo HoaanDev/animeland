@@ -11,12 +11,6 @@ use Illuminate\Support\Facades\DB;
 
 class SearchController extends Controller
 {
-    //Search Page
-    public function searchPage()
-    {
-        return view('pages.anime.anime_search_results');
-    }
-
     public function index(Request $request)
     {
         $request->validate([

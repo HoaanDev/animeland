@@ -99,7 +99,7 @@
 
                         @else
                             <li class="menu-item-has-children">
-                                <a href="{{  route('profile') }}"><i class="fa fa-user"></i></a>
+                                <a href="{{  route('profiles.profiles') }}"><i class="fa fa-user"></i></a>
                             </li>
                         @endguest
                     </ul>

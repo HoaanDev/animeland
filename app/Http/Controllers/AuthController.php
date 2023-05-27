@@ -31,11 +31,17 @@ class AuthController extends Controller
         $credentials = $request->only('username', 'password');
         if (Auth::attempt($credentials)) {
             $userId = Auth::user()->id;
+            $username = Auth::user()->username;
             session()->put('user_id', $userId);
-            return redirect()->route('homepage')
-                ->withSuccess('Signed in');
+            session()->put('username', $username);
+            if (session('username') == "administrator") {
+                return redirect()->route('dashboard')
+                    ->withSuccess('Signed in');
+        } else {
+                return redirect()->route('homepage')
+                    ->withSuccess('Signed in');
+            }
         }
-
         return redirect("login")->withSuccess('Login details are not valid');
     }
 
