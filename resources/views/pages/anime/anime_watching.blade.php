@@ -238,13 +238,21 @@
                                     <div class="p-0 col-2">
                                         <img src="{{ asset("media/thumbnail/$similarAnime->thumbnail") }}" alt="">
                                     </div>
-                                    <div class="p-0 col-9">
+                                    <div class="p-0 col-10">
                                         <div class="anime-blog">
-                                            <p>{{ $similarAnime->title }}</p>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <p>{{ $similarAnime->title }}</p>
+                                                    <p class="text-secondary">
+                                                        @if($similarAnime->category == "0")
+                                                            {{ 'Series' }}
+                                                        @else
+                                                            {{ 'Single' }}
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="p-0 col-1 show-type">
-                                        <span class="show-type">TV</span>
                                     </div>
                                 </div>
                             </a>
